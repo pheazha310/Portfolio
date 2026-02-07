@@ -1,63 +1,102 @@
 /* Hero Section */
 
 .my-photo {
-    width: min(500px, 90vw);
-    aspect-ratio: 1 / 1;
+    width: min(440px, 86vw);
+    aspect-ratio: 4 / 5;
     height: auto;
-    border-radius: 50%;
+    border-radius: 24px;
     object-fit: cover;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+    box-shadow: 0 24px 55px rgba(15, 23, 42, 0.2);
+    border: 8px solid rgba(255, 255, 255, 0.85);
+    position: relative;
+    z-index: 2;
+    transform: translateY(0);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .hero {
-    padding: 150px 0 80px;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    position: relative;
+    padding: 170px 0 100px;
+    background: radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.18), rgba(14, 165, 233, 0) 55%),
+        radial-gradient(circle at 80% 0%, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0) 45%),
+        linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f8fafc 100%);
     overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 10% 70%, rgba(6, 182, 212, 0.16), rgba(6, 182, 212, 0) 40%);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    right: -120px;
+    bottom: -120px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.22), rgba(37, 99, 235, 0) 70%);
+    pointer-events: none;
 }
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(2rem, 4vw, 5rem);
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content {
     padding-right: var(--space-xl);
+    max-width: 560px;
+    animation: heroReveal 0.8s ease-out both;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: clamp(2.6rem, 3.2vw, 3.6rem);
     margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 .hero-title .highlight {
-    color: var(--primary);
+    background: linear-gradient(120deg, #2563eb, #38bdf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--text-light);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: #1e293b;
     margin-bottom: var(--space-lg);
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 .hero-description {
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     margin-bottom: var(--space-xl);
+    color: var(--text-light);
 }
 
 .student-badge {
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--primary);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: 30px;
+    background: linear-gradient(120deg, rgba(37, 99, 235, 0.15), rgba(14, 165, 233, 0.15));
+    color: #1d4ed8;
+    padding: 0.6rem 1.15rem;
+    border-radius: 999px;
     font-weight: 600;
     margin-bottom: var(--space-xl);
-    border: 1px solid rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(37, 99, 235, 0.25);
+    backdrop-filter: blur(6px);
 }
 
 .student-badge i {
@@ -68,35 +107,93 @@
     display: flex;
     gap: var(--space-md);
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .hero-image {
     display: flex;
     justify-content: center;
+    position: relative;
+    animation: heroFloat 7s ease-in-out infinite;
 }
 
-.avatar-placeholder {
-    width: 350px;
-    height: 350px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 520px;
+    height: 520px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 8rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    animation: float 6s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0) 68%);
+    filter: blur(2px);
+    z-index: 0;
 }
 
-@keyframes float {
+.hero-image::after {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: 10%;
+    bottom: -30px;
+    border-radius: 28px;
+    background: linear-gradient(160deg, rgba(14, 165, 233, 0.35), rgba(37, 99, 235, 0.15));
+    transform: rotate(18deg);
+    z-index: 1;
+}
+
+.hero-image:hover .my-photo {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 70px rgba(15, 23, 42, 0.25);
+}
+
+@keyframes heroFloat {
     0%,
     100% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-16px);
     }
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content,
+    .hero-image {
+        animation: none;
+    }
+    .hero-image:hover .my-photo {
+        transform: none;
+    }
+}
+
+html[data-theme='dark'] .hero {
+    background: radial-gradient(circle at 15% 25%, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0) 55%),
+        radial-gradient(circle at 85% 15%, rgba(129, 140, 248, 0.18), rgba(129, 140, 248, 0) 45%),
+        linear-gradient(135deg, #0b1220 0%, #111827 60%, #0b1220 100%);
+}
+
+html[data-theme='dark'] .hero-subtitle {
+    color: #e2e8f0;
+}
+
+html[data-theme='dark'] .student-badge {
+    color: #7dd3fc;
+}
+
+html[data-theme='dark'] .my-photo {
+    border-color: rgba(15, 23, 42, 0.7);
+    box-shadow: 0 24px 60px rgba(2, 6, 23, 0.55);
 }
 
 
@@ -203,6 +300,7 @@
     }
     .hero-content {
         padding-right: 0;
+        margin: 0 auto;
     }
     .hero-buttons {
         justify-content: center;
@@ -210,16 +308,15 @@
     .hero-image {
         margin-top: var(--space-lg);
     }
-    .avatar-placeholder {
-        width: 280px;
-        height: 280px;
-        font-size: 6rem;
+    .hero-image::before {
+        width: 420px;
+        height: 420px;
     }
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding: 120px 0 60px;
+        padding: 140px 0 70px;
     }
     .hero-title {
         font-size: 2.5rem;
@@ -241,6 +338,11 @@
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .hero-image::after {
+        width: 140px;
+        height: 140px;
+        right: 18%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -248,7 +350,7 @@
         padding: 110px 0 50px;
     }
     .hero-title {
-        font-size: 2.1rem;
+        font-size: 2.15rem;
     }
     .hero-description {
         font-size: 1rem;
@@ -256,9 +358,16 @@
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    .avatar-placeholder {
-        width: 220px;
-        height: 220px;
-        font-size: 4rem;
+    .my-photo {
+        width: min(340px, 86vw);
+        border-radius: 18px;
+    }
+    .hero-image::before {
+        width: 320px;
+        height: 320px;
+    }
+    .hero-image::after {
+        width: 110px;
+        height: 110px;
     }
 }

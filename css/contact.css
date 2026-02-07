@@ -5,7 +5,10 @@
 
 .page-hero {
     padding: 150px 0 60px;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    background: radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0) 55%),
+        radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0) 45%),
+        linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f8fafc 100%);
+    /* background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); */
     text-align: center;
 }
 
@@ -303,6 +306,7 @@
     .contact-container {
         grid-template-columns: 1fr;
     }
+
     .contact-info-container {
         order: -1;
     }
@@ -312,12 +316,15 @@
     .page-hero {
         padding: 120px 0 40px;
     }
+
     .page-title {
         font-size: 2.5rem;
     }
+
     .social-links {
         grid-template-columns: 1fr;
     }
+
     .map-placeholder {
         height: 200px;
         font-size: 1.25rem;
@@ -330,9 +337,11 @@
         text-align: center;
         gap: var(--space-sm);
     }
+
     .contact-icon {
         margin: 0 auto;
     }
+
     .faq-question {
         padding: var(--space-md);
         font-size: 0.95rem;

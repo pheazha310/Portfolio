@@ -5,8 +5,11 @@
 
 .page-hero {
     padding: 150px 0 60px;
-    background: radial-gradient(circle at top, rgba(37, 99, 235, 0.12), transparent 55%),
-        linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    background: radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0) 55%),
+        radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0) 45%),
+        linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f8fafc 100%);
+    /* background: radial-gradient(circle at top, rgba(37, 99, 235, 0.12), transparent 55%),
+        linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%); */
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -359,6 +362,7 @@
     .featured-card {
         grid-template-columns: 1fr;
     }
+
     .featured-image {
         min-height: 280px;
     }
@@ -368,15 +372,19 @@
     .page-hero {
         padding: 120px 0 40px;
     }
+
     .page-title {
         font-size: 2.5rem;
     }
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
+
     .project-stats {
         gap: var(--space-xl);
     }
+
     .github-stats {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -387,9 +395,11 @@
         flex-direction: column;
         gap: var(--space-lg);
     }
+
     .github-stats {
         grid-template-columns: 1fr;
     }
+
     .project-links-bottom {
         flex-direction: column;
     }

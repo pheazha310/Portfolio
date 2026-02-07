@@ -639,17 +639,17 @@ html[data-theme='dark'] .student-badge {
         font-size: 2rem;
     }
     .footer {
-        padding: var(--space-xl) 0;
+        /* padding: var(--space-xl) 0; */
     }
     .footer-content {
-        text-align: center;
+        /* text-align: center; */
     }
     .footer-info p {
-        margin-left: auto;
-        margin-right: auto;
+        /* margin-left: auto;
+        margin-right: auto; */
     }
     .footer-contact li {
-        justify-content: center;
+        /* justify-content: center; */
     }
     .footer-links a::after {
         left: 50%;
@@ -659,7 +659,7 @@ html[data-theme='dark'] .student-badge {
         width: 60%;
     }
     .social-icons {
-        justify-content: center;
+        /* justify-content: center; */
     }
 }
 
