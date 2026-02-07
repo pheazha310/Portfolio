@@ -342,6 +342,8 @@ h4 {
     color: #c7d2e4;
     text-decoration: none;
     transition: color 0.25s ease;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .footer-contact a:hover {
