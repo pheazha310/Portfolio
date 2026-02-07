@@ -1,0 +1,396 @@
+/* css/projects.css - Projects page specific styles */
+
+
+/* Page Hero */
+
+.page-hero {
+    padding: 150px 0 60px;
+    background: radial-gradient(circle at top, rgba(37, 99, 235, 0.12), transparent 55%),
+        linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* Project Stats */
+
+.project-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2xl);
+    margin-top: var(--space-xl);
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* Projects Filter */
+
+.projects-filter {
+    padding: var(--space-2xl) 0 var(--space-lg);
+    background-color: var(--white);
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xl);
+    padding: var(--space-sm);
+    background: rgba(248, 250, 252, 0.8);
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+
+/* Projects Grid */
+
+.projects-grid-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    padding: var(--space-lg) 0 var(--space-2xl);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--space-xl);
+    padding-bottom: var(--space-2xl);
+}
+
+.project-card {
+    background-color: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 55px rgba(15, 23, 42, 0.18);
+}
+
+.project-image {
+    height: 220px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.75) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.project-link {
+    width: 50px;
+    height: 50px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+}
+
+.project-link:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: var(--space-lg);
+}
+
+.project-title {
+    font-size: 1.35rem;
+    margin-bottom: var(--space-sm);
+}
+
+.project-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+}
+
+.tech-tag {
+    padding: 0.375rem 0.875rem;
+    background-color: rgba(37, 99, 235, 0.08);
+    color: var(--text);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid rgba(37, 99, 235, 0.18);
+}
+
+.project-links-bottom {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+
+/* Featured Project */
+
+.featured-project {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    background-color: var(--white);
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.16);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    position: relative;
+}
+
+.featured-image {
+    min-height: 420px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    position: relative;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.02);
+}
+
+.featured-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.55) 100%);
+}
+
+.featured-content {
+    padding: calc(var(--space-xl) + 0.25rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.featured-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    color: var(--white);
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.35);
+}
+
+.featured-content h2 {
+    margin-bottom: 0;
+    font-size: 2.1rem;
+}
+
+.featured-content p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.featured-project .project-tech {
+    margin: 0;
+}
+
+.featured-project .project-links-bottom .btn {
+    box-shadow: 0 18px 35px rgba(37, 99, 235, 0.25);
+}
+
+
+/* GitHub Section */
+
+.github-section {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    background: #ffffff;
+}
+
+.github-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.github-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.github-stat {
+    text-align: center;
+    padding: var(--space-lg);
+    background-color: var(--light);
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.github-stat i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+}
+
+.github-stat span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: var(--space-xs);
+}
+
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .featured-card {
+        grid-template-columns: 1fr;
+    }
+    .featured-image {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 120px 0 40px;
+    }
+    .page-title {
+        font-size: 2.5rem;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-stats {
+        gap: var(--space-xl);
+    }
+    .github-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-stats {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    .github-stats {
+        grid-template-columns: 1fr;
+    }
+    .project-links-bottom {
+        flex-direction: column;
+    }
+}

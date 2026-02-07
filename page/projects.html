@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Sophea Phal</title>
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="../css/projects.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="logo">Sophea Phal</a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="../index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="./about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="./skills.html" class="nav-link">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="./experience.html" class="nav-link">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a href="./contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">My Projects</h1>
+        <p class="page-subtitle">
+          A focused selection from PNC coursework and personal builds
+        </p>
+        <div class="project-stats">
+          <div class="stat-item">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">8</span>
+            <span class="stat-label">PNC Course Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Personal Projects</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Filter -->
+    <section class="projects-filter">
+      <div class="container">
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="web">Web Development</button>
+          <button class="filter-btn" data-filter="pnc">PNC Projects</button>
+          <button class="filter-btn" data-filter="personal">
+            Personal Projects
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+      <div class="container">
+        <div class="projects-grid">
+          <!-- JavaScript Project -->
+          <div class="project-card fade-in" data-category="web,personal">
+            <div class="project-image">
+              <img
+                src="../image/quiz-website.png"
+                alt="Quiz Website Screenshot"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/leak1415/quiz-website.git"
+                    target="_blank"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Interactive Quiz Website</h3>
+              <p class="project-description">
+                Built an interactive quiz site with responsive UI, timer, score
+                tracking, and instant feedback. Used HTML, CSS, JavaScript,
+                Bootstrap, Jira, and Git/GitHub.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">Jira</span>
+              </div>
+              <div class="project-links-bottom">
+                <a
+                  href="https://github.com/leak1415/quiz-website.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Algorithms Project -->
+          <div class="project-card fade-in" data-category="web,personal">
+            <div class="project-image">
+              <img
+                src="../image/student-news.png"
+                alt="Student News App Screenshot"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/sophea06/Student-News.git"
+                    target="_blank"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Student News Web Application</h3>
+              <p class="project-description">
+                Built a Student News web app in 2 weeks with HTML, CSS,
+                JavaScript, Flask, Python, and SQLite. Designed a CMS to create,
+                publish, and display articles with a clean UI.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SQLite</span>
+              </div>
+              <div class="project-links-bottom">
+                <a
+                  href="https://github.com/sophea06/Student-News.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Design Project -->
+          <div class="project-card fade-in" data-category="web,personal">
+            <div class="project-image">
+              <img
+                src="../image/my-project-web-design.png"
+                alt="Portfolio Website Screenshot"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/sophea06/My-project-web-design.git"
+                    target="_blank"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Professional Portfolio Website</h3>
+              <p class="project-description">
+                Designed and developed a professional portfolio site from
+                concept to deployment. Built responsive layouts and clean
+                navigation with HTML, CSS, and SASS.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">SASS</span>
+                <span class="tech-tag">Responsive Design</span>
+              </div>
+              <div class="project-links-bottom">
+                <a
+                  href="https://github.com/sophea06/My-project-web-design.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- GitHub Project -->
+          <div class="project-card fade-in" data-category="web,pnc">
+            <div class="project-image">
+              <img
+                src="../image/project-1.png"
+                alt="Team Project Screenshot"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/sophea06/project-1.git"
+                    target="_blank"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Team Web Development Project</h3>
+              <p class="project-description">
+                Built a fully responsive team site with HTML5 and CSS3.
+                Practiced clean, semantic code, Git/GitHub workflows, and
+                shipped the site on Vercel.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">GitHub</span>
+                <span class="tech-tag">Vercel</span>
+              </div>
+              <div class="project-links-bottom">
+                <a
+                  href="https://github.com/sophea06/project-1.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Club Project -->
+          <div class="project-card fade-in" data-category="web,pnc">
+            <div class="project-image">
+              <img
+                src="../image/PNC-Shop.png"
+                alt="PNC Shop Project Screenshot"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/samounsuon/PNC-Shop.git"
+                    target="_blank"
+                    class="project-link"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">PNC Shop Website</h3>
+              <p class="project-description">
+                Contributed to a 5-member team building a computer shop website
+                in a 2-week PNC challenge. Focused on layout, styling, and
+                content for a functional shop flow.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">Team Collaboration</span>
+              </div>
+              <div class="project-links-bottom">
+                <a
+                  href="https://github.com/samounsuon/PNC-Shop.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i> View Repository
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section class="featured-project">
+      <div class="container">
+        <h2 class="section-title center">Featured Project</h2>
+        <div class="featured-card">
+          <div class="featured-image">
+            <img
+              src="../image/quiz-website-2.png"
+              alt="Featured Project Screenshot"
+            />
+          </div>
+          <div class="featured-content">
+            <span class="featured-badge">Latest Project</span>
+            <h2>Interactive Quiz Website</h2>
+            <p>
+              Built an interactive quiz website with responsive UI, timer,
+              scoring, and instant feedback. Collaborated with Git/GitHub and
+              Jira for planning and delivery.
+            </p>
+            <div class="project-tech" style="margin: 20px 0">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Bootstrap</span>
+              <span class="tech-tag">Git</span>
+              <span class="tech-tag">Jira</span>
+            </div>
+            <div class="project-links-bottom">
+              <a
+                href="https://github.com/leak1415/quiz-website.git"
+                target="_blank"
+                class="btn btn-primary"
+              >
+                <i class="fab fa-github"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="github-section">
+      <div class="container">
+        <div class="github-content">
+          <h2>More Projects on GitHub</h2>
+          <p>
+            See more projects, experiments, and coding challenges on GitHub.
+          </p>
+          <div class="github-stats">
+            <div class="github-stat fade-in">
+              <i class="fab fa-github"></i>
+              <span>25+</span>
+              <p>Repositories</p>
+            </div>
+            <div class="github-stat fade-in">
+              <i class="fas fa-code-branch"></i>
+              <span>50+</span>
+              <p>Commits</p>
+            </div>
+            <div class="github-stat fade-in">
+              <i class="fas fa-star"></i>
+              <span>10+</span>
+              <p>Stars</p>
+            </div>
+          </div>
+          <a
+            href="https://github.com/sophea06"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            <i class="fab fa-github"></i> Visit My GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>Sophea Phal</h3>
+            <p>IT Student at Passerelles Numériques Cambodia</p>
+            <p>Aspiring Software Developer</p>
+            <div class="footer-cta">
+              <a class="footer-btn" href="./contact.html"
+                >Let's Build Together</a
+              >
+            </div>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <i class="fas fa-envelope"></i
+                ><a href="mailto:sophea.phal@student.passerellesnumeriques.org">sophea.phal@student.passerellesnumeriques.org</a>
+              </li>
+              <li>
+                <i class="fas fa-location-dot"></i
+                ><span>Phnom Penh, Cambodia</span>
+              </li>
+              <li>
+                <i class="fas fa-graduation-cap"></i
+                ><span>Available for internships</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./projects.html">Projects</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h4>Connect</h4>
+            <p class="footer-note">
+              Find my latest work and reach out anytime.
+            </p>
+            <div class="social-icons">
+              <a href="https://github.com/sophea06" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="https://linkedin.com" target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="https://telegram.org" target="_blank"
+                ><i class="fab fa-telegram"></i
+              ></a>
+              <a href="mailto:example@email.com"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span class="current-year">2026</span> Sophea Phal. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+  </body>
+</html>

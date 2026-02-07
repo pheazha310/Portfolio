@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sophea Phal</title>
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="../css/contact.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Sophea Phal</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="./skills.html" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="./projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="./experience.html" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Get In Touch</h1>
+            <p class="page-subtitle">Let's discuss opportunities or collaborate on projects</p>
+        </div>
+    </section>
+
+    <!-- Contact Container -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form-container fade-in">
+                    <h2 class="section-title">Send Me a Message</h2>
+                    <form id="contactForm" class="cyber-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Message Subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Your message here..." required></textarea>
+                            <div class="error-message" id="messageError"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-container fade-in">
+                    <div class="contact-methods">
+                        <h2 class="section-title">Contact Information</h2>
+                        <p class="contact-description">Feel free to reach out through any of these channels. I typically respond within 24 hours.</p>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>sopheaphal@example.com</p>
+                                <a href="mailto:sopheaphal@example.com" class="contact-link">Send an email</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Phone</h3>
+                                <p>+855 12 345 678</p>
+                                <a href="tel:+85512345678" class="contact-link">Call me</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <p>Phnom Penh, Cambodia</p>
+                                <p>Open to remote opportunities</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Education</h3>
+                                <p>Passerelles Numériques Cambodia</p>
+                                <p>IT Diploma Program (2023-2024)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="contact-social">
+                        <h3>Connect on Social Media</h3>
+                        <p>Follow me for updates on my projects and coding journey.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/sophea06" target="_blank" class="social-link-item">
+                                <div class="social-link-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="social-link-text">
+                                    <span>GitHub</span>
+                                    <small>@sopheaphal</small>
+                                </div>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="social-link-item">
+                                <div class="social-link-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div class="social-link-text">
+                                    <span>LinkedIn</span>
+                                    <small>Sophea Phal</small>
+                                </div>
+                            </a>
+                            <a href="https://telegram.org" target="_blank" class="social-link-item">
+                                <div class="social-link-icon">
+                                    <i class="fab fa-telegram"></i>
+                                </div>
+                                <div class="social-link-text">
+                                    <span>Telegram</span>
+                                    <small>@sopheaphal</small>
+                                </div>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="social-link-item">
+                                <div class="social-link-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <div class="social-link-text">
+                                    <span>Twitter</span>
+                                    <small>@sopheaphal</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title center">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Are you available for internships?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! As a PNC IT student, I'm actively seeking internship opportunities for 2024. I'm available for both part-time during the semester and full-time during breaks.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What types of projects do you take on?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I specialize in web development projects but also take on full-stack applications. This includes websites, web applications, landing pages, and e-commerce solutions.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What's your expected graduation date?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I'm on track to graduate from Passerelles Numériques Cambodia in December 2024 with an IT Diploma focusing on software development.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Do you work remotely or on-site?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I'm open to both remote and on-site opportunities. For remote work, I'm experienced with collaboration tools and have a dedicated workspace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <!-- <section class="location-section">
+        <div class="container">
+            <h2 class="section-title center">Based in Cambodia</h2>
+            <p class="section-subtitle">Currently studying in Phnom Penh, open to opportunities nationwide and remote positions.</p>
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Phnom Penh, Cambodia</span>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d15635.84971671619!2d104.8781602!3d11.55455115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x310951add5e2cd81%3A0x171e0b69c7c6f7ba!2sPasserelles%20num%C3%A9riques%20Cambodia%20(PNC)%2C%20BP%20511%2C%20Phum%20Tropeang%20Chhuk%20(Borey%20Sorla)%20Sangtak%2C%20Street%20371%2C%20Phnom%20Penh!3m2!1d11.5508598!2d104.88308359999999!4m5!1s0x310951add5e2cd81%3A0x171e0b69c7c6f7ba!2sPasserelles%20num%C3%A9riques%20Cambodia%20(PNC)%2C%20BP%20511%2C%20Phum%20Tropeang%20Chhuk%20(Borey%20Sorla)%20Sangtak%2C%20Street%20371%2C%20Phnom%20Penh!3m2!1d11.5508598!2d104.88308359999999!5e0!3m2!1sen!2skh!4v1770278925312!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section> -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Sophea Phal</h3>
+                    <p>IT Student at Passerelles Numériques Cambodia</p>
+                    <p>Aspiring Software Developer</p>
+                    <div class="footer-cta">
+                        <a class="footer-btn" href="./contact.html">Let's Build Together</a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:sophea.phal@student.passerellesnumeriques.org">sophea.phal@student.passerellesnumeriques.org</a></li>
+                        <li><i class="fas fa-location-dot"></i><span>Phnom Penh, Cambodia</span></li>
+                        <li><i class="fas fa-graduation-cap"></i><span>Available for internships</span></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./projects.html">Projects</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <p class="footer-note">Find my latest work and reach out anytime.</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/sophea06" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://telegram.org" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="mailto:sophea.phal@student.passerellesnumeriques.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="current-year">2026</span> Sophea Phal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
+
+
