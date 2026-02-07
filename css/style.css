@@ -106,9 +106,10 @@ h4 {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
     z-index: 1000;
     padding: 1rem 0;
 }
@@ -120,6 +121,7 @@ h4 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-md);
+    gap: var(--space-lg);
 }
 
 .logo {
@@ -133,7 +135,8 @@ h4 {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
+    align-items: center;
 }
 
 .nav-item {
@@ -147,7 +150,9 @@ h4 {
     font-size: 1rem;
     transition: color 0.3s ease;
     position: relative;
-    padding: 5px 0;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
 }
 
 .nav-link:hover,
@@ -155,15 +160,32 @@ h4 {
     color: var(--primary);
 }
 
-.nav-link.active::after {
+.nav-link::after {
     content: '';
     position: absolute;
     bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary);
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(37, 99, 235, 0.08);
+    transform: translateY(-1px);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
+}
+
+.nav-link.active {
+    background-color: rgba(37, 99, 235, 0.12);
+    font-weight: 600;
 }
 
 .hamburger {
@@ -462,8 +484,9 @@ html[data-theme='dark'] h6 {
 }
 
 html[data-theme='dark'] .navbar {
-    background-color: rgba(15, 23, 42, 0.95);
-    box-shadow: 0 4px 10px rgba(2, 6, 23, 0.4);
+    background-color: rgba(15, 23, 42, 0.88);
+    box-shadow: 0 14px 30px rgba(2, 6, 23, 0.45);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 html[data-theme='dark'] .nav-link {
@@ -476,7 +499,15 @@ html[data-theme='dark'] .nav-link.active {
 }
 
 html[data-theme='dark'] .nav-link.active::after {
-    background-color: #7dd3fc;
+    background: linear-gradient(90deg, #7dd3fc, #38bdf8);
+}
+
+html[data-theme='dark'] .nav-link:hover {
+    background-color: rgba(148, 163, 184, 0.12);
+}
+
+html[data-theme='dark'] .nav-link.active {
+    background-color: rgba(148, 163, 184, 0.18);
 }
 
 html[data-theme='dark'] .theme-toggle {
@@ -599,6 +630,32 @@ html[data-theme='dark'] .student-badge {
 
 
 /* Responsive */
+
+@media (max-width: 992px) {
+    .nav-container {
+        gap: var(--space-md);
+    }
+    .logo {
+        font-size: 1.6rem;
+    }
+    .nav-menu {
+        gap: var(--space-md);
+    }
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        margin-left: var(--space-md);
+    }
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    h1 {
+        font-size: 2.6rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+}
 
 @media (max-width: 768px) {
     .hamburger {
