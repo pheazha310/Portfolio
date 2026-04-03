@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
     initProjectFilter();
     initSkillAnimations();
+    initStatCounters();
 });
 
 // ========== NAVIGATION FUNCTIONS ==========
@@ -395,6 +396,56 @@ function initSkillAnimations() {
             skillObserver.observe(bar);
         });
     }
+}
+
+// ========== STAT COUNTERS ==========
+
+function initStatCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+
+    if (statNumbers.length === 0) return;
+
+    const formatValue = (value, suffix) => `${value.toLocaleString()}${suffix}`;
+
+    const animateCounter = (element) => {
+        const target = Number(element.getAttribute('data-target'));
+        const suffix = element.getAttribute('data-suffix') || '';
+        const duration = 1600;
+        const startTime = performance.now();
+
+        const updateCounter = (currentTime) => {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.round(target * easedProgress);
+
+            element.textContent = formatValue(currentValue, suffix);
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.textContent = formatValue(target, suffix);
+            }
+        };
+
+        requestAnimationFrame(updateCounter);
+    };
+
+    const statObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.4
+    });
+
+    statNumbers.forEach(statNumber => {
+        const suffix = statNumber.getAttribute('data-suffix') || '';
+        statNumber.textContent = formatValue(0, suffix);
+        statObserver.observe(statNumber);
+    });
 }
 
 // ========== FAQ ACCORDION ==========
