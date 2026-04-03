@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectFilter();
     initSkillAnimations();
     initStatCounters();
+    initHeroRoleRotation();
 });
 
 // ========== NAVIGATION FUNCTIONS ==========
@@ -446,6 +447,57 @@ function initStatCounters() {
         statNumber.textContent = formatValue(0, suffix);
         statObserver.observe(statNumber);
     });
+}
+
+// ========== HERO ROLE ROTATION ==========
+
+function initHeroRoleRotation() {
+    const roleElement = document.querySelector('.hero-role[data-roles]');
+
+    if (!roleElement) return;
+
+    const roles = roleElement.dataset.roles
+        .split(',')
+        .map(role => role.trim())
+        .filter(Boolean);
+
+    if (roles.length === 0) return;
+
+    let roleIndex = 0;
+    let charIndex = roles[0].length;
+    let isDeleting = false;
+
+    roleElement.textContent = roles[0];
+
+    const tick = () => {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            charIndex -= 1;
+        } else {
+            charIndex += 1;
+        }
+
+        roleElement.textContent = currentRole.slice(0, charIndex);
+
+        let delay = isDeleting ? 55 : 95;
+
+        if (!isDeleting && charIndex >= currentRole.length) {
+            delay = 1800;
+            isDeleting = true;
+        } else if (isDeleting && charIndex <= 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            delay = 250;
+        }
+
+        window.setTimeout(tick, delay);
+    };
+
+    window.setTimeout(() => {
+        isDeleting = true;
+        tick();
+    }, 1600);
 }
 
 // ========== FAQ ACCORDION ==========
