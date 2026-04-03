@@ -169,9 +169,14 @@ h4 {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
     gap: 0.75rem;
     transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.language-current {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: left;
 }
 
 .language-trigger:hover {
@@ -186,6 +191,8 @@ h4 {
 }
 
 .language-trigger i {
+    flex: 0 0 auto;
+    margin-left: auto;
     font-size: 0.8rem;
     transition: transform 0.2s ease;
 }
