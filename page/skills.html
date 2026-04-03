@@ -22,16 +22,29 @@
         <div class="nav-container">
             <a href="../index.html" class="logo">Sophea Phal</a>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active">Skills</a></li>
-                <li class="nav-item"><a href="./projects.html" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="./experience.html" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active" data-i18n="nav.skills">Skills</a></li>
+                <li class="nav-item"><a href="./projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li class="nav-item"><a href="./experience.html" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
+            <div class="nav-actions">
+                <div class="language-switcher">
+                    <span class="sr-only" data-i18n="nav.language">Language</span>
+                    <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="language-current" data-i18n="nav.option_en">English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-menu" role="listbox">
+                        <button class="language-option" type="button" data-lang="en" data-i18n="nav.option_en">English</button>
+                        <button class="language-option" type="button" data-lang="km" data-i18n="nav.option_km">Khmer</button>
+                    </div>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
             <button class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -43,8 +56,8 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1 class="page-title">My Skills</h1>
-            <p class="page-subtitle">Technical abilities and knowledge areas developed through PNC's program</p>
+            <h1 class="page-title" data-i18n="skills.page_title">My Skills</h1>
+            <p class="page-subtitle" data-i18n="skills.page_subtitle">Technical abilities and knowledge areas developed through PNC's program</p>
         </div>
     </section>
 
@@ -58,7 +71,7 @@
                         <div class="category-icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3 class="category-title">Frontend Development</h3>
+                        <h3 class="category-title" data-i18n="skills.frontend_title">Frontend Development</h3>
                     </div>
                     <div class="skill-items">
                         <div class="skill-item">
@@ -90,7 +103,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span class="skill-name">Responsive Design</span>
+                                <span class="skill-name" data-i18n="skills.responsive_design">Responsive Design</span>
                                 <span class="skill-percent">90%</span>
                             </div>
                             <div class="skill-bar">
@@ -106,7 +119,7 @@
                         <div class="category-icon">
                             <i class="fas fa-server"></i>
                         </div>
-                        <h3 class="category-title">Backend Development</h3>
+                        <h3 class="category-title" data-i18n="skills.backend_title">Backend Development</h3>
                     </div>
                     <div class="skill-items">
                         <div class="skill-item">
@@ -138,7 +151,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span class="skill-name">RESTful APIs</span>
+                                <span class="skill-name" data-i18n="skills.rest_api">RESTful APIs</span>
                                 <span class="skill-percent">35%</span>
                             </div>
                             <div class="skill-bar">
@@ -154,7 +167,7 @@
                         <div class="category-icon">
                             <i class="fas fa-database"></i>
                         </div>
-                        <h3 class="category-title">Database Management</h3>
+                        <h3 class="category-title" data-i18n="skills.database_title">Database Management</h3>
                     </div>
                     <div class="skill-items">
                         <div class="skill-item">
@@ -177,7 +190,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span class="skill-name">Database Design</span>
+                                <span class="skill-name" data-i18n="skills.database_design">Database Design</span>
                                 <span class="skill-percent">80%</span>
                             </div>
                             <div class="skill-bar">
@@ -186,7 +199,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span class="skill-name">SQL Queries</span>
+                                <span class="skill-name" data-i18n="skills.sql_queries">SQL Queries</span>
                                 <span class="skill-percent">88%</span>
                             </div>
                             <div class="skill-bar">
@@ -202,12 +215,12 @@
                         <div class="category-icon">
                             <i class="fas fa-tools"></i>
                         </div>
-                        <h3 class="category-title">Tools & Technologies</h3>
+                        <h3 class="category-title" data-i18n="skills.tools_title">Tools & Technologies</h3>
                     </div>
                     <div class="skill-items">
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-name" data-i18n="skills.git_github">Git & GitHub</span>
                                 <span class="skill-percent">90%</span>
                             </div>
                             <div class="skill-bar">
@@ -234,7 +247,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span class="skill-name">Linux/Unix</span>
+                                <span class="skill-name" data-i18n="skills.linux_unix">Linux/Unix</span>
                                 <span class="skill-percent">40%</span>
                             </div>
                             <div class="skill-bar">
@@ -250,10 +263,10 @@
     <!-- Tech Stack -->
     <section class="tech-stack">
         <div class="container">
-            <h2 class="section-title center">Technology Stack</h2>
+            <h2 class="section-title center" data-i18n="skills.stack_title">Technology Stack</h2>
             <div class="tech-categories">
                 <div class="tech-category fade-in">
-                    <h3>Programming Languages</h3>
+                    <h3 data-i18n="skills.stack_langs">Programming Languages</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">JavaScript</span>
                         <span class="tech-tag">Python</span>
@@ -264,7 +277,7 @@
                     </div>
                 </div>
                 <div class="tech-category fade-in">
-                    <h3>Frameworks & Libraries</h3>
+                    <h3 data-i18n="skills.stack_frameworks">Frameworks & Libraries</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">React.js</span>
                         <span class="tech-tag">Express.js</span>
@@ -275,7 +288,7 @@
                     </div>
                 </div>
                 <div class="tech-category fade-in">
-                    <h3>Tools & Platforms</h3>
+                    <h3 data-i18n="skills.stack_tools">Tools & Platforms</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">Git</span>
                         <span class="tech-tag">GitHub</span>
@@ -291,7 +304,7 @@
                     </div>
                 </div>
                 <div class="tech-category fade-in">
-                    <h3>AI & Agentic Tools</h3>
+                    <h3 data-i18n="skills.stack_ai">AI & Agentic Tools</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">OpenCode</span>
                         <span class="tech-tag">Stitch</span>
@@ -307,38 +320,68 @@
         </div>
     </section>
 
+    <!-- Languages -->
+    <section class="languages-section">
+        <div class="container">
+            <h2 class="section-title center" data-i18n="skills.languages_title">Languages</h2>
+            <div class="languages-grid">
+                <div class="language-card fade-in">
+                    <div class="language-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 data-i18n="skills.khmer_title">Khmer</h3>
+                    <p data-i18n="skills.khmer_desc">Native language with strong communication skills in daily, academic, and collaborative environments.</p>
+                </div>
+                <div class="language-card fade-in">
+                    <div class="language-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 data-i18n="skills.english_title">English</h3>
+                    <p data-i18n="skills.english_desc">Working proficiency in reading, writing, and speaking for technical learning, teamwork, and presentations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Soft Skills -->
     <section class="soft-skills">
         <div class="container">
-            <h2 class="section-title center">Soft Skills</h2>
+            <h2 class="section-title center" data-i18n="skills.soft_title">Soft Skills</h2>
             <div class="soft-skills-grid">
                 <div class="soft-skill-card fade-in">
                     <div class="soft-skill-icon">
                         <i class="fas fa-comments"></i>
                     </div>
-                    <h3>Communication</h3>
-                    <p>Effective verbal and written communication skills developed through presentations and team projects.</p>
+                    <h3 data-i18n="skills.soft1_title">Communication</h3>
+                    <p data-i18n="skills.soft1_desc">Effective verbal and written communication skills developed through presentations and team projects.</p>
                 </div>
                 <div class="soft-skill-card fade-in">
                     <div class="soft-skill-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Teamwork</h3>
-                    <p>Collaborative approach to problem-solving with experience in group projects and pair programming.</p>
+                    <h3 data-i18n="skills.soft2_title">Teamwork</h3>
+                    <p data-i18n="skills.soft2_desc">Collaborative approach to problem-solving with experience in group projects and pair programming.</p>
                 </div>
                 <div class="soft-skill-card fade-in">
                     <div class="soft-skill-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3>Problem Solving</h3>
-                    <p>Analytical thinking and systematic approach to debugging and resolving technical challenges.</p>
+                    <h3 data-i18n="skills.soft3_title">Problem Solving</h3>
+                    <p data-i18n="skills.soft3_desc">Analytical thinking and systematic approach to debugging and resolving technical challenges.</p>
                 </div>
                 <div class="soft-skill-card fade-in">
                     <div class="soft-skill-icon">
                         <i class="fas fa-tasks"></i>
                     </div>
-                    <h3>Time Management</h3>
-                    <p>Ability to prioritize tasks and meet deadlines while balancing multiple projects and responsibilities.</p>
+                    <h3 data-i18n="skills.soft4_title">Time Management</h3>
+                    <p data-i18n="skills.soft4_desc">Ability to prioritize tasks and meet deadlines while balancing multiple projects and responsibilities.</p>
+                </div>
+                <div class="soft-skill-card fade-in">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 data-i18n="skills.soft5_title">Leadership</h3>
+                    <p data-i18n="skills.soft5_desc">Ability to guide team activities, support collaboration, and take responsibility for delivering shared goals.</p>
                 </div>
             </div>
         </div>
@@ -389,32 +432,32 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>Sophea Phal</h3>
-                    <p>IT Student at Passerelles Numeriques Cambodia</p>
-                    <p>Aspiring Software Developer</p>
+                    <p data-i18n="footer.tagline_line1">IT Student at Passerelles Numeriques Cambodia</p>
+                    <p data-i18n="footer.tagline_line2">Aspiring Software Developer</p>
                     <div class="footer-cta">
-                        <a class="footer-btn" href="./contact.html">Let's Build Together</a>
+                        <a class="footer-btn" href="./contact.html" data-i18n="footer.cta">Let's Build Together</a>
                     </div>
                 </div>
                 <div class="footer-contact">
-                    <h4>Contact</h4>
+                    <h4 data-i18n="footer.contact">Contact</h4>
                     <ul>
                         <li><i class="fas fa-envelope"></i><a href="mailto:sophea.phal@student.passerellesnumeriques.org">sophea.phal@student.passerellesnumeriques.org</a></li>
-                        <li><i class="fas fa-location-dot"></i><span>Phnom Penh, Cambodia</span></li>
-                        <li><i class="fas fa-graduation-cap"></i><span>Available for internships</span></li>
+                        <li><i class="fas fa-location-dot"></i><span data-i18n="footer.location">Phnom Penh, Cambodia</span></li>
+                        <li><i class="fas fa-graduation-cap"></i><span data-i18n="footer.available">Available for internships</span></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4 data-i18n="footer.quick_links">Quick Links</h4>
                     <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="./projects.html">Projects</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="./about.html" data-i18n="nav.about">About</a></li>
+                        <li><a href="./projects.html" data-i18n="nav.projects">Projects</a></li>
+                        <li><a href="./contact.html" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
-                    <h4>Connect</h4>
-                    <p class="footer-note">Find my latest work and reach out anytime.</p>
+                    <h4 data-i18n="footer.connect">Connect</h4>
+                    <p class="footer-note" data-i18n="footer.note">Find my latest work and reach out anytime.</p>
                     <div class="social-icons">
                         <a href="https://github.com/sophea06" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/sophea-phal-a73a1034b" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -424,7 +467,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span class="current-year">2026</span> Sophea Phal. All rights reserved.</p>
+                <p><span data-i18n="footer.rights_prefix">&copy; <span class="current-year">2026</span> Sophea Phal.</span> <span data-i18n="footer.rights_suffix">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
@@ -434,7 +477,3 @@
 </body>
 
 </html>
-
-
-
-

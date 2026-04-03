@@ -22,16 +22,29 @@
         <div class="nav-container">
             <a href="../index.html" class="logo">Sophea Phal</a>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="./skills.html" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="./projects.html" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="./experience.html" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#" class="nav-link active">Contact</a></li>
+                <li class="nav-item"><a href="../index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li class="nav-item"><a href="./skills.html" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                <li class="nav-item"><a href="./projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li class="nav-item"><a href="./experience.html" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active" data-i18n="nav.contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
+            <div class="nav-actions">
+                <div class="language-switcher">
+                    <span class="sr-only" data-i18n="nav.language">Language</span>
+                    <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="language-current" data-i18n="nav.option_en">English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="language-menu" role="listbox">
+                        <button class="language-option" type="button" data-lang="en" data-i18n="nav.option_en">English</button>
+                        <button class="language-option" type="button" data-lang="km" data-i18n="nav.option_km">Khmer</button>
+                    </div>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
             <button class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -43,8 +56,8 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1 class="page-title">Get In Touch</h1>
-            <p class="page-subtitle">Let's discuss opportunities or collaborate on projects</p>
+            <h1 class="page-title" data-i18n="contact.page_title">Get In Touch</h1>
+            <p class="page-subtitle" data-i18n="contact.page_subtitle">Let's discuss opportunities or collaborate on projects</p>
         </div>
     </section>
 
@@ -54,33 +67,33 @@
             <div class="contact-container">
                 <!-- Contact Form -->
                 <div class="contact-form-container fade-in">
-                    <h2 class="section-title">Send Me a Message</h2>
+                    <h2 class="section-title" data-i18n="contact.form_title">Send Me a Message</h2>
                     <form id="contactForm" class="cyber-form">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <label for="name" data-i18n="contact.label_name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" data-i18n-placeholder="contact.placeholder_name" required>
                             <div class="error-message" id="nameError"></div>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            <label for="email" data-i18n="contact.label_email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" data-i18n-placeholder="contact.placeholder_email" required>
                             <div class="error-message" id="emailError"></div>
                         </div>
 
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Message Subject">
+                            <label for="subject" data-i18n="contact.label_subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Message Subject" data-i18n-placeholder="contact.placeholder_subject">
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" placeholder="Your message here..." required></textarea>
+                            <label for="message" data-i18n="contact.label_message">Message *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Your message here..." data-i18n-placeholder="contact.placeholder_message" required></textarea>
                             <div class="error-message" id="messageError"></div>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                            <i class="fas fa-paper-plane"></i> <span data-i18n="contact.send_message">Send Message</span>
                         </button>
 
                         <div id="formMessage" class="form-message"></div>
@@ -90,17 +103,17 @@
                 <!-- Contact Information -->
                 <div class="contact-info-container fade-in">
                     <div class="contact-methods">
-                        <h2 class="section-title">Contact Information</h2>
-                        <p class="contact-description">Feel free to reach out through any of these channels. I typically respond within 24 hours.</p>
+                        <h2 class="section-title" data-i18n="contact.info_title">Contact Information</h2>
+                        <p class="contact-description" data-i18n="contact.info_desc">Feel free to reach out through any of these channels. I typically respond within 24 hours.</p>
 
                         <div class="contact-method">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
-                                <h3>Email</h3>
+                                <h3 data-i18n="contact.method_email">Email</h3>
                                 <p>sophea.phal@student.passerellesnumeriques.org</p>
-                                <a href="mailto:sophea.phal@student.passerellesnumeriques.org" class="contact-link">Send an email</a>
+                                <a href="mailto:sophea.phal@student.passerellesnumeriques.org" class="contact-link" data-i18n="contact.email_cta">Send an email</a>
                             </div>
                         </div>
 
@@ -109,9 +122,9 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-details">
-                                <h3>Phone</h3>
-                                <p>+855 12 345 678</p>
-                                <a href="tel:+85512345678" class="contact-link">Call me</a>
+                                <h3 data-i18n="contact.method_phone">Phone</h3>
+                                <p>+855 88 684 9268</p>
+                                <a href="tel:+85512345678" class="contact-link" data-i18n="contact.phone_cta">Call me</a>
                             </div>
                         </div>
 
@@ -120,9 +133,9 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-details">
-                                <h3>Location</h3>
-                                <p>Phnom Penh, Cambodia</p>
-                                <p>Open to remote opportunities</p>
+                                <h3 data-i18n="contact.method_location">Location</h3>
+                                <p data-i18n="contact.location_text">Phnom Penh, Cambodia</p>
+                                <p data-i18n="contact.location_note">Open to remote opportunities</p>
                             </div>
                         </div>
 
@@ -131,17 +144,17 @@
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
                             <div class="contact-details">
-                                <h3>Education</h3>
+                                <h3 data-i18n="contact.method_education">Education</h3>
                                 <p>Passerelles Numeriques Cambodia</p>
-                                <p>IT Diploma Program (2025-2026)</p>
+                                <p data-i18n="contact.education_program">IT Diploma Program (2025-2026)</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Social Links -->
                     <div class="contact-social">
-                        <h3>Connect on Social Media</h3>
-                        <p>Follow me for updates on my projects and coding journey.</p>
+                        <h3 data-i18n="contact.social_title">Connect on Social Media</h3>
+                        <p data-i18n="contact.social_desc">Follow me for updates on my projects and coding journey.</p>
                         <div class="social-links">
                             <a href="https://github.com/sophea06" target="_blank" class="social-link-item">
                                 <div class="social-link-icon">
@@ -189,42 +202,42 @@
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container">
-            <h2 class="section-title center">Frequently Asked Questions</h2>
+            <h2 class="section-title center" data-i18n="contact.faq_title">Frequently Asked Questions</h2>
             <div class="faq-container">
                 <div class="faq-item fade-in">
                     <div class="faq-question">
-                        <span>Are you available for internships?</span>
+                        <span data-i18n="contact.faq1_q">Are you available for internships?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! As a PNC IT student, I'm actively seeking internship opportunities for 2026. I'm available for both part-time during the semester and full-time during breaks.</p>
+                        <p data-i18n="contact.faq1_a">Yes! As a PNC IT student, I'm actively seeking internship opportunities for 2026. I'm available for both part-time during the semester and full-time during breaks.</p>
                     </div>
                 </div>
                 <div class="faq-item fade-in">
                     <div class="faq-question">
-                        <span>What types of projects do you take on?</span>
+                        <span data-i18n="contact.faq2_q">What types of projects do you take on?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>I specialize in web development projects but also take on full-stack applications. This includes websites, web applications, landing pages, and e-commerce solutions.</p>
+                        <p data-i18n="contact.faq2_a">I specialize in web development projects but also take on full-stack applications. This includes websites, web applications, landing pages, and e-commerce solutions.</p>
                     </div>
                 </div>
                 <div class="faq-item fade-in">
                     <div class="faq-question">
-                        <span>What's your expected graduation date?</span>
+                        <span data-i18n="contact.faq3_q">What's your expected graduation date?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>I'm on track to graduate from Passerelles Numeriques Cambodia in December 2026 with an IT Diploma focusing on software development.</p>
+                        <p data-i18n="contact.faq3_a">I'm on track to graduate from Passerelles Numeriques Cambodia in December 2026 with an IT Diploma focusing on software development.</p>
                     </div>
                 </div>
                 <div class="faq-item fade-in">
                     <div class="faq-question">
-                        <span>Do you work remotely or on-site?</span>
+                        <span data-i18n="contact.faq4_q">Do you work remotely or on-site?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>I'm open to both remote and on-site opportunities. For remote work, I'm experienced with collaboration tools and have a dedicated workspace.</p>
+                        <p data-i18n="contact.faq4_a">I'm open to both remote and on-site opportunities. For remote work, I'm experienced with collaboration tools and have a dedicated workspace.</p>
                     </div>
                 </div>
             </div>
@@ -249,32 +262,32 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>Sophea Phal</h3>
-                    <p>IT Student at Passerelles Numeriques Cambodia</p>
-                    <p>Aspiring Software Developer</p>
+                    <p data-i18n="footer.tagline_line1">IT Student at Passerelles Numeriques Cambodia</p>
+                    <p data-i18n="footer.tagline_line2">Aspiring Software Developer</p>
                     <div class="footer-cta">
-                        <a class="footer-btn" href="./contact.html">Let's Build Together</a>
+                        <a class="footer-btn" href="./contact.html" data-i18n="footer.cta">Let's Build Together</a>
                     </div>
                 </div>
                 <div class="footer-contact">
-                    <h4>Contact</h4>
+                    <h4 data-i18n="footer.contact">Contact</h4>
                     <ul>
                         <li><i class="fas fa-envelope"></i><a href="mailto:sophea.phal@student.passerellesnumeriques.org">sophea.phal@student.passerellesnumeriques.org</a></li>
-                        <li><i class="fas fa-location-dot"></i><span>Phnom Penh, Cambodia</span></li>
-                        <li><i class="fas fa-graduation-cap"></i><span>Available for internships</span></li>
+                        <li><i class="fas fa-location-dot"></i><span data-i18n="footer.location">Phnom Penh, Cambodia</span></li>
+                        <li><i class="fas fa-graduation-cap"></i><span data-i18n="footer.available">Available for internships</span></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4 data-i18n="footer.quick_links">Quick Links</h4>
                     <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="./projects.html">Projects</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="./about.html" data-i18n="nav.about">About</a></li>
+                        <li><a href="./projects.html" data-i18n="nav.projects">Projects</a></li>
+                        <li><a href="./contact.html" data-i18n="nav.contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
-                    <h4>Connect</h4>
-                    <p class="footer-note">Find my latest work and reach out anytime.</p>
+                    <h4 data-i18n="footer.connect">Connect</h4>
+                    <p class="footer-note" data-i18n="footer.note">Find my latest work and reach out anytime.</p>
                     <div class="social-icons">
                         <a href="https://github.com/sophea06" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/sophea-phal-a73a1034b" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -284,7 +297,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span class="current-year">2026</span> Sophea Phal. All rights reserved.</p>
+                <p><span data-i18n="footer.rights_prefix">&copy; <span class="current-year">2026</span> Sophea Phal.</span> <span data-i18n="footer.rights_suffix">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
@@ -294,8 +307,4 @@
 </body>
 
 </html>
-
-
-
-
 
