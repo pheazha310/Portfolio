@@ -110,6 +110,11 @@
     color: var(--text);
 }
 
+.about-text .section-title {
+    white-space: nowrap;
+    font-size: clamp(2rem, 2.8vw, 2.5rem);
+}
+
 
 /* Education Section */
 
@@ -301,6 +306,9 @@ html[data-theme='dark'] .about-photo {
     .about-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    .about-text .section-title {
+        white-space: normal;
     }
     .about-image::before {
         width: 420px;

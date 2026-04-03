@@ -54,15 +54,16 @@
 
 .hero-content {
     padding-right: var(--space-xl);
-    max-width: 560px;
+    max-width: 680px;
     animation: heroReveal 0.8s ease-out both;
 }
 
 .hero-title {
-    font-size: clamp(2.6rem, 3.2vw, 3.6rem);
+    font-size: clamp(2.2rem, 3vw, 3.35rem);
     margin-bottom: var(--space-sm);
     letter-spacing: -0.02em;
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 .hero-title .highlight {
@@ -78,6 +79,7 @@
     margin-bottom: var(--space-lg);
     font-weight: 600;
     letter-spacing: 0.01em;
+    white-space: nowrap;
 }
 
 .hero-description {
@@ -358,10 +360,10 @@ html[data-theme='dark'] .my-photo {
         padding: 140px 0 70px;
     }
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     .hero-subtitle {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
     .hero-buttons {
         flex-direction: row;
@@ -392,10 +394,13 @@ html[data-theme='dark'] .my-photo {
         padding: 110px 0 50px;
     }
     .hero-title {
-        font-size: 2.15rem;
+        font-size: 1.85rem;
     }
     .hero-description {
         font-size: 1rem;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem;
     }
     .stats-grid {
         grid-template-columns: 1fr;
