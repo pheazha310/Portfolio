@@ -401,7 +401,7 @@ function initSkillAnimations() {
 // ========== STAT COUNTERS ==========
 
 function initStatCounters() {
-    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    const statNumbers = document.querySelectorAll('[data-counter][data-target], .stat-number[data-target]');
 
     if (statNumbers.length === 0) return;
 

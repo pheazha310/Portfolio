@@ -31,35 +31,50 @@
 /* Project Stats */
 
 .project-stats {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-2xl);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: clamp(1rem, 2vw, 2rem);
     margin-top: var(--space-xl);
-    flex-wrap: wrap;
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .stat-item {
     text-align: center;
-    padding: var(--space-sm) var(--space-md);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    padding: 2rem 1.5rem 1.35rem;
+    min-height: 160px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 20px 45px rgba(37, 99, 235, 0.12);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 55px rgba(37, 99, 235, 0.18);
 }
 
 .stat-number {
     display: block;
-    font-size: 2.5rem;
+    font-size: clamp(2.6rem, 4vw, 4rem);
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: var(--space-xs);
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.04em;
 }
 
 .stat-label {
-    font-size: 0.875rem;
-    color: var(--text-light);
+    font-size: 0.95rem;
+    color: #5b6b84;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.16em;
+    line-height: 1.6;
 }
 
 
@@ -382,7 +397,8 @@
     }
 
     .project-stats {
-        gap: var(--space-xl);
+        grid-template-columns: 1fr;
+        max-width: 420px;
     }
 
     .github-stats {
@@ -392,8 +408,17 @@
 
 @media (max-width: 480px) {
     .project-stats {
-        flex-direction: column;
         gap: var(--space-lg);
+    }
+
+    .stat-item {
+        min-height: 144px;
+        padding: 1.75rem 1.2rem 1.2rem;
+    }
+
+    .stat-label {
+        font-size: 0.88rem;
+        letter-spacing: 0.12em;
     }
 
     .github-stats {
