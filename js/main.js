@@ -1,4 +1,4 @@
-// js/main.js - Main JavaScript file for the portfolio website
+﻿// js/main.js - Main JavaScript file for the portfolio website
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -511,8 +511,11 @@ function applyLanguage(language) {
         languageTrigger.setAttribute('aria-label', dictionary['nav.language']);
     }
     if (languageCurrent) {
-        const currentKey = locale === 'km' ? 'nav.option_km' : 'nav.option_en';
-        languageCurrent.textContent = dictionary[currentKey];
+        const langName = locale === 'km' ? 'Khmer' : 'English';
+        languageCurrent.textContent = '';
+        languageCurrent.setAttribute('data-lang', locale);
+        languageCurrent.setAttribute('title', langName);
+        languageCurrent.setAttribute('aria-label', langName);
     }
     if (languageOptions.length > 0) {
         languageOptions.forEach(option => {
@@ -1161,3 +1164,4 @@ window.addEventListener('resize', function() {
 
 // Log page view (for analytics - you can replace with real analytics)
 console.log(`Viewing page: ${window.location.pathname}`);
+
