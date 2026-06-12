@@ -17,29 +17,34 @@
 .page-hero {
     position: relative;
     padding: 160px 0 70px;
-    background: radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0) 55%),
-        radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0) 45%),
-        linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f8fafc 100%);
+    background: linear-gradient(180deg, #07122b 0%, #06142f 55%, #050f25 100%);
     text-align: center;
     overflow: hidden;
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .page-hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 10% 70%, rgba(6, 182, 212, 0.16), rgba(6, 182, 212, 0) 40%);
+    background: radial-gradient(circle at 50% 55%, rgba(16, 185, 255, 0.14), rgba(16, 185, 255, 0) 42%);
+    opacity: 0.8;
     pointer-events: none;
 }
 
 .page-hero::after {
     content: '';
     position: absolute;
-    width: 260px;
-    height: 260px;
-    right: -120px;
-    bottom: -120px;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.22), rgba(37, 99, 235, 0) 70%);
+    inset: auto 0 -6% 0;
+    height: 58%;
+    background:
+        linear-gradient(180deg, rgba(5, 16, 38, 0) 0%, rgba(5, 16, 38, 0.06) 42%, rgba(4, 13, 33, 0.18) 100%);
+    transform: skewY(-3deg);
+    transform-origin: center bottom;
     pointer-events: none;
 }
 
@@ -47,11 +52,13 @@
     font-size: clamp(2.6rem, 3.2vw, 3.4rem);
     margin-bottom: var(--space-sm);
     letter-spacing: -0.02em;
+    color: var(--white);
+    text-shadow: 0 12px 34px rgba(2, 6, 23, 0.42);
 }
 
 .page-subtitle {
     font-size: 1.2rem;
-    color: var(--text-light);
+    color: rgba(226, 232, 240, 0.86);
     max-width: 640px;
     margin: 0 auto;
 }
@@ -299,11 +306,8 @@
         transform: none;
     }
 }
-
 html[data-theme='dark'] .page-hero {
-    background: radial-gradient(circle at 15% 25%, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0) 55%),
-        radial-gradient(circle at 85% 15%, rgba(129, 140, 248, 0.18), rgba(129, 140, 248, 0) 45%),
-        linear-gradient(135deg, #0b1220 0%, #111827 60%, #0b1220 100%);
+    background: linear-gradient(180deg, #07122b 0%, #06142f 55%, #050f25 100%);
 }
 
 html[data-theme='dark'] .page-subtitle {

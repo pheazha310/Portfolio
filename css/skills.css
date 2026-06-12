@@ -5,21 +5,47 @@
 
 .page-hero {
     padding: 150px 0 60px;
-    background: radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.2), rgba(14, 165, 233, 0) 55%),
-        radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.18), rgba(59, 130, 246, 0) 45%),
-        linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f8fafc 100%);
-    /* background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); */
+    background: linear-gradient(180deg, #07122b 0%, #06142f 55%, #050f25 100%);
     text-align: center;
+    overflow: hidden;
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 55%, rgba(16, 185, 255, 0.14), rgba(16, 185, 255, 0) 42%);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.page-hero::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -6% 0;
+    height: 58%;
+    background:
+        linear-gradient(180deg, rgba(5, 16, 38, 0) 0%, rgba(5, 16, 38, 0.06) 42%, rgba(4, 13, 33, 0.18) 100%);
+    transform: skewY(-3deg);
+    transform-origin: center bottom;
+    pointer-events: none;
 }
 
 .page-title {
     font-size: 3rem;
     margin-bottom: var(--space-sm);
+    color: var(--white);
+    text-shadow: 0 12px 34px rgba(2, 6, 23, 0.42);
 }
 
 .page-subtitle {
     font-size: 1.25rem;
-    color: var(--text-light);
+    color: rgba(226, 232, 240, 0.86);
     max-width: 600px;
     margin: 0 auto;
 }

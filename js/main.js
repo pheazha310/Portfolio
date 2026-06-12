@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSkillAnimations();
     initStatCounters();
     initHeroRoleRotation();
+    initHeroBackgrounds();
 });
 
 const translations = {
@@ -1044,6 +1045,342 @@ function initHeroRoleRotation() {
         isDeleting = true;
         tick();
     }, 1600);
+}
+
+// ========== HERO BACKGROUND CANVAS ==========
+
+function initHeroBackgrounds() {
+    const heroSections = Array.from(document.querySelectorAll('.hero, .page-hero'));
+
+    if (heroSections.length === 0) return;
+
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const states = [];
+
+    const makeParticles = (width, height, seed) => {
+        const count = Math.max(42, Math.min(90, Math.round((width * height) / 22000)));
+        const particles = [];
+
+        for (let i = 0; i < count; i += 1) {
+            const band = i % 3;
+            particles.push({
+                x: Math.random() * width,
+                y: height * (0.08 + band * 0.18) + Math.random() * height * 0.12,
+                baseY: height * (0.08 + band * 0.18),
+                vx: (Math.random() * 0.08 + 0.02) * (Math.random() > 0.5 ? 1 : -1),
+                vy: Math.random() * 0.028 + 0.01,
+                radius: Math.random() * 1.6 + 0.8,
+                alpha: Math.random() * 0.55 + 0.35,
+                phase: Math.random() * Math.PI * 2,
+                sway: Math.random() * 18 + 8,
+                seed,
+            });
+        }
+
+        return particles;
+    };
+
+    const makeStems = (width, height, seed) => {
+        const count = Math.max(26, Math.min(88, Math.round(width / 22)));
+        const stems = [];
+
+        for (let i = 0; i < count; i += 1) {
+            stems.push({
+                x: (i + Math.random() * 0.45) * (width / count),
+                length: height * (0.14 + Math.random() * 0.48),
+                phase: Math.random() * Math.PI * 2,
+                speed: Math.random() * 0.0012 + 0.0006,
+                radius: Math.random() * 1.4 + 0.9,
+                alpha: Math.random() * 0.7 + 0.25,
+                seed,
+            });
+        }
+
+        return stems;
+    };
+
+    const resizeState = (state) => {
+        const { section, canvas, ctx } = state;
+        const width = section.clientWidth;
+        const height = section.clientHeight;
+
+        if (!width || !height) return;
+
+        state.width = width;
+        state.height = height;
+        state.dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(width * state.dpr);
+        canvas.height = Math.round(height * state.dpr);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+        state.particles = makeParticles(width, height, state.seed);
+        state.stems = makeStems(width, height, state.seed);
+    };
+
+    const drawBackground = (ctx, width, height, section, time, seed) => {
+        const homeHero = section.classList.contains('hero');
+        const base = ctx.createLinearGradient(0, 0, 0, height);
+        base.addColorStop(0, '#07162f');
+        base.addColorStop(0.55, '#051426');
+        base.addColorStop(1, '#040c1b');
+        ctx.fillStyle = base;
+        ctx.fillRect(0, 0, width, height);
+
+        const drift = Math.sin(time * 0.00012 + seed) * width * 0.03;
+        const driftY = Math.cos(time * 0.0001 + seed * 0.7) * height * 0.02;
+
+        const glow = ctx.createRadialGradient(width * 0.52 + drift * 0.35, height * 0.78 + driftY, 0, width * 0.52, height * 0.78, Math.max(width, height) * 0.55);
+        glow.addColorStop(0, 'rgba(14, 211, 255, 0.22)');
+        glow.addColorStop(0.28, 'rgba(14, 211, 255, 0.08)');
+        glow.addColorStop(1, 'rgba(14, 211, 255, 0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, width, height);
+
+        const rightOrb = ctx.createRadialGradient(width * 0.92, height * 0.24, 0, width * 0.92, height * 0.24, width * 0.08);
+        rightOrb.addColorStop(0, 'rgba(18, 224, 255, 0.36)');
+        rightOrb.addColorStop(0.32, 'rgba(18, 224, 255, 0.16)');
+        rightOrb.addColorStop(1, 'rgba(18, 224, 255, 0)');
+        ctx.fillStyle = rightOrb;
+        ctx.fillRect(0, 0, width, height);
+
+        const lowerGlow = ctx.createRadialGradient(width * 0.18, height * 0.9, 0, width * 0.18, height * 0.9, width * 0.35);
+        lowerGlow.addColorStop(0, 'rgba(8, 167, 255, 0.18)');
+        lowerGlow.addColorStop(0.55, 'rgba(8, 167, 255, 0.08)');
+        lowerGlow.addColorStop(1, 'rgba(8, 167, 255, 0)');
+        ctx.fillStyle = lowerGlow;
+        ctx.fillRect(0, 0, width, height);
+
+        if (homeHero) {
+            const diagonalGlow = ctx.createLinearGradient(0, height * 0.55, width, height * 0.85);
+            diagonalGlow.addColorStop(0, 'rgba(0, 217, 255, 0)');
+            diagonalGlow.addColorStop(0.45, 'rgba(0, 217, 255, 0.06)');
+            diagonalGlow.addColorStop(0.58, 'rgba(0, 217, 255, 0.2)');
+            diagonalGlow.addColorStop(1, 'rgba(0, 217, 255, 0)');
+            ctx.fillStyle = diagonalGlow;
+            ctx.beginPath();
+            ctx.moveTo(0, height * 0.58);
+            ctx.lineTo(width, height * 0.48);
+            ctx.lineTo(width, height * 0.92);
+            ctx.lineTo(0, height * 0.92);
+            ctx.closePath();
+            ctx.fill();
+        }
+    };
+
+    const getWaveY = (x, width, height, time, seed, homeHero) => {
+        const baseY = height * (homeHero ? 0.74 : 0.68);
+        const amp = height * (homeHero ? 0.055 : 0.045);
+        const freq = homeHero ? 1.45 : 1.55;
+        const t = time * 0.00055;
+        const norm = x / width;
+        return baseY
+            + Math.sin(norm * Math.PI * 2 * freq + t + seed) * amp
+            + Math.sin(norm * Math.PI * 2 * 3.4 - t * 1.6 + seed * 0.4) * amp * 0.34
+            + Math.cos(norm * Math.PI * 2 * 0.9 + t * 0.7) * amp * 0.16;
+    };
+
+    const drawWave = (ctx, width, height, time, seed, homeHero) => {
+        const lineY = [];
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+
+        const waveGradient = ctx.createLinearGradient(0, 0, width, 0);
+        waveGradient.addColorStop(0, 'rgba(13, 185, 255, 0.15)');
+        waveGradient.addColorStop(0.48, 'rgba(99, 230, 255, 0.96)');
+        waveGradient.addColorStop(1, 'rgba(13, 185, 255, 0.18)');
+
+        ctx.shadowColor = 'rgba(12, 210, 255, 0.42)';
+        ctx.shadowBlur = 24;
+        ctx.strokeStyle = 'rgba(0, 217, 255, 0.16)';
+        ctx.lineWidth = homeHero ? 7 : 5;
+        ctx.beginPath();
+
+        for (let x = 0; x <= width; x += 8) {
+            const y = getWaveY(x, width, height, time, seed, homeHero);
+            lineY.push({ x, y });
+            if (x === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        }
+
+        ctx.stroke();
+
+        ctx.shadowBlur = 14;
+        ctx.strokeStyle = waveGradient;
+        ctx.lineWidth = homeHero ? 2.3 : 1.9;
+        ctx.beginPath();
+        lineY.forEach((point, index) => {
+            if (index === 0) ctx.moveTo(point.x, point.y);
+            else ctx.lineTo(point.x, point.y);
+        });
+        ctx.stroke();
+
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = 'rgba(37, 177, 255, 0.42)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        lineY.forEach((point, index) => {
+            const y = point.y + (homeHero ? 8 : 6);
+            if (index === 0) ctx.moveTo(point.x, y);
+            else ctx.lineTo(point.x, y);
+        });
+        ctx.stroke();
+
+        ctx.fillStyle = 'rgba(0, 217, 255, 0.05)';
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        lineY.forEach(point => ctx.lineTo(point.x, point.y + (homeHero ? 8 : 6)));
+        ctx.lineTo(width, height);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.restore();
+        return lineY;
+    };
+
+    const drawStems = (ctx, width, height, time, state, lineY) => {
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        const points = lineY.length > 1 ? lineY : null;
+
+        state.stems.forEach((stem) => {
+            const sway = Math.sin(time * stem.speed + stem.phase) * (stem.seed % 2 === 0 ? 8 : 12);
+            const x = stem.x + sway;
+            const index = points ? Math.max(0, Math.min(points.length - 1, Math.round((x / width) * (points.length - 1)))) : 0;
+            const waveY = points ? points[index].y : height * 0.7;
+            const maxTop = height * 0.18 + Math.sin(time * 0.0009 + stem.phase) * height * 0.02;
+            const topY = Math.max(maxTop, waveY - stem.length * (0.6 + 0.4 * Math.sin(time * 0.0005 + stem.phase)));
+            const alpha = stem.alpha * (0.55 + 0.45 * Math.sin(time * 0.0012 + stem.phase));
+
+            const stemGradient = ctx.createLinearGradient(0, topY, 0, waveY);
+            stemGradient.addColorStop(0, `rgba(110, 232, 255, ${alpha})`);
+            stemGradient.addColorStop(1, 'rgba(10, 176, 255, 0)');
+
+            ctx.strokeStyle = stemGradient;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x, waveY);
+            ctx.lineTo(x, topY);
+            ctx.stroke();
+
+            ctx.fillStyle = `rgba(110, 232, 255, ${Math.min(1, alpha + 0.1)})`;
+            ctx.beginPath();
+            ctx.arc(x, topY, stem.radius, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        ctx.restore();
+    };
+
+    const drawParticles = (ctx, width, height, time, state, homeHero) => {
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+
+        state.particles.forEach((particle) => {
+            const pulse = 0.5 + 0.5 * Math.sin(time * 0.0014 + particle.phase);
+            particle.x += particle.vx * (16 + pulse * 6);
+            particle.y += particle.vy * (10 + pulse * 4);
+            particle.x += Math.sin(time * 0.00035 + particle.phase) * 0.08;
+            particle.y += Math.cos(time * 0.0002 + particle.phase) * 0.04;
+
+            if (particle.x > width + 24) particle.x = -24;
+            if (particle.x < -24) particle.x = width + 24;
+
+            const waveLift = homeHero ? height * 0.2 : height * 0.14;
+            if (particle.y > height * 0.92) particle.y = particle.baseY;
+            if (particle.y < waveLift) particle.y = particle.baseY;
+
+            const alpha = particle.alpha * (0.65 + pulse * 0.35);
+            ctx.fillStyle = `rgba(110, 232, 255, ${alpha})`;
+            ctx.shadowColor = 'rgba(0, 217, 255, 0.45)';
+            ctx.shadowBlur = 8;
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.radius * (0.8 + pulse * 0.3), 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        ctx.restore();
+    };
+
+    const drawFrame = (time) => {
+        states.forEach((state) => {
+            const { canvas, ctx, width, height, section } = state;
+            if (!width || !height) return;
+
+            ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+            ctx.clearRect(0, 0, width, height);
+            drawBackground(ctx, width, height, section, time, state.seed);
+            const waveLine = drawWave(ctx, width, height, time, state.seed, section.classList.contains('hero'));
+            drawStems(ctx, width, height, time, state, waveLine);
+            drawParticles(ctx, width, height, time, state, section.classList.contains('hero'));
+        });
+    };
+
+    heroSections.forEach((section) => {
+        let canvas = section.querySelector('canvas.hero-canvas, canvas.page-hero-canvas');
+
+        if (!canvas) {
+            canvas = document.createElement('canvas');
+            canvas.className = section.classList.contains('hero') ? 'hero-canvas' : 'page-hero-canvas';
+            section.insertBefore(canvas, section.firstChild);
+        }
+
+        const ctx = canvas.getContext('2d');
+        const state = {
+            section,
+            canvas,
+            ctx,
+            width: 0,
+            height: 0,
+            dpr: 1,
+            particles: [],
+            stems: [],
+            seed: Math.random() * Math.PI * 2,
+        };
+
+        resizeState(state);
+
+        if ('ResizeObserver' in window) {
+            state.resizeObserver = new ResizeObserver(() => resizeState(state));
+            state.resizeObserver.observe(section);
+        } else {
+            window.addEventListener('resize', () => resizeState(state));
+        }
+
+        states.push(state);
+    });
+
+    if (states.length === 0) return;
+
+    if (reducedMotion) {
+        drawFrame(0);
+        return;
+    }
+
+    let animationFrameId;
+    const animate = (time) => {
+        drawFrame(time);
+        animationFrameId = window.requestAnimationFrame(animate);
+    };
+
+    animationFrameId = window.requestAnimationFrame(animate);
+
+    window.addEventListener('beforeunload', () => {
+        if (animationFrameId) {
+            window.cancelAnimationFrame(animationFrameId);
+        }
+        states.forEach(state => {
+            if (state.resizeObserver) {
+                state.resizeObserver.disconnect();
+            }
+        });
+    }, { once: true });
 }
 
 // ========== FAQ ACCORDION ==========
