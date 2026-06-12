@@ -59,7 +59,7 @@ const i18nTranslations = {
         'nav.theme_dark': 'Switch to dark mode',
         'home.hero_prefix': 'IT Student & Aspiring',
         'home.hero_description': "I'm studying Information Technology at Passerelles Numeriques Cambodia (PNC), developing strong technical skills in software development while gaining professional soft skills for the tech industry.",
-        'home.badge': 'PNC IT Student | 2025-2026',
+        'home.badge': 'PNC IT Student | 2025-Present',
         'home.cta_projects': 'View My Projects',
         'home.cta_cv': 'Download CV',
         'home.core_skills': 'My Core Skills',
@@ -81,6 +81,7 @@ const i18nTranslations = {
         'about.edu1_li4': 'Software Engineering Principles',
         'about.edu2_title': 'High School Diploma',
         'about.edu2_desc': 'Graduated with focus on science and mathematics, developing strong analytical and problem-solving skills.',
+        'about.edu2_grade': 'Grade B',
         'about.values_title': 'My Values',
         'about.value1_title': 'Continuous Learning',
         'about.value1_desc': 'Always seeking to learn new technologies and improve my skills through practice and exploration.',
@@ -151,6 +152,8 @@ const i18nTranslations = {
         'projects.team_desc': 'Built a fully responsive team site with HTML5 and CSS3. Practiced clean, semantic code, Git/GitHub workflows, and shipped the site on Vercel.',
         'projects.shop_title': 'PNC Shop Website',
         'projects.shop_desc': 'Contributed to a 5-member team building a computer shop website in a 2-week PNC challenge. Focused on layout, styling, and content for a functional shop flow.',
+        'projects.pos_title': 'POS System API',
+        'projects.pos_desc': 'Built a POS System API from 18 May 2026 to 7 June 2026 as Team Coordinator & Backend Developer. Led a 2-member team, developed donation management features and full-stack functionality, and coordinated collaboration using Git & GitHub.',
         'projects.view_repo': 'View Repository',
         'projects.github_title': 'More Projects on GitHub',
         'projects.github_desc': 'See more projects, experiments, and coding challenges on GitHub.',
@@ -220,7 +223,7 @@ const i18nTranslations = {
         'contact.location_text': 'Phnom Penh, Cambodia',
         'contact.location_note': 'Open to remote opportunities',
         'contact.method_education': 'Education',
-        'contact.education_program': 'IT Diploma Program (2025-2026)',
+        'contact.education_program': 'IT Diploma Program (2025-Present)',
         'contact.social_title': 'Connect on Social Media',
         'contact.social_desc': 'Follow me for updates on my projects and coding journey.',
         'contact.faq_title': 'Frequently Asked Questions',
@@ -258,7 +261,7 @@ const i18nTranslations = {
         'nav.theme_dark': 'ប្តូរទៅរចនាប័ទ្មងងឹត',
         'home.hero_prefix': 'និស្សិត IT និងមានគោលបំណងជា',
         'home.hero_description': 'ខ្ញុំកំពុងសិក្សាផ្នែកព័ត៌មានវិទ្យានៅ Passerelles Numeriques Cambodia (PNC) និងកំពុងអភិវឌ្ឍជំនាញបច្ចេកទេសខ្លាំងក្នុងការអភិវឌ្ឍកម្មវិធី ព្រមទាំងជំនាញទន់សម្រាប់វិស័យបច្ចេកវិទ្យា។',
-        'home.badge': 'និស្សិត IT PNC | 2025-2026',
+        'home.badge': 'និស្សិត IT PNC | 2025-បច្ចុប្បន្ន',
         'home.cta_projects': 'មើលគម្រោងរបស់ខ្ញុំ',
         'home.cta_cv': 'ទាញយក CV',
         'home.core_skills': 'ជំនាញស្នូលរបស់ខ្ញុំ',
@@ -280,6 +283,7 @@ const i18nTranslations = {
         'about.edu1_li4': 'គោលការណ៍វិស្វកម្មកម្មវិធី',
         'about.edu2_title': 'សញ្ញាបត្រមធ្យមសិក្សា',
         'about.edu2_desc': 'បញ្ចប់ការសិក្សាដោយផ្តោតលើវិទ្យាសាស្ត្រ និងគណិតវិទ្យា ដែលជួយអភិវឌ្ឍជំនាញវិភាគ និងដោះស្រាយបញ្ហាឱ្យកាន់តែរឹងមាំ។',
+        'about.edu2_grade': 'ថ្នាក់ B',
         'about.values_title': 'តម្លៃរបស់ខ្ញុំ',
         'about.value1_title': 'ការរៀនសូត្របន្ត',
         'about.value1_desc': 'តែងតែស្វែងរកបច្ចេកវិទ្យាថ្មីៗ និងបង្កើនជំនាញរបស់ខ្ញុំតាមរយៈការអនុវត្ត និងការស្វែងយល់។',
@@ -350,6 +354,8 @@ const i18nTranslations = {
         'projects.team_desc': 'បានបង្កើតគេហទំព័រជាក្រុមដែល responsive ពេញលេញដោយប្រើ HTML5 និង CSS3។ បានអនុវត្ត clean semantic code, workflow របស់ Git/GitHub និង deploy លើ Vercel។',
         'projects.shop_title': 'គេហទំព័រ PNC Shop',
         'projects.shop_desc': 'បានរួមចំណែកក្នុងក្រុមសមាជិក 5 នាក់ ដើម្បីបង្កើតគេហទំព័រលក់កុំព្យូទ័រ ក្នុង challenge រយៈពេល 2 សប្ដាហ៍នៅ PNC។ បានផ្តោតលើ layout, styling និង content សម្រាប់ shop flow ដែលអាចប្រើបាន។',
+        'projects.pos_title': 'POS System API',
+        'projects.pos_desc': 'បានបង្កើត POS System API ចាប់ពី 18 ឧសភា 2026 ដល់ 7 មិថុនា 2026 ក្នុងតួនាទីជា Team Coordinator & Backend Developer។ បានដឹកនាំក្រុមសមាជិក 2 នាក់ បង្កើតមុខងារគ្រប់គ្រងការបរិច្ចាគ និងមុខងារ full-stack ព្រមទាំងសម្របសម្រួលការសហការដោយប្រើ Git និង GitHub។',
         'projects.view_repo': 'មើល Repository',
         'projects.github_title': 'គម្រោងបន្ថែមនៅលើ GitHub',
         'projects.github_desc': 'មើលគម្រោង ការសាកល្បង និង coding challenges បន្ថែមទៀតនៅលើ GitHub។',
@@ -419,7 +425,7 @@ const i18nTranslations = {
         'contact.location_text': 'ភ្នំពេញ កម្ពុជា',
         'contact.location_note': 'បើកចំហសម្រាប់ឱកាស remote',
         'contact.method_education': 'ការអប់រំ',
-        'contact.education_program': 'កម្មវិធីសញ្ញាបត្រ IT (2025-2026)',
+        'contact.education_program': 'កម្មវិធីសញ្ញាបត្រ IT (2025-បច្ចុប្បន្ន)',
         'contact.social_title': 'ភ្ជាប់តាមបណ្ដាញសង្គម',
         'contact.social_desc': 'តាមដានខ្ញុំសម្រាប់ព័ត៌មានថ្មីៗអំពីគម្រោង និងដំណើរសរសេរកូដរបស់ខ្ញុំ។',
         'contact.faq_title': 'សំណួរដែលគេសួរញឹកញាប់',
@@ -488,14 +494,14 @@ function applyLanguage(language) {
 
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
-        if (dictionary[key]) {
-            if (dictionary[key].includes('<span')) {
-                element.innerHTML = dictionary[key];
-            } else {
-                element.textContent = dictionary[key];
+            if (dictionary[key]) {
+                if (dictionary[key].includes('<')) {
+                    element.innerHTML = dictionary[key];
+                } else {
+                    element.textContent = dictionary[key];
+                }
             }
-        }
-    });
+        });
 
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
         const key = element.getAttribute('data-i18n-placeholder');
@@ -616,17 +622,29 @@ function initActiveMenu() {
 
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
+        const normalizedLink = normalizeNavHref(linkPage);
+        const normalizedCurrent = currentPage || 'index.html';
 
         // Remove active class from all links
         link.classList.remove('active');
+        link.removeAttribute('aria-current');
 
         // Check if this link matches the current page
-        if (linkPage === currentPage ||
-            (currentPage === '' && linkPage === 'index.html') ||
-            (currentPage === undefined && linkPage === 'index.html')) {
+        if (normalizedLink === normalizedCurrent) {
             link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
         }
     });
+}
+
+function normalizeNavHref(href) {
+    if (!href) return '';
+    if (href === '#') return 'index.html';
+
+    const cleanedHref = href.split('#')[0].split('?')[0].replace(/^\.\//, '');
+    const fileName = cleanedHref.split('/').filter(Boolean).pop() || '';
+
+    return fileName || 'index.html';
 }
 
 // ========== FORM VALIDATION ==========
