@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initTheme();
     initActiveMenu();
+    initNavbarScroll();
     initFormValidation();
     initAnimations();
     initCurrentYear();
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initStatCounters();
     initHeroRoleRotation();
     initHeroBackgrounds();
+    initCertificateModal();
 });
 
 const translations = {
@@ -25,6 +27,7 @@ const translations = {
         'nav.home': 'Home',
         'nav.about': 'About',
         'nav.skills': 'Skills',
+        'nav.certificate': 'Certificates',
         'nav.projects': 'Projects',
         'nav.experience': 'Experience',
         'nav.contact': 'Contact',
@@ -36,6 +39,7 @@ const translations = {
         'nav.home': 'ទំព័រដើម',
         'nav.about': 'អំពីខ្ញុំ',
         'nav.skills': 'ជំនាញ',
+        'nav.certificate': 'វិញ្ញាបនបត្រ',
         'nav.projects': 'គម្រោង',
         'nav.experience': 'បទពិសោធន៍',
         'nav.contact': 'ទំនាក់ទំនង',
@@ -50,6 +54,7 @@ const i18nTranslations = {
         'nav.home': 'Home',
         'nav.about': 'About',
         'nav.skills': 'Skills',
+        'nav.certificate': 'Certificates',
         'nav.projects': 'Projects',
         'nav.experience': 'Experience',
         'nav.contact': 'Contact',
@@ -58,6 +63,119 @@ const i18nTranslations = {
         'nav.option_km': 'Khmer',
         'nav.theme_light': 'Switch to light mode',
         'nav.theme_dark': 'Switch to dark mode',
+        'certificate.page_title': 'My Certificates',
+        'certificate.page_subtitle': 'Credentials and certifications earned through coursework and professional development',
+        'certificate.group_technical': 'Technical Skills & Training',
+        'certificate.group_soft': 'Soft Skills & Leadership',
+        'certificate.group_language': 'Language & Communication',
+        'certificate.group_competition': 'Competitions & Awards',
+        'cert.css_title': 'CSS (Basic) Certificate',
+        'cert.css_issuer': 'HackerRank',
+        'cert.css_desc': 'Certification demonstrating foundational CSS skills including selectors, box model, flexbox, grid, responsive design, and styling best practices.',
+        'cert.css_tag1': 'CSS3',
+        'cert.css_tag2': 'Flexbox',
+        'cert.css_tag3': 'Grid',
+        'cert.jsb_title': 'JavaScript (Basic) Certificate',
+        'cert.jsb_issuer': 'HackerRank',
+        'cert.jsb_desc': 'Certification covering JavaScript fundamentals including syntax, variables, control flow, functions, arrays, objects, and DOM manipulation basics.',
+        'cert.jsb_tag1': 'JavaScript',
+        'cert.jsb_tag2': 'ES6',
+        'cert.jsb_tag3': 'DOM',
+        'cert.ai_title': 'Introduction to Artificial Intelligence',
+        'cert.ai_issuer': 'Online Course',
+        'cert.ai_desc': 'Introductory course covering core AI concepts, machine learning fundamentals, and real-world applications of artificial intelligence technologies.',
+        'cert.ai_tag1': 'Artificial Intelligence',
+        'cert.ai_tag2': 'Machine Learning',
+        'cert.ethics_title': 'Internet Code of Ethics and Digital Security - PED',
+        'cert.ethics_issuer': 'PED',
+        'cert.ethics_desc': 'Certificate covering internet ethics, digital security principles, responsible online behavior, and cybersecurity awareness best practices.',
+        'cert.ethics_tag1': 'Digital Security',
+        'cert.ethics_tag2': 'Ethics',
+        'cert.ethics_tag3': 'Cybersecurity',
+        'cert.dst_title': 'DIGITAL SECURITY TRAINING (DST)',
+        'cert.dst_issuer': 'Digital Security Training',
+        'cert.dst_desc': 'Comprehensive digital security training certificate covering online safety, data protection, threat awareness, and secure digital practices.',
+        'cert.dst_tag1': 'Digital Security',
+        'cert.dst_tag2': 'Data Protection',
+        'cert.dst_tag3': 'Cybersecurity',
+        'cert.ai_lit_title': 'AI Literacy Online Training 2026',
+        'cert.ai_lit_issuer': 'Online Training Program',
+        'cert.ai_lit_desc': 'Online training program focused on building foundational AI literacy skills and understanding artificial intelligence concepts for everyday applications.',
+        'cert.ai_lit_tag1': 'AI Literacy',
+        'cert.ai_lit_tag2': 'Digital Skills',
+        'cert.eqspire_title': 'EQSpire Participants',
+        'cert.eqspire_issuer': 'EQSpire Program',
+        'cert.eqspire_desc': 'Participation certificate from the EQSpire program, focusing on emotional intelligence, professional development, and leadership skills.',
+        'cert.eqspire_tag1': 'Emotional Intelligence',
+        'cert.eqspire_tag2': 'Leadership',
+        'cert.yrdp_title': 'Leadership and Personal Development - YRDP',
+        'cert.yrdp_issuer': 'YRDP',
+        'cert.yrdp_desc': 'Certificate from the YRDP Leadership and Personal Development program, covering leadership principles, self-development, and professional growth skills.',
+        'cert.yrdp_tag1': 'Leadership',
+        'cert.yrdp_tag2': 'Personal Development',
+        'cert.ifa_title': 'IFA Data-Driven Leadership Seminar',
+        'cert.ifa_issuer': 'IFA',
+        'cert.ifa_desc': 'Seminar certificate from IFA focusing on data-driven leadership principles, analytics-based decision making, and strategic leadership development.',
+        'cert.ifa_tag1': 'Leadership',
+        'cert.ifa_tag2': 'Data Analytics',
+        'cert.gender_title': 'Gender & Digital Equality Training',
+        'cert.gender_issuer': 'Training Program',
+        'cert.gender_desc': 'Training certificate focused on promoting gender equality in digital spaces, inclusive technology practices, and bridging the digital divide.',
+        'cert.gender_tag1': 'Gender Equality',
+        'cert.gender_tag2': 'Digital Inclusion',
+        'cert.safe_title': 'Auscam Freedom Project SAFE Sister Program',
+        'cert.safe_issuer': 'Auscam Freedom Project',
+        'cert.safe_desc': 'Program completion certificate from the SAFE Sister initiative focused on empowerment, safety awareness, and community support skills.',
+        'cert.safe_tag1': 'Empowerment',
+        'cert.safe_tag2': 'សហគមន៍',
+        'cert.gymlish_title': 'ការវាយពាហុភពភាសា Gymlish',
+        'cert.gymlish_issuer': 'Gymlish',
+        'cert.gymlish_desc': 'វិញ្ញាបនបត្រវាយពាហុភពភាសាដែលបង្ហាញជំនាញទំនាក់ទំនងអង់គ្លេសតាមរយៈការប៉ាន់ស្មានដែលមានរចនាប័ទ្ម និងលំហាត់អនុវត្ត។',
+        'cert.gymlish_tag1': 'ភាសាអង់គ្លេស',
+        'cert.gymlish_tag2': 'ការទំនាក់ទំនង',
+        'cert.pucifl_title': 'មូលដ្ឋានគ្រឹះនៃការរៀនភាសាអង់គ្លេស – PUC-IFL',
+        'cert.pucifl_issuer': 'PUC-IFL',
+        'cert.pucifl_desc': 'វិញ្ញាបនបត្របញ្ចប់វគ្គសិក្សាមូលដ្ឋានគ្រឹះរៀនភាសាអង់គ្លេសនៅ PUC-IFL ដែលផ្តោតលើជំនាញភាសាអង់គ្លេស និងជំនាញអាហារូបករណ៍មូលដ្ឋាន។',
+        'cert.pucifl_tag1': 'ភាសាអង់គ្លេស',
+        'cert.pucifl_tag2': 'ជំនាញអាហារ',
+        'cert.ideathon_title': 'ការប្រកួតផ្តួចផ្តើមគំនិត Cambodia 2025',
+        'cert.ideathon_issuer': 'Ideathon Cambodia',
+        'cert.ideathon_desc': 'វិញ្ញាបនបត្រចូលរួមពី Ideathon Cambodia 2025 ដែលបង្ហាញការច្នៃប្រឌិត ការដោះស្រាយបញ្ហា និងការគិតរចនាស្ពន្ធគ្នាក្នុងបរិយាកាសប្រកួតគឺ។',
+        'cert.ideathon_tag1': 'ការច្នៃប្រឌិត',
+        'cert.ideathon_tag2': 'ការដោះស្រាយបញ្ហា',
+        'cert.debate_title': 'ការប្រកួតនិយាយមុខងារទស្សនៈរបស់យុវជន',
+        'cert.debate_issuer': 'ការប្រកួតនិយាយមុខងារ',
+        'cert.debate_desc': 'វិញ្ញាបនបត្រទទួលស្គាល់ការចូលរួម និងការសម្តែងនៅក្នុងការប្រកួតនិយាយមុខងារទស្សនៈរបស់យុវជន ដែលបង្ហាញជំនាញគិតវិភាគ និងការនិយាយមុខងារសាធារណៈ។',
+        'cert.debate_tag1': 'ការនិយាយមុខងារសាធារណៈ',
+        'cert.debate_tag2': 'ការគិតវិភាគ',
+        'cert.completion_title': 'វិញ្ញាបនបត្របញ្ចប់',
+        'cert.completion_issuer': 'ផល សុភា',
+        'cert.completion_desc': 'វិញ្ញាបនបត្រទូទៅបញ្ចប់ការដែលទទួលស្គាល់ការចូលរួមដោយជោគជ័យ និងវប្បធម៌ក្នុងកម្មវិធីអប់រំ ឬបណ្តុះបណ្តាលដែលមានឆន្នៃ។',
+        'cert.completion_tag1': 'ការបញ្ចប់',
+        'cert.completion_tag2': 'វប្បធម៌',
+        'certificate.pnc_title': 'PNC IT Diploma',
+        'certificate.pnc_issuer': 'Passerelles Numeriques Cambodia',
+        'certificate.pnc_date': '2025 - Present',
+        'certificate.pnc_desc': 'Comprehensive two-year program covering software development, web technologies, database management, and professional skills for the tech industry.',
+        'certificate.rwd_title': 'Responsive Web Design',
+        'certificate.rwd_date': '2024',
+        'certificate.rwd_desc': 'Certification covering HTML5, CSS3, accessibility, responsive design principles, and CSS Grid/Flexbox layouts.',
+        'certificate.js_title': 'JavaScript Algorithms and Data Structures',
+        'certificate.js_date': '2024',
+        'certificate.js_desc': 'Certification in JavaScript fundamentals, ES6+, algorithms, data structures, and functional programming concepts.',
+        'certificate.sql_title': 'SQL and Database Design',
+        'certificate.sql_issuer': 'PNC Training',
+        'certificate.sql_date': '2025',
+        'certificate.sql_desc': 'Hands-on training in relational database design, SQL queries, normalization, and database optimization techniques.',
+        'certificate.git_title': 'Git and Version Control',
+        'certificate.git_issuer': 'PNC Training',
+        'certificate.git_date': '2025',
+        'certificate.git_desc': 'Practical training in Git workflows, branching strategies, collaboration with GitHub, and version control best practices.',
+        'certificate.web_title': 'Full-Stack Web Development',
+        'certificate.web_issuer': 'PNC Training',
+        'certificate.web_date': '2025',
+        'certificate.web_desc': 'End-to-end web development training covering frontend, backend, API integration, and deployment practices.',
+        'home.hero_hello': "Hello, I'm",
         'home.hero_prefix': 'IT Student & Aspiring',
         'home.hero_description': "I'm studying Information Technology at Passerelles Numeriques Cambodia (PNC), developing strong technical skills in software development while gaining professional soft skills for the tech industry.",
         'home.badge': 'PNC IT Student | 2025-Present',
@@ -155,6 +273,10 @@ const i18nTranslations = {
         'projects.shop_desc': 'Contributed to a 5-member team building a computer shop website in a 2-week PNC challenge. Focused on layout, styling, and content for a functional shop flow.',
         'projects.pos_title': 'POS System API',
         'projects.pos_desc': 'Built a POS System API from 18 May 2026 to 7 June 2026 as Team Coordinator & Backend Developer. Led a 2-member team, developed donation management features and full-stack functionality, and coordinated collaboration using Git & GitHub.',
+        'projects.engagement_title': 'Class Engagement Tools',
+        'projects.engagement_desc': 'Led a 6-member Agile team to develop a classroom engagement platform using Laravel, Vue.js, and PostgreSQL (Jul 01, 2026 – Present). Developed RESTful APIs and interactive features, including Random Wheel, Quiz, Timer, Attendance, and Group Generator. Collaborated using Git and GitHub and followed Agile Scrum practices.',
+        'projects.gen_shop_title': 'GenShop E-commerce',
+        'projects.gen_shop_desc': 'Built an individual e-commerce platform with Laravel, Vue.js, and MySQL. The project supports essential shop workflows including product listing, user authentication, and shopping cart management.',
         'projects.view_repo': 'View Repository',
         'projects.github_title': 'More Projects on GitHub',
         'projects.github_desc': 'See more projects, experiments, and coding challenges on GitHub.',
@@ -214,6 +336,12 @@ const i18nTranslations = {
         'contact.label_message': 'Message *',
         'contact.placeholder_message': 'Your message here...',
         'contact.send_message': 'Send Message',
+        'contact.required_field': 'This field is required',
+        'contact.invalid_email': 'Please enter a valid email address',
+        'contact.message_too_short': 'Message must be at least 10 characters long',
+        'contact.success_message': 'Thank you! Your message has been sent successfully.',
+        'contact.error_message': 'Please fix the errors above and try again.',
+        'contact.processing': 'Processing...',
         'contact.info_title': 'Contact Information',
         'contact.info_desc': 'Feel free to reach out through any of these channels. I typically respond within 24 hours.',
         'contact.method_email': 'Email',
@@ -260,6 +388,120 @@ const i18nTranslations = {
         'nav.option_km': 'ខ្មែរ',
         'nav.theme_light': 'ប្តូរទៅរចនាប័ទ្មភ្លឺ',
         'nav.theme_dark': 'ប្តូរទៅរចនាប័ទ្មងងឹត',
+        'nav.certificate': 'វិញ្ញាបនបត្រ',
+        'certificate.page_title': 'វិញ្ញាបនបត្រ',
+        'certificate.page_subtitle': 'លិខិតសម្គាល់ និងវិញ្ញាបនបត្រដែលទទួលបានតាមរយៈការសិក្សា និងការអភិវឌ្ឍវិជ្ជាជីវៈ',
+        'certificate.group_technical': 'ជំនាញបច្ចេកទេស និងការបណ្តុះបណ្តាល',
+        'certificate.group_soft': 'ជំនាញទន់ និងភាពជាម្ចាស់ដៃ',
+        'certificate.group_language': 'ភាសា និងការប្រាស្រ័យទាក់ទង',
+        'certificate.group_competition': 'ការប្រកួត និងពាន់លាភ',
+        'cert.css_title': 'វិញ្ញាបនបត្រ CSS (មូលដ្ឋាន)',
+        'cert.css_issuer': 'HackerRank',
+        'cert.css_desc': 'វិញ្ញាបនបត្របំពេញជំនាញមូលដ្ឋាន CSS ដែលរាមមាន selector, box model, flexbox, grid, រចនាឆ្លើយតប និងវិធីធ្វើដែលល្អ។',
+        'cert.css_tag1': 'CSS3',
+        'cert.css_tag2': 'Flexbox',
+        'cert.css_tag3': 'Grid',
+        'cert.jsb_title': 'វិញ្ញាបនបត្រ JavaScript (មូលដ្ឋាន)',
+        'cert.jsb_issuer': 'HackerRank',
+        'cert.jsb_desc': 'វិញ្ញាបនបត្រគ្រប់គ្រាប់ពីមូលដ្ឋានគ្រឹះ JavaScript ដែលរួមមាន syntax, អថេរ, វាលវែង, អនុវត្តលction, អារេ, វាsង្គកម្ម និងគោលការណ៍ DOM មូលដ្ឋាន។',
+        'cert.jsb_tag1': 'JavaScript',
+        'cert.jsb_tag2': 'ES6',
+        'cert.jsb_tag3': 'DOM',
+        'cert.ai_title': 'ណែនាំអំពីពន្លឺម៉ាស៊ីនធ្វើការដោយខ្លួនឯង',
+        'cert.ai_issuer': 'វគ្គសិក្សាអុនឡាញ',
+        'cert.ai_desc': 'វគ្គសិក្សាណែនាំដែលគ្របដណ្តប់គោលការណ៍ AI មូលដ្ឋាន, មូលដ្ឋានគ្រឹះជាំងស្យុង, និងការអនុវត្តជាក់ស្តែងនៃបច្ចេកវិទ្យាពន្លឺម៉ាស៊ីនធ្វើការដោយខ្លួនឯង។',
+        'cert.ai_tag1': 'ពន្លឺម៉ាស៊ីនធ្វើការដោយខ្លួនឯង',
+        'cert.ai_tag2': 'ជាំងស្យុង',
+        'cert.ethics_title': 'ក្រមវិធុនសី និងសុវត្ថិភាពឌីជីថល - PED',
+        'cert.ethics_issuer': 'PED',
+        'cert.ethics_desc': 'វិញ្ញាបនបត្រគ្រប់គ្រាប់អំពីក្រមវិធុនសី និងគោលការណ៍សុវត្ថិភាពឌីជីថល ទម្លាប់ខ្លួនល្អតាមអ៊ីនធើណេត និងការដឹងដឹងអំពីសុវត្ថិភាពអ៊ីនធើណេត។',
+        'cert.ethics_tag1': 'សុវត្ថិភាពឌីជីថល',
+        'cert.ethics_tag2': 'ក្រមវិធុនសី',
+        'cert.ethics_tag3': 'សុវត្ថិភាពស៊ីប៊ីរ',
+        'cert.dst_title': 'ការបណ្តុះបណ្តាលសុវត្ថិភាពឌីជីថល (DST)',
+        'cert.dst_issuer': 'ការបណ្តុះបណ្តាលសុវត្ថិភាពឌីជីថល',
+        'cert.dst_desc': 'វិញ្ញាបនបត្របណ្តុះបណ្តាលសុវត្ថិភាពឌីជីថលគ្រប់គ្រាប់ដែលគ្របដណ្តប់សុវត្ថិភាពក្នុងបណ្តាញ ការពារទិន្នន័យ ការដឹងដឹងអំពីការគំារ និងទម្លាប់ល្អ។',
+        'cert.dst_tag1': 'សុវត្ថិភាពឌីជីថល',
+        'cert.dst_tag2': 'ការពារទិន្នន័យ',
+        'cert.dst_tag3': 'សុវត្ថិភាពស៊ីប៊ីរ',
+        'cert.ai_lit_title': 'ការបណ្តុះបណ្តាលភាសា AI អនឡាញ 2026',
+        'cert.ai_lit_issuer': 'វគ្គសិក្សាអនឡាញ',
+        'cert.ai_lit_desc': 'ការបណ្តុះបណ្តាលអនឡាញដែលផ្តោតលើការបង្កើតជំនាញភាសា AI មូលដ្ឋាន និងការយល់�់អំពីមូលដ្ឋានគ្រឹះពន្លឺម៉ាស៊ីនធ្វើការដោយខ្លួនឯងសម្រាប់ការអនុវត្តប្រចាំថ្ងៃ។',
+        'cert.ai_lit_tag1': 'ភាសា AI',
+        'cert.ai_lit_tag2': 'ជំនាញឌីជីថល',
+        'cert.eqspire_title': 'អ្នកចូលរួម EQSpire',
+        'cert.eqspire_issuer': 'កម្មវិធី EQSpire',
+        'cert.eqspire_desc': 'វិញ្ញាបនបត្របានចូលរួមពីកម្មវិធី EQSpire ដែលផ្តោតលើភាពយល់ដឹងស្រាលគេច ៈ ការអភិវឌ្ឍវិជ្ជាជីវៈ និងជំនាញភាពជាម្ចាស់ដៃ។',
+        'cert.eqspire_tag1': 'ភាពយល់ដឹងស្រាលគេច ៈ',
+        'cert.eqspire_tag2': 'ភាពជាម្ចាស់ដៃ',
+        'cert.yrdp_title': 'ការដឹកនាំ និងការអភិវឌ្ឍផ្ទាល់ខ្លួន - YRDP',
+        'cert.yrdp_issuer': 'YRDP',
+        'cert.yrdp_desc': 'វិញ្ញាបនបត្រពីកម្មវិធីដឹកនាំ និងការអភិវឌ្ឍផ្ទាល់ខ្លួននៃ YRDP ដែលគ្របដណ្តប់គោលការណ៍ដឹកនាំ ការអភិវឌ្ឍខ្លួនឯង និងជំនាញអភិវឌ្ឍវិជ្ជាជីវៈ។',
+        'cert.yrdp_tag1': 'ភាពជាអ្នកដឹកនាំ',
+        'cert.yrdp_tag2': 'ការអភិវឌ្ឍផ្ទាល់ខ្លួន',
+        'cert.ifa_title': 'សិក្ខាសាត្រីដឹកនាំដែលផ្អែកលើទិន្នន័យ - IFA',
+        'cert.ifa_issuer': 'IFA',
+        'cert.ifa_desc': 'វិញ្ញាបនបត្រពីសិក្ខាសាត្រី IFA ដែលផ្តោតលើគោលការណ៍ដឹកនាំផ្អែកលើទិន្នន័យ ការសម្រេចចេស្សសាស្ត្រធម្មគ្រប់គ្រាប់ និងការអភិវឌ្ឍដឹកនាយ៉ាងយកចិត្តទុកដាក់។',
+        'cert.ifa_tag1': 'ភាពជាអ្នកដឹកនាំ',
+        'cert.ifa_tag2': 'ការវិភាគទិន្នន័យ',
+        'cert.gender_title': 'ការបណ្តុះបណ្តាលភេទ និងភាពស្មើភាពឌីជីថល',
+        'cert.gender_issuer': 'វគ្គបណ្តុះបណ្តាល',
+        'cert.gender_desc': 'វិញ្ញាបនបត្របណ្តុះបណ្តាលដែលផ្តោតលើការជំរុញភេទស្មើភាពក្នុងបរិយាកាសឌីជីថល ទម្លាប់បច្ចេកវិទ្យារួមបញ្ចូល និងការបំពេញការខ្វះខាតឌីជីថល។',
+        'cert.gender_tag1': 'ភេទស្មើភាព',
+        'cert.gender_tag2': 'ការរួមបញ្ចូលឌីជីថល',
+        'cert.safe_title': 'កម្មវិធីដៃគូសេវាអភិវឌ្ឍសេរីភាព Auscam SAFE Sister',
+        'cert.safe_issuer': 'កម្មវិធីដៃគូសេវាអភិវឌ្ឍសេរីភាព Auscam',
+        'cert.safe_desc': 'វិញ្ញាបនបត្របញ្ចប់កម្មវិធីពីនិយោគកម្ម SAFE Sister ដែលផ្តោតលើការបណ្តុះខ្លួន ការដឹងដឹងសុវត្ថិភាព និងជំនាញគាំទ្រសហគមន៍។',
+        'cert.safe_tag1': 'ការបណ្តុះខ្លួន',
+        'cert.safe_tag2': 'សហគមន៍',
+        'cert.gymlish_title': 'ការវាយពាហុភពភាសា Gymlish',
+        'cert.gymlish_issuer': 'Gymlish',
+        'cert.gymlish_desc': 'វិញ្ញាបនបត្រវាយពាហុភពភាសាដែលបង្ហាញជំនាញទំនាក់ទំនងអង់គ្លេសតាមរយៈការប៉ាន់ស្មានដែលមានរចនាប័ទ្ម និងលំហាត់អនុវត្ត។',
+        'cert.gymlish_tag1': 'ភាសាអង់គ្លេស',
+        'cert.gymlish_tag2': 'ការទំនាក់ទំនង',
+        'cert.pucifl_title': 'មូលដ្ឋានគ្រឹះនៃការរៀនភាសាអង់គ្លេស – PUC-IFL',
+        'cert.pucifl_issuer': 'PUC-IFL',
+        'cert.pucifl_desc': 'វិញ្ញាបនបត្របញ្ចប់វគ្គសិក្សាមូលដ្ឋានគ្រឹះរៀនភាសាអង់គ្លេសនៅ PUC-IFL ដែលផ្តោតលើជំនាញភាសាអង់គ្លេស និងជំនាញអាហារូបករណ៍មូលដ្ឋាន។',
+        'cert.pucifl_tag1': 'ភាសាអង់គ្លេស',
+        'cert.pucifl_tag2': 'ជំនាញអាហារ',
+        'cert.ideathon_title': 'ការប្រកួតផ្តួចផ្តើមគំនិត Cambodia 2025',
+        'cert.ideathon_issuer': 'Ideathon Cambodia',
+        'cert.ideathon_desc': 'វិញ្ញាបនបត្រចូលរួមពី Ideathon Cambodia 2025 ដែលបង្ហាញការច្នៃប្រឌិត ការដោះស្រាយបញ្ហា និងការគិតរចនាស្ពន្ធគ្នាក្នុងបរិយាកាសប្រកួតគឺ។',
+        'cert.ideathon_tag1': 'ការច្នៃប្រឌិត',
+        'cert.ideathon_tag2': 'ការដោះស្រាយបញ្ហា',
+        'cert.debate_title': 'ការប្រកួតនិយាយមុខងារទស្សនៈរបស់យុវជន',
+        'cert.debate_issuer': 'ការប្រកួតនិយាយមុខងារ',
+        'cert.debate_desc': 'វិញ្ញាបនបត្រទទួលស្គាល់ការចូលរួម និងការសម្តែងនៅក្នុងការប្រកួតនិយាយមុខងារទស្សនៈរបស់យុវជន ដែលបង្ហាញជំនាញគិតវិភាគ និងការនិយាយមុខងារសាធារណៈ។',
+        'cert.debate_tag1': 'ការនិយាយមុខងារសាធារណៈ',
+        'cert.debate_tag2': 'ការគិតវិភាគ',
+        'cert.completion_title': 'វិញ្ញាបនបត្របញ្ចប់',
+        'cert.completion_issuer': 'ផល សុភា',
+        'cert.completion_desc': 'វិញ្ញាបនបត្រទូទៅបញ្ចប់ការដែលទទួលស្គាល់ការចូលរួមដោយជោគជ័យ និងវប្បធម៌ក្នុងកម្មវិធីអប់រំ ឬបណ្តុះបណ្តាលដែលមានឆន្នៃ។',
+        'cert.completion_tag1': 'ការបញ្ចប់',
+        'cert.completion_tag2': 'វប្បធម៌',
+        'certificate.pnc_title': 'សញ្ញាបត្រ IT ពី PNC',
+        'certificate.pnc_issuer': 'Passerelles Numeriques Cambodia',
+        'certificate.pnc_date': '2025 - បច្ចុប្បន្ន',
+        'certificate.pnc_desc': 'កម្មវិធីសិក្សារយៈពេលពីរឆ្នាំដ៏ទូលំទូលាយគ្រប់គ្រាប់ ផ្តោតលើការអភិវឌ្ឍកម្មវិធី បច្ចេកវិទ្យាវេប ការគ្រប់គ្រងមូលដ្ឋានទិន្នន័យ និងជំនាញវិជ្ជាជីវៈសម្រាប់វិស័យបច្ចេកវិទ្យា។',
+        'certificate.rwd_title': 'ការរចនាเว็บដែលឆ្លើយតប',
+        'certificate.rwd_date': '2024',
+        'certificate.rwd_desc': 'វិញ្ញាបនបត្រគ្រប់គ្រាប់អំពី HTML5, CSS3, មធ្យមភាពចូលដំណើរ គោលការណ៍ការរចនាឆ្លើយតប និងទម្រង់ CSS Grid/Flexbox។',
+        'certificate.js_title': 'ការប្រតិបត្តិ JavaScript និងរាងដ្រាស្ទីតទិន្នន័យ',
+        'certificate.js_date': '2024',
+        'certificate.js_desc': 'វិញ្ញាបនបត្រអំពីមូលដ្ឋានគ្រឹះ JavaScript, ES6+, កាលិចិត្រ, រាងដ្រាស្ទីតទិន្នន័យ និងសត្វកម្មអនាមិក។',
+        'certificate.sql_title': 'SQL និងការរចនាមូលដ្ឋានទិន្នន័យ',
+        'certificate.sql_issuer': 'ការបណ្តុះបណ្តាល PNC',
+        'certificate.sql_date': '2025',
+        'certificate.sql_desc': 'ការបណ្តុះបណ្តាលអនុវត្តលើការរចនាមូលដ្ឋានទិន្នន័យទំនាប, សំណួរ SQL, ការធានាភាពប្រក្រតី និងវិធីសាស្ត្រកែលម្អមូលដ្ឋានទិន្នន័យ។',
+        'certificate.git_title': 'Git និងការគ្រប់គ្រងកំណះ',
+        'certificate.git_issuer': 'ការបណ្តុះបណ្តាល PNC',
+        'certificate.git_date': '2025',
+        'certificate.git_desc': 'ការបណ្តុះបណ្តាលអនុវត្តលើវិធីសាស្ត្រវាយផែន Git, របៀបចែកផ្ដាច់, ការសហការជាមួយ GitHub និងគោលការណ៍ល្អនៃការគ្រប់គ្រងកំណះ។',
+        'certificate.web_title': 'ការអភិវឌ្ឍវេប Full-Stack',
+        'certificate.web_issuer': 'ការបណ្តុះបណ្តាល PNC',
+        'certificate.web_date': '2025',
+        'certificate.web_desc': 'ការបណ្តុះបណ្តាលអភិវឌ្ឍវេបពីចុងទៅចុងលើ frontend, backend, ការរួមបញ្ចូល API និងវិធីសាស្ត្រធ្វើឱ្យដំណើរការ។',
+        'home.hero_hello': 'សួស្តី ខ្ញុំឈ្មោះ',
         'home.hero_prefix': 'និស្សិត IT និងមានគោលបំណងជា',
         'home.hero_description': 'ខ្ញុំកំពុងសិក្សាផ្នែកព័ត៌មានវិទ្យានៅ Passerelles Numeriques Cambodia (PNC) និងកំពុងអភិវឌ្ឍជំនាញបច្ចេកទេសខ្លាំងក្នុងការអភិវឌ្ឍកម្មវិធី ព្រមទាំងជំនាញទន់សម្រាប់វិស័យបច្ចេកវិទ្យា។',
         'home.badge': 'និស្សិត IT PNC | 2025-បច្ចុប្បន្ន',
@@ -304,7 +546,7 @@ const i18nTranslations = {
         'skills.frontend_title': 'ការអភិវឌ្ឍ Frontend',
         'skills.responsive_design': 'ការរចនាឆបតាមអេក្រង់',
         'skills.backend_title': 'ការអភិវឌ្ឍ Backend',
-        'skills.rest_api': 'RESTful APIs',
+        'skills.rest_api': 'អេគីអេភីអាយ REST',
         'skills.database_title': 'ការគ្រប់គ្រងមូលដ្ឋានទិន្នន័យ',
         'skills.database_design': 'ការរចនាមូលដ្ឋានទិន្នន័យ',
         'skills.sql_queries': 'សំណួរ SQL',
@@ -355,8 +597,12 @@ const i18nTranslations = {
         'projects.team_desc': 'បានបង្កើតគេហទំព័រជាក្រុមដែល responsive ពេញលេញដោយប្រើ HTML5 និង CSS3។ បានអនុវត្ត clean semantic code, workflow របស់ Git/GitHub និង deploy លើ Vercel។',
         'projects.shop_title': 'គេហទំព័រ PNC Shop',
         'projects.shop_desc': 'បានរួមចំណែកក្នុងក្រុមសមាជិក 5 នាក់ ដើម្បីបង្កើតគេហទំព័រលក់កុំព្យូទ័រ ក្នុង challenge រយៈពេល 2 សប្ដាហ៍នៅ PNC។ បានផ្តោតលើ layout, styling និង content សម្រាប់ shop flow ដែលអាចប្រើបាន។',
-        'projects.pos_title': 'POS System API',
-        'projects.pos_desc': 'បានបង្កើត POS System API ចាប់ពី 18 ឧសភា 2026 ដល់ 7 មិថុនា 2026 ក្នុងតួនាទីជា Team Coordinator & Backend Developer។ បានដឹកនាំក្រុមសមាជិក 2 នាក់ បង្កើតមុខងារគ្រប់គ្រងការបរិច្ចាគ និងមុខងារ full-stack ព្រមទាំងសម្របសម្រួលការសហការដោយប្រើ Git និង GitHub។',
+        'projects.pos_title': 'ប្រព័ន្ធសម្រាប់ទូទៅ POS',
+        'projects.pos_desc': 'បានបង្កើតប្រព័ន្ធ API សម្រាប់ទូទៅ POS ចាប់ពី 18 ឧសភា 2026 ដល់ 7 មិថុនា 2026 ក្នុងតួនាទីជា Team Coordinator & Backend Developer។ បានដឹកនាំក្រុមសមាជិក 2 នាក់ បង្កើតមុខងារគ្រប់គ្រងការបរិច្ចាគ និងមុខងារ full-stack ព្រមទាំងសម្របសម្រួលការសហការដោយប្រើ Git និង GitHub។',
+        'projects.engagement_title': 'ឧបករណ៍ចូលរួមថ្នាក់រៀន',
+        'projects.engagement_desc': 'បានដឹកនាំក្រុម Agile 6 នាក់ ដើម្បីបង្កើតការប្រើប្រាស់វេបសម្រាប់ថ្នាក់រៀនដោយប្រើ Laravel, Vue.js និង PostgreSQL (មករា 01, 2026 – បច្ចុប្បន្ន)។ បានអភិវឌ្ឍ RESTful APIs និងមុខងារអន្តរកម្ម រួមមាន Random Wheel, Quiz, Timer, Attendance និង Group Generator។ បានសហការជាមួយ Git និង GitHub និងបានធ្វើតាមវិធីសាស្ត្រ Agile Scrum។',
+        'projects.gen_shop_title': 'GenShop ហាងលក់អុស',
+        'projects.gen_shop_desc': 'បានបង្កើតការប្រើប្រាស់ហាងលក់អុសផ្នែកឯកជនដោយប្រើ Laravel, Vue.js និង MySQL។ គម្រោងនេះគាំទ្រ workflow សំខាន់ៗ រួមមានការរាយការណ៏ផ្ទាល់ខ្លួន ការផ្ទៀងផ្ទាត់អ្នកប្រើ និងការគ្រប់គ្រងកន្ត្រកទិញទំនិញ។',
         'projects.view_repo': 'មើល Repository',
         'projects.github_title': 'គម្រោងបន្ថែមនៅលើ GitHub',
         'projects.github_desc': 'មើលគម្រោង ការសាកល្បង និង coding challenges បន្ថែមទៀតនៅលើ GitHub។',
@@ -416,6 +662,12 @@ const i18nTranslations = {
         'contact.label_message': 'សារ *',
         'contact.placeholder_message': 'សរសេរសាររបស់អ្នកនៅទីនេះ...',
         'contact.send_message': 'ផ្ញើសារ',
+        'contact.required_field': 'វាលនេះត្រូវការបំពេញ',
+        'contact.invalid_email': 'សូមបញ្ចូលអាសយដ្ឋានអ៊ីមែលដែលត្រឹមត្រូវ',
+        'contact.message_too_short': 'សារត្រូវមានយោងតែ 10 តួអក្សរឡើងទៅ',
+        'contact.success_message': 'អរគុណ! សាររបស់អ្នកត្រូវបានផ្ញើដោយជោគជ័យ។',
+        'contact.error_message': 'សូមជួសជុនកំហុសខាងលើ និងព្យាយាមម្តងទៀត។',
+        'contact.processing': 'កំពុងដំណើរការ...',
         'contact.info_title': 'ព័ត៌មានទំនាក់ទំនង',
         'contact.info_desc': 'សូមទាក់ទងមកខ្ញុំតាមរយៈមធ្យោបាយណាមួយខាងក្រោម។ ជាទូទៅ ខ្ញុំឆ្លើយតបក្នុងរយៈពេល 24 ម៉ោង។',
         'contact.method_email': 'អ៊ីមែល',
@@ -547,37 +799,58 @@ function initNavigation() {
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburger && navMenu) {
+        hamburger.setAttribute('aria-label', 'Toggle navigation menu');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('type', 'button');
+
+        const openMenu = () => {
+            hamburger.classList.add('active');
+            navMenu.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus first nav link
+            const firstLink = navMenu.querySelector('.nav-link');
+            if (firstLink) setTimeout(() => firstLink.focus(), 100);
+        };
+
+        const closeMenu = () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            hamburger.focus();
+        };
+
         hamburger.addEventListener('click', function() {
-            // Toggle active class on hamburger
-            this.classList.toggle('active');
-
-            // Toggle active class on nav menu
-            navMenu.classList.toggle('active');
-
-            // Prevent body scroll when menu is open
             if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
+                closeMenu();
             } else {
-                document.body.style.overflow = '';
+                openMenu();
             }
         });
 
         // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = navMenu.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+                closeMenu();
             });
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+            if (navMenu.classList.contains('active') && 
+                !hamburger.contains(e.target) && 
+                !navMenu.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Keyboard: Escape key closes menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
             }
         });
     }
@@ -648,77 +921,86 @@ function normalizeNavHref(href) {
     return fileName || 'index.html';
 }
 
+// Navbar scroll effect
+function initNavbarScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
 // ========== FORM VALIDATION ==========
 
 function initFormValidation() {
     const contactForm = document.getElementById('contactForm');
-
     if (!contactForm) return;
 
-    // Form elements
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
     const formMessage = document.getElementById('formMessage');
-
-    // Email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Show error function
     function showError(input, message) {
-        const formGroup = input.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-
-        // Add error styling
-        input.style.borderColor = '#ef4444';
-        input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
-
-        // Display error message
-        if (errorElement) {
-            errorElement.textContent = message;
+        const formGroup = input.closest('.form-group');
+        if (formGroup) {
+            const errorElement = formGroup.querySelector('.error-message') || document.createElement('div');
+            errorElement.className = 'error-message';
             errorElement.style.display = 'block';
+            errorElement.textContent = message;
+            if (!formGroup.querySelector('.error-message')) {
+                formGroup.appendChild(errorElement);
+            }
         }
     }
 
-    // Clear error function
     function clearError(input) {
-        const formGroup = input.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-
-        // Remove error styling
-        input.style.borderColor = '';
-        input.style.boxShadow = '';
-
-        // Clear error message
-        if (errorElement) {
-            errorElement.textContent = '';
-            errorElement.style.display = 'none';
+        const formGroup = input.closest('.form-group');
+        if (formGroup) {
+            const errorElement = formGroup.querySelector('.error-message');
+            if (errorElement) {
+                errorElement.style.display = 'none';
+            }
         }
     }
 
-    // Validate individual field
+    function getDictionary() {
+        const locale = i18nTranslations[localStorage.getItem('language')] ? localStorage.getItem('language') : 'en';
+        return i18nTranslations[locale];
+    }
+
     function validateField(input) {
         const value = input.value.trim();
+        const dictionary = getDictionary();
 
-        // Check if field is empty
         if (!value) {
-            showError(input, 'This field is required');
+            showError(input, dictionary['contact.required_field']);
             return false;
         }
 
-        // Email specific validation
         if (input.type === 'email' && !emailRegex.test(value)) {
-            showError(input, 'Please enter a valid email address');
+            showError(input, dictionary['contact.invalid_email']);
             return false;
         }
 
-        // Message length validation
         if (input.id === 'message' && value.length < 10) {
-            showError(input, 'Message must be at least 10 characters long');
+            showError(input, dictionary['contact.message_too_short']);
             return false;
         }
 
-        // Clear any previous errors
         clearError(input);
         return true;
     }
@@ -742,9 +1024,9 @@ function initFormValidation() {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Validate all fields
         let isValid = true;
         const fields = [nameInput, emailInput, messageInput];
+        const dictionary = getDictionary();
 
         fields.forEach(field => {
             if (!validateField(field)) {
@@ -753,53 +1035,25 @@ function initFormValidation() {
         });
 
         if (isValid) {
-            // Show success message
             if (formMessage) {
-                formMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                formMessage.textContent = dictionary['contact.success_message'];
                 formMessage.className = 'form-message success';
                 formMessage.style.display = 'block';
 
-                // Reset form
                 contactForm.reset();
 
-                // Hide message after 5 seconds
                 setTimeout(() => {
                     formMessage.style.display = 'none';
                 }, 5000);
             }
 
-            // In a real application, you would send the data to a server here
-            // For now, we'll just log it to the console
             console.log('Form submitted successfully!');
             console.log('Name:', nameInput.value);
             console.log('Email:', emailInput.value);
             console.log('Message:', messageInput.value);
-
-            // You could add AJAX/Fetch request here to send data to a server
-            /*
-            fetch('your-server-endpoint', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: nameInput.value,
-                    email: emailInput.value,
-                    message: messageInput.value
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-            */
         } else {
-            // Show error message
             if (formMessage) {
-                formMessage.textContent = 'Please fix the errors above and try again.';
+                formMessage.textContent = dictionary['contact.error_message'];
                 formMessage.className = 'form-message error';
                 formMessage.style.display = 'block';
             }
@@ -1383,6 +1637,62 @@ function initHeroBackgrounds() {
     }, { once: true });
 }
 
+function initCertificateModal() {
+    const modal = document.getElementById('certImageModal');
+    if (!modal) return;
+
+    const modalImg = document.getElementById('certModalImage');
+    const closeBtn = modal.querySelector('.cert-image-modal-close');
+    const wrappers = document.querySelectorAll('.cert-image-wrapper');
+
+    function openModal(src) {
+        modalImg.src = src;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            modalImg.src = '';
+        }, 300);
+    }
+
+    wrappers.forEach(wrapper => {
+        wrapper.addEventListener('click', () => {
+            const src = wrapper.getAttribute('data-cert-src');
+            if (src) openModal(src);
+        });
+
+        wrapper.setAttribute('tabindex', '0');
+        wrapper.setAttribute('role', 'button');
+        wrapper.setAttribute('aria-label', 'View certificate full size');
+
+        wrapper.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const src = wrapper.getAttribute('data-cert-src');
+                if (src) openModal(src);
+            }
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
 // ========== FAQ ACCORDION ==========
 
 function initFAQ() {
@@ -1390,20 +1700,37 @@ function initFAQ() {
 
     if (faqQuestions.length > 0) {
         faqQuestions.forEach(question => {
-            question.addEventListener('click', function() {
+            // Make FAQ questions focusable and keyboard accessible
+            question.setAttribute('tabindex', '0');
+            question.setAttribute('role', 'button');
+            question.setAttribute('aria-expanded', 'false');
+
+            function toggleFAQ() {
                 // Toggle active class on question
-                this.classList.toggle('active');
+                question.classList.toggle('active');
 
                 // Get the answer element
-                const answer = this.nextElementSibling;
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // Update ARIA state
+                question.setAttribute('aria-expanded', isActive);
 
                 // Toggle answer visibility
-                if (this.classList.contains('active')) {
+                if (isActive) {
                     answer.classList.add('active');
                     answer.style.maxHeight = answer.scrollHeight + 'px';
                 } else {
                     answer.classList.remove('active');
                     answer.style.maxHeight = '0';
+                }
+            }
+
+            question.addEventListener('click', toggleFAQ);
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFAQ();
                 }
             });
         });
@@ -1427,6 +1754,12 @@ function initFAQ() {
             
             .faq-question.active i {
                 transform: rotate(180deg);
+            }
+
+            .faq-question:focus-visible {
+                outline: 2px solid rgba(37, 99, 235, 0.5);
+                outline-offset: 2px;
+                border-radius: 8px;
             }
         `;
         document.head.appendChild(faqStyle);
@@ -1481,13 +1814,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Add loading state to buttons when clicked
 document.querySelectorAll('.btn').forEach(button => {
     button.addEventListener('click', function() {
-        // Only add loading state if button has type submit or is a link without href
         if (this.type === 'submit' || (this.tagName === 'A' && !this.getAttribute('href'))) {
             const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            const dictionary = i18nTranslations[localStorage.getItem('language')] ? i18nTranslations[localStorage.getItem('language')] : i18nTranslations['en'];
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + dictionary['contact.processing'];
             this.disabled = true;
 
-            // Reset after 3 seconds (for demo purposes)
             setTimeout(() => {
                 this.innerHTML = originalText;
                 this.disabled = false;

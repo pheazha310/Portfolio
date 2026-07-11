@@ -26,6 +26,7 @@
   </head>
 
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
@@ -44,6 +45,14 @@
           <li class="nav-item">
             <a href="./skills.html" class="nav-link" data-i18n="nav.skills"
               >Skills</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="./certificate.html"
+              class="nav-link"
+              data-i18n="nav.certificate"
+              >Certificates</a
             >
           </li>
           <li class="nav-item">
@@ -113,7 +122,7 @@
             <i class="fas fa-moon"></i>
           </button>
         </div>
-        <button class="hamburger">
+        <button class="hamburger" aria-label="Toggle navigation">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -122,7 +131,7 @@
     </nav>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero" id="main-content">
       <div class="container">
         <h1 class="page-title" data-i18n="projects.page_title">My Projects</h1>
         <p class="page-subtitle" data-i18n="projects.page_subtitle">
@@ -133,7 +142,7 @@
             <span
               class="stat-number"
               data-counter
-              data-target="14"
+              data-target="15"
               data-suffix="+"
               >0+</span
             >
@@ -148,7 +157,7 @@
             >
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-counter data-target="4">0</span>
+            <span class="stat-number" data-counter data-target="5">0</span>
             <span class="stat-label" data-i18n="projects.stat_personal"
               >Personal Projects</span
             >
@@ -197,6 +206,137 @@
     <section class="projects-grid-section">
       <div class="container">
         <div class="projects-grid">
+          <!-- Class Engagement Tools -->
+          <div class="project-card fade-in" data-category="web,pnc">
+            <div class="project-image">
+              <img
+                src="../image/class-engagement-tools.png"
+                alt="Class Engagement Tools project screenshot"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/pheazha310/class-engagement-tools-backend.git"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="View Class Engagement Tools backend repository"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://github.com/pheazha310/class-engagement-tools-frontend.git"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="View Class Engagement Tools frontend repository"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projects.engagement_title">
+                Class Engagement Tools
+              </h3>
+              <p
+                class="project-description"
+                data-i18n="projects.engagement_desc"
+              >
+                Led a 6-member Agile team to develop a classroom engagement
+                platform using Laravel, Vue.js, and PostgreSQL (Jul 01, 2026 –
+                Present). Developed RESTful APIs and interactive features,
+                including Random Wheel, Quiz, Timer, Attendance, and Group
+                Generator. Collaborated using Git and GitHub and followed Agile
+                Scrum practices.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">PostgreSQL</span>
+              </div>
+              <div class="project-links-bottom">
+                <a
+                  href="https://github.com/pheazha310/class-engagement-tools-backend.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i>
+                  <span data-i18n="projects.backend_repo">Backend Repo</span>
+                </a>
+                <a
+                  href="https://github.com/pheazha310/class-engagement-tools-frontend.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i>
+                  <span data-i18n="projects.frontend_repo">Frontend Repo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- GenShop E-commerce -->
+          <div class="project-card fade-in" data-category="web,personal">
+            <div class="project-image">
+              <img
+                src="../image/GenShop.png"
+                alt="GenShop E-commerce project screenshot"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/pheazha310/GenShop-Backend.git"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="View GenShop Backend repository"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://github.com/pheazha310/GenShop-frontend.git"
+                    target="_blank"
+                    class="project-link"
+                    aria-label="View GenShop Frontend repository"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+               <h3 class="project-title" data-i18n="projects.gen_shop_title">GenShop E-commerce</h3>
+              <p class="project-description" data-i18n="projects.gen_shop_desc">
+                Built an individual e-commerce platform with Laravel, Vue.js,
+                and MySQL. The project supports essential shop workflows
+                including product listing, user authentication, and shopping
+                cart management.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">Vue.js</span>
+                <span class="tech-tag">MySQL</span>
+              </div>
+              <div class="project-links-bottom">
+                <a
+                  href="https://github.com/pheazha310/GenShop-Backend.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i>
+                  <span data-i18n="projects.backend_repo">Backend Repo</span>
+                </a>
+                <a
+                  href="https://github.com/pheazha310/GenShop-frontend.git"
+                  target="_blank"
+                  class="btn btn-small"
+                >
+                  <i class="fab fa-github"></i>
+                  <span data-i18n="projects.frontend_repo">Frontend Repo</span>
+                </a>
+              </div>
+            </div>
+          </div>
           <!-- POS System API -->
           <div class="project-card fade-in" data-category="web,pnc">
             <div class="project-image">
@@ -221,7 +361,12 @@
               <h3 class="project-title" data-i18n="projects.pos_title">
                 POS System API
               </h3>
-              <p class="project-description" data-i18n="projects.pos_desc">Built a POS System API from 18 May 2026 to 7 June 2026 as Team Coordinator & Backend Developer. Led a 2-member team, developed donation management features and full-stack functionality, and coordinated collaboration using Git & GitHub.</p>
+              <p class="project-description" data-i18n="projects.pos_desc">
+                Built a POS System API from 18 May 2026 to 7 June 2026 as Team
+                Coordinator & Backend Developer. Led a 2-member team, developed
+                donation management features and full-stack functionality, and
+                coordinated collaboration using Git & GitHub.
+              </p>
               <div class="project-tech">
                 <span class="tech-tag">Node.js</span>
                 <span class="tech-tag">MySQL</span>
@@ -501,7 +646,7 @@
             </div>
           </div>
 
-          <!-- Web Club Project -->
+          <!-- PNC Shop Website -->
           <div class="project-card fade-in" data-category="web,pnc">
             <div class="project-image">
               <img
@@ -688,6 +833,12 @@
             <ul>
               <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
               <li><a href="./about.html" data-i18n="nav.about">About</a></li>
+              <li><a href="./skills.html" data-i18n="nav.skills">Skills</a></li>
+              <li>
+                <a href="./certificate.html" data-i18n="nav.certificate"
+                  >Certificates</a
+                >
+              </li>
               <li>
                 <a href="./projects.html" data-i18n="nav.projects">Projects</a>
               </li>
