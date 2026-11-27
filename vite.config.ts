@@ -7,6 +7,10 @@ const pages = ['about', 'certificate', 'contact', 'experience', 'projects', 'ski
 export default defineConfig({
   base: './',
   plugins: [react()],
+  server: {
+    port: 5174,
+    strictPort: true,
+  },
   build: {
     rollupOptions: {
       input: {
