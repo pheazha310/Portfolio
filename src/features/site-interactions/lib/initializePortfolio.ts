@@ -1,10 +1,7 @@
-﻿// js/main.js - Main JavaScript file for the portfolio website
-
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
+﻿// Portfolio interactions shared across all React-rendered pages.
+export function initializePortfolio() {
     console.log('Portfolio website loaded successfully!');
 
-    // Initialize all functionality
     initLanguage();
     initNavigation();
     initTheme();
@@ -20,7 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeroRoleRotation();
     initHeroBackgrounds();
     initCertificateModal();
-});
+    initSmoothScrolling();
+    initCardHoverEffects();
+    initResizeEffects();
+}
 
 const translations = {
     en: {
@@ -49,7 +49,45 @@ const translations = {
     }
 };
 
-const i18nTranslations = {
+type Language = 'en' | 'km';
+type Theme = 'light' | 'dark';
+type TranslationDictionary = Record<string, string>;
+type Particle = {
+    x: number;
+    y: number;
+    baseY: number;
+    vx: number;
+    vy: number;
+    radius: number;
+    alpha: number;
+    phase: number;
+    sway: number;
+    seed: number;
+};
+type Stem = {
+    x: number;
+    length: number;
+    phase: number;
+    speed: number;
+    radius: number;
+    alpha: number;
+    seed: number;
+};
+type WavePoint = { x: number; y: number };
+type HeroCanvasState = {
+    section: HTMLElement;
+    canvas: HTMLCanvasElement;
+    ctx: CanvasRenderingContext2D;
+    width: number;
+    height: number;
+    dpr: number;
+    particles: Particle[];
+    stems: Stem[];
+    seed: number;
+    resizeObserver?: ResizeObserver;
+};
+
+const i18nTranslations: Record<Language, TranslationDictionary> = {
     en: {
         'nav.home': 'Home',
         'nav.about': 'About',
@@ -182,6 +220,10 @@ const i18nTranslations = {
         'home.cta_projects': 'View My Projects',
         'home.cta_cv': 'Download CV',
         'home.core_skills': 'My Core Skills',
+        'home.skill_frontend_stack': 'HTML5, CSS3, JavaScript, Vue.js, React.js',
+        'home.skill_backend_stack': 'Laravel, PHP, Node.js, Express.js',
+        'home.skill_database_stack': 'MySQL, PostgreSQL, Redis, SQLite',
+        'home.skill_tools_stack': 'Git, GitHub, Jira, Docker, VS Code',
         'home.cta_title': 'Ready to Work Together?',
         'home.cta_text': "I'm looking for internship opportunities and collaborative projects to apply my skills and learn from experienced developers.",
         'home.cta_contact': 'Get In Touch',
@@ -335,11 +377,11 @@ const i18nTranslations = {
         'contact.placeholder_subject': 'Message Subject',
         'contact.label_message': 'Message *',
         'contact.placeholder_message': 'Your message here...',
-        'contact.send_message': 'Send Message',
+        'contact.send_message': 'Continue in Email App',
         'contact.required_field': 'This field is required',
         'contact.invalid_email': 'Please enter a valid email address',
         'contact.message_too_short': 'Message must be at least 10 characters long',
-        'contact.success_message': 'Thank you! Your message has been sent successfully.',
+        'contact.email_draft_message': 'An email draft will open if an email app is configured. Review and send it there; this site does not send messages.',
         'contact.error_message': 'Please fix the errors above and try again.',
         'contact.processing': 'Processing...',
         'contact.info_title': 'Contact Information',
@@ -508,6 +550,10 @@ const i18nTranslations = {
         'home.cta_projects': 'មើលគម្រោងរបស់ខ្ញុំ',
         'home.cta_cv': 'ទាញយក CV',
         'home.core_skills': 'ជំនាញស្នូលរបស់ខ្ញុំ',
+        'home.skill_frontend_stack': 'HTML5, CSS3, JavaScript, Vue.js, React.js',
+        'home.skill_backend_stack': 'Laravel, PHP, Node.js, Express.js',
+        'home.skill_database_stack': 'MySQL, PostgreSQL, Redis, SQLite',
+        'home.skill_tools_stack': 'Git, GitHub, Jira, Docker, VS Code',
         'home.cta_title': 'ត្រៀមធ្វើការជាមួយគ្នាមែនទេ?',
         'home.cta_text': 'ខ្ញុំកំពុងស្វែងរកឱកាសហាត់ការងារ និងគម្រោងសហការដើម្បីអនុវត្តជំនាញរបស់ខ្ញុំ និងរៀនពីអ្នកអភិវឌ្ឍដែលមានបទពិសោធន៍។',
         'home.cta_contact': 'ទាក់ទងមកខ្ញុំ',
@@ -661,11 +707,11 @@ const i18nTranslations = {
         'contact.placeholder_subject': 'ប្រធានបទសារ',
         'contact.label_message': 'សារ *',
         'contact.placeholder_message': 'សរសេរសាររបស់អ្នកនៅទីនេះ...',
-        'contact.send_message': 'ផ្ញើសារ',
+        'contact.send_message': 'បន្តទៅកម្មវិធីអ៊ីមែល',
         'contact.required_field': 'វាលនេះត្រូវការបំពេញ',
         'contact.invalid_email': 'សូមបញ្ចូលអាសយដ្ឋានអ៊ីមែលដែលត្រឹមត្រូវ',
         'contact.message_too_short': 'សារត្រូវមានយោងតែ 10 តួអក្សរឡើងទៅ',
-        'contact.success_message': 'អរគុណ! សាររបស់អ្នកត្រូវបានផ្ញើដោយជោគជ័យ។',
+        'contact.email_draft_message': 'សេចក្តីព្រាងអ៊ីមែលនឹងបើក ប្រសិនបើបានកំណត់កម្មវិធីអ៊ីមែល។ សូមពិនិត្យ និងផ្ញើនៅទីនោះ។ គេហទំព័រនេះមិនផ្ញើសារដោយផ្ទាល់ទេ។',
         'contact.error_message': 'សូមជួសជុនកំហុសខាងលើ និងព្យាយាមម្តងទៀត។',
         'contact.processing': 'កំពុងដំណើរការ...',
         'contact.info_title': 'ព័ត៌មានទំនាក់ទំនង',
@@ -706,11 +752,15 @@ const i18nTranslations = {
 
 // ========== NAVIGATION FUNCTIONS ==========
 
+function getLanguage(value: string | null): Language {
+    return value === 'km' ? 'km' : 'en';
+}
+
 function initLanguage() {
-    const languageSwitcher = document.querySelector('.language-switcher');
-    const languageTrigger = document.querySelector('.language-trigger');
-    const languageOptions = document.querySelectorAll('.language-option');
-    const storedLanguage = localStorage.getItem('language') || 'en';
+    const languageSwitcher = document.querySelector<HTMLElement>('.language-switcher');
+    const languageTrigger = document.querySelector<HTMLButtonElement>('.language-trigger');
+    const languageOptions = document.querySelectorAll<HTMLElement>('.language-option');
+    const storedLanguage = getLanguage(localStorage.getItem('language'));
 
     applyLanguage(storedLanguage);
 
@@ -722,8 +772,8 @@ function initLanguage() {
     });
 
     languageOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const language = this.getAttribute('data-lang') || 'en';
+        option.addEventListener('click', function(this: HTMLElement) {
+            const language = getLanguage(this.getAttribute('data-lang'));
             localStorage.setItem('language', language);
             applyLanguage(language);
             languageSwitcher.classList.remove('open');
@@ -732,40 +782,42 @@ function initLanguage() {
     });
 
     document.addEventListener('click', function(event) {
-        if (!languageSwitcher.contains(event.target)) {
+        if (!(event.target instanceof Node) || !languageSwitcher.contains(event.target)) {
             languageSwitcher.classList.remove('open');
             languageTrigger.setAttribute('aria-expanded', 'false');
         }
     });
 }
 
-function applyLanguage(language) {
-    const locale = i18nTranslations[language] ? language : 'en';
+function applyLanguage(language: Language) {
+    const locale = language;
     const dictionary = i18nTranslations[locale];
 
     document.documentElement.lang = locale === 'km' ? 'km' : 'en';
 
-    document.querySelectorAll('[data-i18n]').forEach(element => {
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
-            if (dictionary[key]) {
-                if (dictionary[key].includes('<')) {
-                    element.innerHTML = dictionary[key];
+        const translation = key ? dictionary[key] : undefined;
+        if (translation) {
+                if (translation.includes('<')) {
+                    element.innerHTML = translation;
                 } else {
-                    element.textContent = dictionary[key];
+                    element.textContent = translation;
                 }
             }
         });
 
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    document.querySelectorAll<HTMLElement>('[data-i18n-placeholder]').forEach(element => {
         const key = element.getAttribute('data-i18n-placeholder');
-        if (dictionary[key]) {
-            element.setAttribute('placeholder', dictionary[key]);
+        const translation = key ? dictionary[key] : undefined;
+        if (translation) {
+            element.setAttribute('placeholder', translation);
         }
     });
 
-    const languageTrigger = document.querySelector('.language-trigger');
-    const languageCurrent = document.querySelector('.language-current');
-    const languageOptions = document.querySelectorAll('.language-option');
+    const languageTrigger = document.querySelector<HTMLButtonElement>('.language-trigger');
+    const languageCurrent = document.querySelector<HTMLElement>('.language-current');
+    const languageOptions = document.querySelectorAll<HTMLElement>('.language-option');
     if (languageTrigger) {
         languageTrigger.setAttribute('aria-label', dictionary['nav.language']);
     }
@@ -778,12 +830,12 @@ function applyLanguage(language) {
     }
     if (languageOptions.length > 0) {
         languageOptions.forEach(option => {
-            const optionLang = option.getAttribute('data-lang') || 'en';
+            const optionLang = getLanguage(option.getAttribute('data-lang'));
             option.classList.toggle('active', optionLang === locale);
         });
     }
 
-    const themeToggle = document.querySelector('.theme-toggle');
+    const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
     if (themeToggle) {
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         themeToggle.setAttribute(
@@ -795,8 +847,8 @@ function applyLanguage(language) {
 
 // Mobile navigation toggle
 function initNavigation() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector<HTMLButtonElement>('.hamburger');
+    const navMenu = document.querySelector<HTMLElement>('.nav-menu');
 
     if (hamburger && navMenu) {
         hamburger.setAttribute('aria-label', 'Toggle navigation menu');
@@ -810,7 +862,7 @@ function initNavigation() {
             document.body.style.overflow = 'hidden';
             
             // Focus first nav link
-            const firstLink = navMenu.querySelector('.nav-link');
+            const firstLink = navMenu.querySelector<HTMLAnchorElement>('.nav-link');
             if (firstLink) setTimeout(() => firstLink.focus(), 100);
         };
 
@@ -831,7 +883,7 @@ function initNavigation() {
         });
 
         // Close menu when clicking on a link
-        const navLinks = navMenu.querySelectorAll('.nav-link');
+        const navLinks = navMenu.querySelectorAll<HTMLAnchorElement>('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 closeMenu();
@@ -841,8 +893,8 @@ function initNavigation() {
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (navMenu.classList.contains('active') && 
-                !hamburger.contains(e.target) && 
-                !navMenu.contains(e.target)) {
+                (!(e.target instanceof Node) ||
+                    (!hamburger.contains(e.target) && !navMenu.contains(e.target)))) {
                 closeMenu();
             }
         });
@@ -858,10 +910,12 @@ function initNavigation() {
 
 // Dark mode toggle
 function initTheme() {
-    const themeToggle = document.querySelector('.theme-toggle');
+    const themeToggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
     const storedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+    const initialTheme: Theme = storedTheme === 'dark' || storedTheme === 'light'
+        ? storedTheme
+        : prefersDark ? 'dark' : 'light';
 
     setTheme(initialTheme);
 
@@ -874,15 +928,15 @@ function initTheme() {
         });
     }
 
-    function setTheme(theme) {
+    function setTheme(theme: Theme) {
         document.documentElement.setAttribute('data-theme', theme);
         updateToggle(theme);
     }
 
-    function updateToggle(theme) {
+    function updateToggle(theme: Theme) {
         if (!themeToggle) return;
         const isDark = theme === 'dark';
-        const locale = localStorage.getItem('language') || 'en';
+        const locale = getLanguage(localStorage.getItem('language'));
         const dictionary = i18nTranslations[locale] || i18nTranslations.en;
         themeToggle.setAttribute('aria-label', isDark ? dictionary['nav.theme_light'] : dictionary['nav.theme_dark']);
         themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
@@ -892,7 +946,7 @@ function initTheme() {
 // Highlight active menu item based on current page
 function initActiveMenu() {
     const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
 
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
@@ -911,7 +965,7 @@ function initActiveMenu() {
     });
 }
 
-function normalizeNavHref(href) {
+function normalizeNavHref(href: string | null): string {
     if (!href) return '';
     if (href === '#') return 'index.html';
 
@@ -923,7 +977,7 @@ function normalizeNavHref(href) {
 
 // Navbar scroll effect
 function initNavbarScroll() {
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector<HTMLElement>('.navbar');
     if (!navbar) return;
 
     let ticking = false;
@@ -946,18 +1000,23 @@ function initNavbarScroll() {
 
 function initFormValidation() {
     const contactForm = document.getElementById('contactForm');
-    if (!contactForm) return;
+    if (!(contactForm instanceof HTMLFormElement)) return;
 
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
+    const nameInput = contactForm.querySelector<HTMLInputElement>('#name');
+    const emailInput = contactForm.querySelector<HTMLInputElement>('#email');
+    const messageInput = contactForm.querySelector<HTMLTextAreaElement>('#message');
+    const subjectInput = contactForm.querySelector<HTMLInputElement>('#subject');
     const formMessage = document.getElementById('formMessage');
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    function showError(input, message) {
+    if (!nameInput || !emailInput || !messageInput) return;
+
+    type FormField = HTMLInputElement | HTMLTextAreaElement;
+
+    function showError(input: FormField, message: string) {
         const formGroup = input.closest('.form-group');
         if (formGroup) {
-            const errorElement = formGroup.querySelector('.error-message') || document.createElement('div');
+            const errorElement = formGroup.querySelector<HTMLElement>('.error-message') || document.createElement('div');
             errorElement.className = 'error-message';
             errorElement.style.display = 'block';
             errorElement.textContent = message;
@@ -967,10 +1026,10 @@ function initFormValidation() {
         }
     }
 
-    function clearError(input) {
+    function clearError(input: FormField) {
         const formGroup = input.closest('.form-group');
         if (formGroup) {
-            const errorElement = formGroup.querySelector('.error-message');
+            const errorElement = formGroup.querySelector<HTMLElement>('.error-message');
             if (errorElement) {
                 errorElement.style.display = 'none';
             }
@@ -978,11 +1037,10 @@ function initFormValidation() {
     }
 
     function getDictionary() {
-        const locale = i18nTranslations[localStorage.getItem('language')] ? localStorage.getItem('language') : 'en';
-        return i18nTranslations[locale];
+        return i18nTranslations[getLanguage(localStorage.getItem('language'))];
     }
 
-    function validateField(input) {
+    function validateField(input: FormField): boolean {
         const value = input.value.trim();
         const dictionary = getDictionary();
 
@@ -1036,21 +1094,21 @@ function initFormValidation() {
 
         if (isValid) {
             if (formMessage) {
-                formMessage.textContent = dictionary['contact.success_message'];
+                formMessage.textContent = dictionary['contact.email_draft_message'];
                 formMessage.className = 'form-message success';
                 formMessage.style.display = 'block';
-
-                contactForm.reset();
-
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
             }
 
-            console.log('Form submitted successfully!');
-            console.log('Name:', nameInput.value);
-            console.log('Email:', emailInput.value);
-            console.log('Message:', messageInput.value);
+            const subject = subjectInput?.value.trim() || 'Portfolio contact';
+            const body = [
+                `Name: ${nameInput.value.trim()}`,
+                `Email: ${emailInput.value.trim()}`,
+                '',
+                messageInput.value.trim(),
+            ].join('\n');
+            const mailto = `mailto:sophea.phal@student.passerellesnumeriques.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailto;
         } else {
             if (formMessage) {
                 formMessage.textContent = dictionary['contact.error_message'];
@@ -1113,26 +1171,26 @@ function initAnimations() {
 // ========== PROJECT FILTER ==========
 
 function initProjectFilter() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
 
     if (filterButtons.length > 0 && projectCards.length > 0) {
         filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', () => {
                 // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
 
                 // Add active class to clicked button
-                this.classList.add('active');
+                button.classList.add('active');
 
                 // Get filter value
-                const filterValue = this.getAttribute('data-filter');
+                const filterValue = button.getAttribute('data-filter');
 
                 // Filter projects
                 projectCards.forEach(card => {
                     const categories = card.getAttribute('data-category');
 
-                    if (filterValue === 'all' || !categories || categories.includes(filterValue)) {
+                    if (filterValue === 'all' || !categories || (filterValue !== null && categories.includes(filterValue))) {
                         card.style.display = 'block';
 
                         // Trigger reflow for animation
@@ -1157,12 +1215,13 @@ function initProjectFilter() {
 // ========== SKILL ANIMATIONS ==========
 
 function initSkillAnimations() {
-    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillBars = document.querySelectorAll<HTMLElement>('.skill-progress');
 
     if (skillBars.length > 0) {
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    if (!(entry.target instanceof HTMLElement)) return;
                     const progressBar = entry.target;
                     const percent = progressBar.getAttribute('data-percent') || '80%';
 
@@ -1191,19 +1250,19 @@ function initSkillAnimations() {
 // ========== STAT COUNTERS ==========
 
 function initStatCounters() {
-    const statNumbers = document.querySelectorAll('[data-counter][data-target], .stat-number[data-target]');
+    const statNumbers = document.querySelectorAll<HTMLElement>('[data-counter][data-target], .stat-number[data-target]');
 
     if (statNumbers.length === 0) return;
 
-    const formatValue = (value, suffix) => `${value.toLocaleString()}${suffix}`;
+    const formatValue = (value: number, suffix: string): string => `${value.toLocaleString()}${suffix}`;
 
-    const animateCounter = (element) => {
+    const animateCounter = (element: HTMLElement) => {
         const target = Number(element.getAttribute('data-target'));
         const suffix = element.getAttribute('data-suffix') || '';
         const duration = 1600;
         const startTime = performance.now();
 
-        const updateCounter = (currentTime) => {
+        const updateCounter = (currentTime: number) => {
             const progress = Math.min((currentTime - startTime) / duration, 1);
             const easedProgress = 1 - Math.pow(1 - progress, 3);
             const currentValue = Math.round(target * easedProgress);
@@ -1223,6 +1282,7 @@ function initStatCounters() {
     const statObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
+            if (!(entry.target instanceof HTMLElement)) return;
 
             animateCounter(entry.target);
             observer.unobserve(entry.target);
@@ -1241,7 +1301,7 @@ function initStatCounters() {
 // ========== HERO ROLE ROTATION ==========
 
 function initHeroRoleRotation() {
-    const roleElement = document.querySelector('.hero-role');
+    const roleElement = document.querySelector<HTMLElement>('.hero-role');
 
     if (!roleElement) return;
 
@@ -1253,7 +1313,7 @@ function initHeroRoleRotation() {
 
         return source
             .split(',')
-            .map(role => role.trim())
+            .map((role: string) => role.trim())
             .filter(Boolean);
     };
 
@@ -1304,16 +1364,16 @@ function initHeroRoleRotation() {
 // ========== HERO BACKGROUND CANVAS ==========
 
 function initHeroBackgrounds() {
-    const heroSections = Array.from(document.querySelectorAll('.hero, .page-hero'));
+    const heroSections = Array.from(document.querySelectorAll<HTMLElement>('.hero, .page-hero'));
 
     if (heroSections.length === 0) return;
 
     const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const states = [];
+    const states: HeroCanvasState[] = [];
 
-    const makeParticles = (width, height, seed) => {
+    const makeParticles = (width: number, height: number, seed: number): Particle[] => {
         const count = Math.max(42, Math.min(90, Math.round((width * height) / 22000)));
-        const particles = [];
+        const particles: Particle[] = [];
 
         for (let i = 0; i < count; i += 1) {
             const band = i % 3;
@@ -1334,9 +1394,9 @@ function initHeroBackgrounds() {
         return particles;
     };
 
-    const makeStems = (width, height, seed) => {
+    const makeStems = (width: number, height: number, seed: number): Stem[] => {
         const count = Math.max(26, Math.min(88, Math.round(width / 22)));
-        const stems = [];
+        const stems: Stem[] = [];
 
         for (let i = 0; i < count; i += 1) {
             stems.push({
@@ -1353,7 +1413,7 @@ function initHeroBackgrounds() {
         return stems;
     };
 
-    const resizeState = (state) => {
+    const resizeState = (state: HeroCanvasState): void => {
         const { section, canvas, ctx } = state;
         const width = section.clientWidth;
         const height = section.clientHeight;
@@ -1372,7 +1432,14 @@ function initHeroBackgrounds() {
         state.stems = makeStems(width, height, state.seed);
     };
 
-    const drawBackground = (ctx, width, height, section, time, seed) => {
+    const drawBackground = (
+        ctx: CanvasRenderingContext2D,
+        width: number,
+        height: number,
+        section: HTMLElement,
+        time: number,
+        seed: number,
+    ): void => {
         const homeHero = section.classList.contains('hero');
         const base = ctx.createLinearGradient(0, 0, 0, height);
         base.addColorStop(0, '#07162f');
@@ -1422,7 +1489,14 @@ function initHeroBackgrounds() {
         }
     };
 
-    const getWaveY = (x, width, height, time, seed, homeHero) => {
+    const getWaveY = (
+        x: number,
+        width: number,
+        height: number,
+        time: number,
+        seed: number,
+        homeHero: boolean,
+    ): number => {
         const baseY = height * (homeHero ? 0.74 : 0.68);
         const amp = height * (homeHero ? 0.055 : 0.045);
         const freq = homeHero ? 1.45 : 1.55;
@@ -1434,8 +1508,15 @@ function initHeroBackgrounds() {
             + Math.cos(norm * Math.PI * 2 * 0.9 + t * 0.7) * amp * 0.16;
     };
 
-    const drawWave = (ctx, width, height, time, seed, homeHero) => {
-        const lineY = [];
+    const drawWave = (
+        ctx: CanvasRenderingContext2D,
+        width: number,
+        height: number,
+        time: number,
+        seed: number,
+        homeHero: boolean,
+    ): WavePoint[] => {
+        const lineY: WavePoint[] = [];
 
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
@@ -1498,7 +1579,14 @@ function initHeroBackgrounds() {
         return lineY;
     };
 
-    const drawStems = (ctx, width, height, time, state, lineY) => {
+    const drawStems = (
+        ctx: CanvasRenderingContext2D,
+        width: number,
+        height: number,
+        time: number,
+        state: HeroCanvasState,
+        lineY: WavePoint[],
+    ): void => {
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
         const points = lineY.length > 1 ? lineY : null;
@@ -1532,7 +1620,14 @@ function initHeroBackgrounds() {
         ctx.restore();
     };
 
-    const drawParticles = (ctx, width, height, time, state, homeHero) => {
+    const drawParticles = (
+        ctx: CanvasRenderingContext2D,
+        width: number,
+        height: number,
+        time: number,
+        state: HeroCanvasState,
+        homeHero: boolean,
+    ): void => {
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
 
@@ -1562,7 +1657,7 @@ function initHeroBackgrounds() {
         ctx.restore();
     };
 
-    const drawFrame = (time) => {
+    const drawFrame = (time: number): void => {
         states.forEach((state) => {
             const { canvas, ctx, width, height, section } = state;
             if (!width || !height) return;
@@ -1577,7 +1672,7 @@ function initHeroBackgrounds() {
     };
 
     heroSections.forEach((section) => {
-        let canvas = section.querySelector('canvas.hero-canvas, canvas.page-hero-canvas');
+        let canvas = section.querySelector<HTMLCanvasElement>('canvas.hero-canvas, canvas.page-hero-canvas');
 
         if (!canvas) {
             canvas = document.createElement('canvas');
@@ -1586,7 +1681,9 @@ function initHeroBackgrounds() {
         }
 
         const ctx = canvas.getContext('2d');
-        const state = {
+        if (!ctx) return;
+
+        const state: HeroCanvasState = {
             section,
             canvas,
             ctx,
@@ -1600,7 +1697,7 @@ function initHeroBackgrounds() {
 
         resizeState(state);
 
-        if ('ResizeObserver' in window) {
+        if (typeof ResizeObserver !== 'undefined') {
             state.resizeObserver = new ResizeObserver(() => resizeState(state));
             state.resizeObserver.observe(section);
         } else {
@@ -1617,8 +1714,8 @@ function initHeroBackgrounds() {
         return;
     }
 
-    let animationFrameId;
-    const animate = (time) => {
+    let animationFrameId: number;
+    const animate = (time: number): void => {
         drawFrame(time);
         animationFrameId = window.requestAnimationFrame(animate);
     };
@@ -1639,25 +1736,28 @@ function initHeroBackgrounds() {
 
 function initCertificateModal() {
     const modal = document.getElementById('certImageModal');
-    if (!modal) return;
+    if (!(modal instanceof HTMLElement)) return;
+    const modalElement = modal;
 
-    const modalImg = document.getElementById('certModalImage');
-    const closeBtn = modal.querySelector('.cert-image-modal-close');
-    const wrappers = document.querySelectorAll('.cert-image-wrapper');
+    const modalImg = modal.querySelector<HTMLImageElement>('#certModalImage');
+    const closeBtn = modal.querySelector<HTMLElement>('.cert-image-modal-close');
+    const wrappers = document.querySelectorAll<HTMLElement>('.cert-image-wrapper');
+    if (!modalImg || !closeBtn) return;
+    const modalImage = modalImg;
 
-    function openModal(src) {
-        modalImg.src = src;
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
+    function openModal(src: string) {
+        modalImage.src = src;
+        modalElement.classList.add('active');
+        modalElement.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
+        modalElement.classList.remove('active');
+        modalElement.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         setTimeout(() => {
-            modalImg.src = '';
+            modalImage.removeAttribute('src');
         }, 300);
     }
 
@@ -1671,7 +1771,7 @@ function initCertificateModal() {
         wrapper.setAttribute('role', 'button');
         wrapper.setAttribute('aria-label', 'View certificate full size');
 
-        wrapper.addEventListener('keydown', (e) => {
+        wrapper.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 const src = wrapper.getAttribute('data-cert-src');
@@ -1682,12 +1782,12 @@ function initCertificateModal() {
 
     closeBtn.addEventListener('click', closeModal);
 
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+    modalElement.addEventListener('click', (e: MouseEvent) => {
+        if (e.target === modalElement) closeModal();
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Escape' && modalElement.classList.contains('active')) {
             closeModal();
         }
     });
@@ -1696,7 +1796,7 @@ function initCertificateModal() {
 // ========== FAQ ACCORDION ==========
 
 function initFAQ() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    const faqQuestions = document.querySelectorAll<HTMLElement>('.faq-question');
 
     if (faqQuestions.length > 0) {
         faqQuestions.forEach(question => {
@@ -1711,10 +1811,11 @@ function initFAQ() {
 
                 // Get the answer element
                 const answer = question.nextElementSibling;
+                if (!(answer instanceof HTMLElement)) return;
                 const isActive = question.classList.contains('active');
 
                 // Update ARIA state
-                question.setAttribute('aria-expanded', isActive);
+                question.setAttribute('aria-expanded', String(isActive));
 
                 // Toggle answer visibility
                 if (isActive) {
@@ -1727,7 +1828,7 @@ function initFAQ() {
             }
 
             question.addEventListener('click', toggleFAQ);
-            question.addEventListener('keydown', (e) => {
+            question.addEventListener('keydown', (e: KeyboardEvent) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     toggleFAQ();
@@ -1770,85 +1871,56 @@ function initFAQ() {
 
 // Update current year in footer
 function initCurrentYear() {
-    const yearElements = document.querySelectorAll('.current-year');
+    const yearElements = document.querySelectorAll<HTMLElement>('.current-year');
     const currentYear = new Date().getFullYear();
 
     yearElements.forEach(element => {
-        element.textContent = currentYear;
+        element.textContent = String(currentYear);
     });
 }
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
+function initSmoothScrolling() {
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(this: HTMLAnchorElement, e: MouseEvent) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
 
-        // Skip if it's just "#"
-        if (href === '#') return;
+            const targetElement = document.getElementById(href.substring(1));
+            if (!targetElement) return;
 
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
             e.preventDefault();
-
-            // Calculate position to scroll to
-            const headerOffset = 80;
-            const elementPosition = targetElement.offsetTop;
-            const offsetPosition = elementPosition - headerOffset;
-
-            // Smooth scroll
             window.scrollTo({
-                top: offsetPosition,
+                top: targetElement.offsetTop - 80,
                 behavior: 'smooth'
             });
 
-            // Update URL without reloading page
             if (history.pushState) {
-                history.pushState(null, null, href);
+                history.pushState(null, '', href);
             }
-        }
+        });
     });
-});
+}
 
-// Add loading state to buttons when clicked
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function() {
-        if (this.type === 'submit' || (this.tagName === 'A' && !this.getAttribute('href'))) {
-            const originalText = this.innerHTML;
-            const dictionary = i18nTranslations[localStorage.getItem('language')] ? i18nTranslations[localStorage.getItem('language')] : i18nTranslations['en'];
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + dictionary['contact.processing'];
-            this.disabled = true;
+function initCardHoverEffects() {
+    document.querySelectorAll<HTMLElement>('.skill-card, .project-card, .value-card, .volunteer-card, .learning-card')
+        .forEach(card => {
+            card.addEventListener('mouseenter', function(this: HTMLElement) {
+                this.style.transform = 'translateY(-5px)';
+            });
 
-            setTimeout(() => {
-                this.innerHTML = originalText;
-                this.disabled = false;
-            }, 3000);
-        }
-    });
-});
+            card.addEventListener('mouseleave', function(this: HTMLElement) {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+}
 
-// Add hover effects to cards
-document.querySelectorAll('.skill-card, .project-card, .value-card, .volunteer-card, .learning-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-5px)';
+function initResizeEffects() {
+    let resizeTimeout: number | undefined;
+    window.addEventListener('resize', function() {
+        if (resizeTimeout !== undefined) window.clearTimeout(resizeTimeout);
+        resizeTimeout = window.setTimeout(initSkillAnimations, 250);
     });
 
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
-// Handle window resize
-let resizeTimeout;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
-        // Re-initialize animations on resize
-        initSkillAnimations();
-    }, 250);
-});
-
-// Log page view (for analytics - you can replace with real analytics)
-console.log(`Viewing page: ${window.location.pathname}`);
+    console.log(`Viewing page: ${window.location.pathname}`);
+}
 

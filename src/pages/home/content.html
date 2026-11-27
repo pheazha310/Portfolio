@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophea Phal - Portfolio</title>
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="./css/home.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./image/react-favicon.svg">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Sophea Phal</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="./index.html" class="nav-link active" data-i18n="nav.home">Home</a></li>
+                <li class="nav-item"><a href="./page/about.html" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li class="nav-item"><a href="./page/skills.html" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                <li class="nav-item"><a href="./page/certificate.html" class="nav-link" data-i18n="nav.certificate">Certificates</a></li>
+                <li class="nav-item"><a href="./page/projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li class="nav-item"><a href="./page/experience.html" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                <li class="nav-item"><a href="./page/contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-switcher">
+                    <span class="sr-only" data-i18n="nav.language">Language</span>
+                    <button class="language-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="language-current flag-display" data-lang="en" title="English" aria-hidden="true"></span>
+                    </button>
+                    <div class="language-menu" role="listbox">
+                        <button class="language-option" type="button" data-lang="en" data-flag="🇺🇸" title="English">English</button>
+                        <button class="language-option" type="button" data-lang="km" data-flag="🇰🇭" title="Khmer">Khmer</button>
+                    </div>
+                </div>
+                <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title"><span data-i18n="home.hero_hello">Hello, I'm</span> <span class="highlight">Sophea Phal</span></h1>
+                    <h2 class="hero-subtitle">
+                        <span class="hero-subtitle-prefix" data-i18n="home.hero_prefix">IT Student & Aspiring</span>
+                        <span
+                            class="hero-role"
+                            data-roles-en="Software Developer,Frontend Developer,Backend Developer,UX/UI Designer,DevOps Engineer,Quality Assurance,Prompt Engineer,Database Administrator"
+                            data-roles-km="អ្នកអភិវឌ្ឍកម្មវិធី,អ្នកអភិវឌ្ឍ Frontend,អ្នកអភិវឌ្ឍ Backend,អ្នករចនា UX/UI,វិស្វករ DevOps,អ្នកធានាគុណភាព,វិស្វករ Prompt,អ្នកគ្រប់គ្រងមូលដ្ឋានទិន្នន័យ"
+                            aria-live="polite"
+                        >Software Developer</span>
+                    </h2>
+                    <p class="hero-description" data-i18n="home.hero_description">I'm studying Information Technology at Passerelles Numeriques Cambodia (PNC), developing strong technical skills in software development while gaining professional soft skills for the tech industry.</p>
+
+                    <div class="student-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span data-i18n="home.badge">PNC IT Student | 2025-Present</span>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="./page/projects.html" class="btn btn-primary"><span data-i18n="home.cta_projects">View My Projects</span></a>
+                        <!-- <a href="./page/contact.html" class="btn btn-secondary">Contact Me</a> -->
+                        <a href="./My_CV.pdf" class="btn btn-secondary"><span data-i18n="home.cta_cv">Download CV</span></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img class="my-photo" src="./image/hero-portrait.png" alt="Sophea Phal standing with her arms crossed">
+                    <!-- <div class="avatar-placeholder">
+                        <i class="fas fa-laptop-code"></i>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Preview -->
+    <section class="skills-preview">
+        <div class="container">
+            <h2 class="section-title" data-i18n="home.core_skills">My Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fab fa-react" aria-hidden="true"></i>
+                    </div>
+                    <h3 data-i18n="skills.frontend_title">Frontend Development</h3>
+                    <p data-i18n="home.skill_frontend_stack">HTML5, CSS3, JavaScript, Vue.js, React.js</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 data-i18n="skills.backend_title">Backend Development</h3>
+                    <p data-i18n="home.skill_backend_stack">Laravel, PHP, Node.js, Express.js</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 data-i18n="skills.database_title">Database Management</h3>
+                    <p data-i18n="home.skill_database_stack">MySQL, PostgreSQL, Redis, SQLite</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 data-i18n="skills.tools_title">Tools & Technologies</h3>
+                    <p data-i18n="home.skill_tools_stack">Git, GitHub, Jira, Docker, VS Code</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-target="10" data-suffix="+">0+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-target="10" data-suffix="+">0+</span>
+                        <span class="stat-label">Technologies Learned</span>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-target="1000" data-suffix="+">0+</span>
+                        <span class="stat-label">Hours of Coding</span>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">Years of Study</span>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="home.cta_title">Ready to Work Together?</h2>
+                <p data-i18n="home.cta_text">I'm looking for internship opportunities and collaborative projects to apply my skills and learn from experienced developers.</p>
+                <a href="./page/contact.html" class="btn btn-primary"><span data-i18n="home.cta_contact">Get In Touch</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Sophea Phal</h3>
+                    <p data-i18n="footer.tagline_line1">IT Student at Passerelles Numeriques Cambodia</p>
+                    <p data-i18n="footer.tagline_line2">Aspiring Software Developer</p>
+                    <div class="footer-cta">
+                        <a class="footer-btn" href="./page/contact.html" data-i18n="footer.cta">Let's Build Together</a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer.contact">Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:sophea.phal@student.passerellesnumeriques.org">sophea.phal@student.passerellesnumeriques.org</a></li>
+                        <li><i class="fas fa-location-dot"></i><span data-i18n="footer.location">Phnom Penh, Cambodia</span></li>
+                        <li><i class="fas fa-graduation-cap"></i><span data-i18n="footer.available">Available for internships</span></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer.quick_links">Quick Links</h4>
+                    <ul>
+                        <li><a href="./index.html" data-i18n="nav.home">Home</a></li>
+                        <li><a href="./page/about.html" data-i18n="nav.about">About</a></li>
+                        <li><a href="./page/skills.html" data-i18n="nav.skills">Skills</a></li>
+                        <li><a href="./page/certificate.html" data-i18n="nav.certificate">Certificates</a></li>
+                        <li><a href="./page/projects.html" data-i18n="nav.projects">Projects</a></li>
+                        <li><a href="./page/contact.html" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4 data-i18n="footer.connect">Connect</h4>
+                    <p class="footer-note" data-i18n="footer.note">Find my latest work and reach out anytime.</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/sophea06" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/sophea-phal-a73a1034b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://t.me/PheaZaLov3" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="mailto:sophea.phal@student.passerellesnumeriques.org"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><span data-i18n="footer.rights_prefix">&copy; <span class="current-year">2026</span> Sophea Phal.</span> <span data-i18n="footer.rights_suffix">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+</body>
+
+</html>
+

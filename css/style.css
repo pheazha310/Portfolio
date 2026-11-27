@@ -254,11 +254,11 @@ h4 {
 }
 
 .flag-display[data-lang="en"] {
-    background-image: url('../image/flags/us.svg');
+    background-image: url('/image/flags/us.svg');
 }
 
 .flag-display[data-lang="km"] {
-    background-image: url('../image/flags/kh.svg');
+    background-image: url('/image/flags/kh.svg');
 }
 
 .language-trigger:hover {
@@ -341,11 +341,11 @@ h4 {
 }
 
 .language-option[data-lang="en"]::before {
-    background-image: url('../image/flags/us.svg');
+    background-image: url('/image/flags/us.svg');
 }
 
 .language-option[data-lang="km"]::before {
-    background-image: url('../image/flags/kh.svg');
+    background-image: url('/image/flags/kh.svg');
 }
 
 .language-option:hover,
