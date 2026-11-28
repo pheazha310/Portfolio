@@ -135,34 +135,8 @@
       <div class="container">
         <h1 class="page-title" data-i18n="projects.page_title">My Projects</h1>
         <p class="page-subtitle" data-i18n="projects.page_subtitle">
-          A focused selection from PNC coursework and personal builds
+          Selected internship and academic projects across full-stack development and real-time communication.
         </p>
-        <div class="project-stats">
-          <div class="stat-item">
-            <span
-              class="stat-number"
-              data-counter
-              data-target="15"
-              data-suffix="+"
-              >0+</span
-            >
-            <span class="stat-label" data-i18n="projects.stat_completed"
-              >Projects Completed</span
-            >
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-counter data-target="10">0</span>
-            <span class="stat-label" data-i18n="projects.stat_pnc"
-              >PNC Course Projects</span
-            >
-          </div>
-          <div class="stat-item">
-            <span class="stat-number" data-counter data-target="5">0</span>
-            <span class="stat-label" data-i18n="projects.stat_personal"
-              >Personal Projects</span
-            >
-          </div>
-        </div>
       </div>
     </section>
 
@@ -193,9 +167,11 @@
           </button>
           <button
             class="filter-btn"
-            data-filter="personal"
-            data-i18n="projects.filter_personal"
+            data-filter="internship"
           >
+            Internship Projects
+          </button>
+          <button class="filter-btn" data-filter="personal">
             Personal Projects
           </button>
         </div>
@@ -203,556 +179,55 @@
     </section>
 
     <!-- Projects Grid -->
-    <section class="projects-grid-section">
-      <div class="container">
-        <div class="projects-grid">
-          <!-- Class Engagement Tools -->
-          <div class="project-card fade-in" data-category="web,pnc">
-            <div class="project-image">
-              <img
-                src="../image/class-engagement-tools.png"
-                alt="Class Engagement Tools project screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/pheazha310/class-engagement-tools-backend.git"
-                    target="_blank"
-                    class="project-link"
-                    aria-label="View Class Engagement Tools backend repository"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a
-                    href="https://github.com/pheazha310/class-engagement-tools-frontend.git"
-                    target="_blank"
-                    class="project-link"
-                    aria-label="View Class Engagement Tools frontend repository"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.engagement_title">
-                Class Engagement Tools
-              </h3>
-              <p
-                class="project-description"
-                data-i18n="projects.engagement_desc"
-              >
-                Led a 6-member Agile team to develop a classroom engagement
-                platform using Laravel, Vue.js, and PostgreSQL (Jul 01, 2026 –
-                Present). Developed RESTful APIs and interactive features,
-                including Random Wheel, Quiz, Timer, Attendance, and Group
-                Generator. Collaborated using Git and GitHub and followed Agile
-                Scrum practices.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Laravel</span>
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">PostgreSQL</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/pheazha310/class-engagement-tools-backend.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.backend_repo">Backend Repo</span>
-                </a>
-                <a
-                  href="https://github.com/pheazha310/class-engagement-tools-frontend.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.frontend_repo">Frontend Repo</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- GenShop E-commerce -->
-          <div class="project-card fade-in" data-category="web,personal">
-            <div class="project-image">
-              <img
-                src="../image/GenShop.png"
-                alt="GenShop E-commerce project screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/pheazha310/GenShop-Backend.git"
-                    target="_blank"
-                    class="project-link"
-                    aria-label="View GenShop Backend repository"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a
-                    href="https://github.com/pheazha310/GenShop-frontend.git"
-                    target="_blank"
-                    class="project-link"
-                    aria-label="View GenShop Frontend repository"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-               <h3 class="project-title" data-i18n="projects.gen_shop_title">GenShop E-commerce</h3>
-              <p class="project-description" data-i18n="projects.gen_shop_desc">
-                Built an individual e-commerce platform with Laravel, Vue.js,
-                and MySQL. The project supports essential shop workflows
-                including product listing, user authentication, and shopping
-                cart management.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Laravel</span>
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/pheazha310/GenShop-Backend.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.backend_repo">Backend Repo</span>
-                </a>
-                <a
-                  href="https://github.com/pheazha310/GenShop-frontend.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.frontend_repo">Frontend Repo</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- POS System API -->
-          <div class="project-card fade-in" data-category="web,pnc">
-            <div class="project-image">
-              <img
-                src="../image/pos.png"
-                alt="POS System API project screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/pheazha310/POS-API-System.git"
-                    target="_blank"
-                    class="project-link"
-                    aria-label="View POS System API repository"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.pos_title">
-                POS System API
-              </h3>
-              <p class="project-description" data-i18n="projects.pos_desc">
-                Built a POS System API from 18 May 2026 to 7 June 2026 as Team
-                Coordinator & Backend Developer. Led a 2-member team, developed
-                donation management features and full-stack functionality, and
-                coordinated collaboration using Git & GitHub.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Node.js</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">TypeScript (OOP)</span>
-                <span class="tech-tag">Git</span>
-                <span class="tech-tag">GitHub</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/pheazha310/POS-API-System.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.view_repo">View Repository</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- VC1 Project -->
-          <div class="project-card fade-in" data-category="web,pnc">
-            <div class="project-image">
-              <img
-                src="..\image\chomnuoy.png"
-                alt="Chomnuoy System project screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/khezaella-cmd/Chomnuoy_System.git"
-                    target="_blank"
-                    class="project-link"
-                    aria-label="View Chomnuoy System frontend repository"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                  <a
-                    href="https://github.com/pheazha310/Chomnuoy-Backend.git"
-                    target="_blank"
-                    class="project-link"
-                    aria-label="View Chomnuoy System backend repository"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.chomnuoy_title">
-                VC1 Chomnuoy System
-              </h3>
-              <p class="project-description" data-i18n="projects.chomnuoy_desc">
-                Built a full-stack support system project with Laravel, ReactJS,
-                MySQL, Redis, and Jira. Worked on collaborative development,
-                repository management, and structured backend and frontend
-                workflows with GitHub.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Laravel</span>
-                <span class="tech-tag">ReactJS</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Jira</span>
-                <span class="tech-tag">Redis</span>
-                <span class="tech-tag">GitHub</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/khezaella-cmd/Chomnuoy_System.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.frontend_repo">Frontend Repo</span>
-                </a>
-                <a
-                  href="https://github.com/pheazha310/Chomnuoy-Backend.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.backend_repo">Backend Repo</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- JavaScript Project -->
-          <div class="project-card fade-in" data-category="web,personal">
-            <div class="project-image">
-              <img
-                src="../image/quiz-website.png"
-                alt="Quiz Website Screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/leak1415/quiz-website.git"
-                    target="_blank"
-                    class="project-link"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.quiz_title">
-                Interactive Quiz Website
-              </h3>
-              <p class="project-description" data-i18n="projects.quiz_desc">
-                Built an interactive quiz site with responsive UI, timer, score
-                tracking, and instant feedback. Used HTML, CSS, JavaScript,
-                Bootstrap, Jira, and Git/GitHub.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Bootstrap</span>
-                <span class="tech-tag">Git</span>
-                <span class="tech-tag">Jira</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/leak1415/quiz-website.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.view_repo">View Repository</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Algorithms Project -->
-          <div class="project-card fade-in" data-category="web,personal">
-            <div class="project-image">
-              <img
-                src="../image/student-news.png"
-                alt="Student News App Screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/sophea06/Student-News.git"
-                    target="_blank"
-                    class="project-link"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.news_title">
-                Student News Web Application
-              </h3>
-              <p class="project-description" data-i18n="projects.news_desc">
-                Built a Student News web app in 2 weeks with HTML, CSS,
-                JavaScript, Flask, Python, and SQLite. Designed a CMS to create,
-                publish, and display articles with a clean UI.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">SQLite</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/sophea06/Student-News.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.view_repo">View Repository</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Web Design Project -->
-          <div class="project-card fade-in" data-category="web,personal">
-            <div class="project-image">
-              <img
-                src="../image/my-project-web-design.png"
-                alt="Portfolio Website Screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/sophea06/My-project-web-design.git"
-                    target="_blank"
-                    class="project-link"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.portfolio_title">
-                Professional Portfolio Website
-              </h3>
-              <p
-                class="project-description"
-                data-i18n="projects.portfolio_desc"
-              >
-                Designed and developed a professional portfolio site from
-                concept to deployment. Built responsive layouts and clean
-                navigation with HTML, CSS, and SASS.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">SASS</span>
-                <span class="tech-tag">Responsive Design</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/sophea06/My-project-web-design.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.view_repo">View Repository</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- GitHub Project -->
-          <div class="project-card fade-in" data-category="web,pnc">
-            <div class="project-image">
-              <img src="../image/project-1.png" alt="Team Project Screenshot" loading="lazy" decoding="async" />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/sophea06/project-1.git"
-                    target="_blank"
-                    class="project-link"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.team_title">
-                Team Web Development Project
-              </h3>
-              <p class="project-description" data-i18n="projects.team_desc">
-                Built a fully responsive team site with HTML5 and CSS3.
-                Practiced clean, semantic code, Git/GitHub workflows, and
-                shipped the site on Vercel.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">Git</span>
-                <span class="tech-tag">GitHub</span>
-                <span class="tech-tag">Vercel</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/sophea06/project-1.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.view_repo">View Repository</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- PNC Shop Website -->
-          <div class="project-card fade-in" data-category="web,pnc">
-            <div class="project-image">
-              <img
-                src="../image/PNC-Shop.png"
-                alt="PNC Shop Project Screenshot"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="project-overlay">
-                <div class="project-links">
-                  <a
-                    href="https://github.com/samounsuon/PNC-Shop.git"
-                    target="_blank"
-                    class="project-link"
-                  >
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title" data-i18n="projects.shop_title">
-                PNC Shop Website
-              </h3>
-              <p class="project-description" data-i18n="projects.shop_desc">
-                Contributed to a 5-member team building a computer shop website
-                in a 2-week PNC challenge. Focused on layout, styling, and
-                content for a functional shop flow.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">Team Collaboration</span>
-              </div>
-              <div class="project-links-bottom">
-                <a
-                  href="https://github.com/samounsuon/PNC-Shop.git"
-                  target="_blank"
-                  class="btn btn-small"
-                >
-                  <i class="fab fa-github"></i>
-                  <span data-i18n="projects.view_repo">View Repository</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="projects-grid-section" aria-label="Selected projects">
+      <div class="container"><div class="projects-grid">
+          <article class="project-card fade-in" data-category="web,internship">
+            <div class="project-image"><div class="project-image-placeholder" role="img" aria-label="Chat Dashboard project cover"><i class="fas fa-comments" aria-hidden="true"></i><span>Customer support platform</span></div></div>
+            <div class="project-content"><p class="project-role">Full-Stack Developer · Internship project (dates not specified)</p><h3 class="project-title">Chat Dashboard</h3><p class="project-description">A real-time customer support and loan communication workspace for customers, loan officers, and support teams. Work included conversation and ticket management, APIs, WebSockets, authentication, PostgreSQL migration, and UUID schema redesign.</p><div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Prisma</span><span class="tech-tag">WebSocket</span><span class="tech-tag">Tailwind CSS</span></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="web,internship">
+            <div class="project-image"><div class="project-image-placeholder" role="img" aria-label="KneaChat project cover"><i class="fas fa-video" aria-hidden="true"></i><span>Real-time collaboration</span></div></div>
+            <div class="project-content"><p class="project-role">Full-Stack Developer · Internship project (dates not specified)</p><h3 class="project-title">KneaChat</h3><p class="project-description">A real-time communication and collaboration platform. Contributions include messaging, group video calls, screen sharing, meeting management, calendar reminders, responsive UI, and frontend/backend integration.</p><div class="project-tech"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">MySQL</span><span class="tech-tag">WebSocket</span><span class="tech-tag">WebRTC</span></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="web,internship">
+            <div class="project-image"><div class="project-image-placeholder" role="img" aria-label="Omni-channel Integration project cover"><i class="fas fa-envelope-open-text" aria-hidden="true"></i><span>Omni-channel messaging</span></div></div>
+            <div class="project-content"><p class="project-role">Full-Stack Developer · Internship project (dates not specified)</p><h3 class="project-title">Omni-channel Integration</h3><p class="project-description">A communication integration system bringing customer channels together, with inbound and outbound email, threading, message synchronization, attachment handling, webhook verification, and integration testing.</p><div class="project-tech"><span class="tech-tag">Node.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Express</span><span class="tech-tag">MySQL</span><span class="tech-tag">Nodemailer</span><span class="tech-tag">Resend</span><span class="tech-tag">Webhooks</span></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="pnc">
+            <div class="project-image"><img src="../image/chomnuoy.png" alt="Chomnuoy donation management project screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Scrum Master & Full-Stack Developer · February–April 2026</p><h3 class="project-title">Chomnuoy System</h3><p class="project-description">Donation management platform built with a five-member Agile team. Coordinated sprint work and contributed to frontend, backend, and donation management features.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">React</span><span class="tech-tag">MySQL</span><span class="tech-tag">Redis</span></div><div class="project-links-bottom"><a href="https://github.com/khezaella-cmd/Chomnuoy_System.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Repository</a></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="pnc">
+            <div class="project-image"><img src="../image/class-engagement-tools.png" alt="Class Engagement Tools project screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Scrum Master & Full-Stack Developer · July 2026</p><h3 class="project-title">Class Engagement Tools</h3><p class="project-description">Interactive classroom platform developed with a six-member team, including attendance, quizzes, voting, a random wheel, timer, authentication, and classroom management.</p><div class="project-tech"><span class="tech-tag">Laravel 12</span><span class="tech-tag">Vue.js</span><span class="tech-tag">PostgreSQL</span></div><div class="project-links-bottom"><a href="https://github.com/pheazha310/class-engagement-tools-backend.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Backend</a><a href="https://github.com/pheazha310/class-engagement-tools-frontend.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Frontend</a></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="pnc">
+            <div class="project-image"><img src="../image/pos.png" alt="POS API System project screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Team Coordinator & Backend Developer · May–June 2026</p><h3 class="project-title">POS API System</h3><p class="project-description">Point-of-sale backend API developed with a two-member team. Coordinated backend work, implemented business logic, and delivered more than 15 REST API endpoints with MySQL integration.</p><div class="project-tech"><span class="tech-tag">Node.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">MySQL</span></div><div class="project-links-bottom"><a href="https://github.com/pheazha310/POS-API-System.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Repository</a></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="web,personal">
+            <div class="project-image"><img src="../image/GenShop.png" alt="GenShop e-commerce project screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Personal full-stack project</p><h3 class="project-title">GenShop E-commerce</h3><p class="project-description">An e-commerce platform built with Laravel, Vue.js, and MySQL, with product listings, user authentication, and shopping cart workflows.</p><div class="project-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">Vue.js</span><span class="tech-tag">MySQL</span></div><div class="project-links-bottom"><a href="https://github.com/pheazha310/GenShop-Backend.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Backend</a><a href="https://github.com/pheazha310/GenShop-frontend.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Frontend</a></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="web,personal">
+            <div class="project-image"><img src="../image/quiz-website.png" alt="Interactive Quiz Website screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Web development project</p><h3 class="project-title">Interactive Quiz Website</h3><p class="project-description">An interactive quiz site with responsive UI, a timer, score tracking, and instant feedback, built with HTML, CSS, JavaScript, and Bootstrap.</p><div class="project-tech"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Bootstrap</span></div><div class="project-links-bottom"><a href="https://github.com/leak1415/quiz-website.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Repository</a></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="web,personal">
+            <div class="project-image"><img src="../image/student-news.png" alt="Student News web application screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Web development project</p><h3 class="project-title">Student News</h3><p class="project-description">A news publishing application with a content management system for creating, publishing, and displaying articles.</p><div class="project-tech"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Flask</span><span class="tech-tag">Python</span><span class="tech-tag">SQLite</span></div><div class="project-links-bottom"><a href="https://github.com/sophea06/Student-News.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Repository</a></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="web,personal">
+            <div class="project-image"><img src="../image/my-project-web-design.png" alt="Portfolio website design screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Personal portfolio project</p><h3 class="project-title">My Portfolio</h3><p class="project-description">A portfolio website designed and developed from concept to deployment, with responsive layouts and clear navigation.</p><div class="project-tech"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">SASS</span><span class="tech-tag">Responsive Design</span></div><div class="project-links-bottom"><a href="https://github.com/sophea06/My-project-web-design.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Repository</a></div></div>
+          </article>
+          <article class="project-card fade-in" data-category="web,pnc">
+            <div class="project-image"><img src="../image/project-1.png" alt="Team web development project screenshot" loading="lazy" decoding="async" /></div>
+            <div class="project-content"><p class="project-role">Team web development project</p><h3 class="project-title">Team Project</h3><p class="project-description">A responsive team website built with semantic HTML and CSS, using Git and GitHub for collaboration and deployed on Vercel.</p><div class="project-tech"><span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span><span class="tech-tag">Git</span><span class="tech-tag">GitHub</span><span class="tech-tag">Vercel</span></div><div class="project-links-bottom"><a href="https://github.com/sophea06/project-1.git" target="_blank" rel="noopener noreferrer" class="btn btn-small"><i class="fab fa-github"></i> Repository</a></div></div>
+          </article>
+      </div></div>
     </section>
 
-    <!-- Featured Project -->
-    <!-- <section class="featured-project">
-      <div class="container">
-        <h2 class="section-title center">Featured Project</h2>
-        <div class="featured-card">
-          <div class="featured-image">
-            <img
-              src="../image/quiz-website-2.png"
-              alt="Featured Project Screenshot"
-            />
-          </div>
-          <div class="featured-content">
-            <span class="featured-badge">Latest Project</span>
-            <h2>Interactive Quiz Website</h2>
-            <p>
-              Built an interactive quiz website with responsive UI, timer,
-              scoring, and instant feedback. Collaborated with Git/GitHub and
-              Jira for planning and delivery.
-            </p>
-            <div class="project-tech" style="margin: 20px 0">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Bootstrap</span>
-              <span class="tech-tag">Git</span>
-              <span class="tech-tag">Jira</span>
-            </div>
-            <div class="project-links-bottom">
-              <a
-                href="https://github.com/leak1415/quiz-website.git"
-                target="_blank"
-                class="btn btn-primary"
-              >
-                <i class="fab fa-github"></i> View on GitHub
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- GitHub Section -->
     <section class="github-section">
       <div class="container">
         <div class="github-content">
@@ -760,44 +235,9 @@
           <p data-i18n="projects.github_desc">
             See more projects, experiments, and coding challenges on GitHub.
           </p>
-          <div class="github-stats">
-            <div class="github-stat fade-in">
-              <i class="fab fa-github"></i>
-              <span
-                class="github-counter"
-                data-counter
-                data-target="25"
-                data-suffix="+"
-                >0+</span
-              >
-              <p data-i18n="projects.github_repos">Repositories</p>
-            </div>
-            <div class="github-stat fade-in">
-              <i class="fas fa-code-branch"></i>
-              <span
-                class="github-counter"
-                data-counter
-                data-target="50"
-                data-suffix="+"
-                >0+</span
-              >
-              <p data-i18n="projects.github_commits">Commits</p>
-            </div>
-            <div class="github-stat fade-in">
-              <i class="fas fa-star"></i>
-              <span
-                class="github-counter"
-                data-counter
-                data-target="10"
-                data-suffix="+"
-                >0+</span
-              >
-              <p data-i18n="projects.github_stars">Stars</p>
-            </div>
-          </div>
           <a
-            href="https://github.com/sophea06"
-            target="_blank"
+            href="https://github.com/pheazha310"
+            target="_blank" rel="noopener noreferrer"
             class="btn btn-primary"
           >
             <i class="fab fa-github"></i>
@@ -828,8 +268,8 @@
             <ul>
               <li>
                 <i class="fas fa-envelope"></i
-                ><a href="mailto:sophea.phal@student.passerellesnumeriques.org"
-                  >sophea.phal@student.passerellesnumeriques.org</a
+                ><a href="mailto:pheazha310@gmail.com"
+                  >pheazha310@gmail.com</a
                 >
               </li>
               <li>
@@ -869,7 +309,7 @@
               Find my latest work and reach out anytime.
             </p>
             <div class="social-icons">
-              <a href="https://github.com/sophea06" target="_blank"
+              <a href="https://github.com/pheazha310" target="_blank"
                 ><i class="fab fa-github"></i
               ></a>
               <a
@@ -880,7 +320,7 @@
               <a href="https://t.me/PheaZaLov3" target="_blank"
                 ><i class="fab fa-telegram"></i
               ></a>
-              <a href="mailto:sophea.phal@student.passerellesnumeriques.org"
+              <a href="mailto:pheazha310@gmail.com"
                 ><i class="fas fa-envelope"></i
               ></a>
             </div>

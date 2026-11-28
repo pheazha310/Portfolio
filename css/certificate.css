@@ -244,6 +244,74 @@
     outline-offset: 3px;
 }
 
+/* Numbered training certificates read best as a compact, consistent gallery. */
+.cert-card.cert-session-card {
+    padding: clamp(0.85rem, 1.5vw, 1.25rem);
+    border-radius: 16px;
+}
+
+.cert-card.fade-in {
+    opacity: 1;
+    transform: none;
+}
+
+.cert-session-card .cert-image-wrapper {
+    margin-bottom: 1rem;
+    padding: 0.45rem;
+}
+
+.cert-session-card .cert-image {
+    height: clamp(135px, 15vw, 185px);
+}
+
+.cert-session-card .cert-header {
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.cert-session-card .cert-icon {
+    width: 2.35rem;
+    height: 2.35rem;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+.cert-session-card .cert-meta h3 {
+    margin-bottom: 0.15rem;
+    font-size: clamp(0.98rem, 1.25vw, 1.1rem);
+}
+
+.cert-session-card .cert-issuer {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.cert-session-card .cert-date {
+    gap: 0.4rem;
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+}
+
+.cert-session-card .cert-session-topic {
+    margin: 0.35rem 0 0;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.cert-session-card .cert-document-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+.cert-session-card:focus-within {
+    border-color: rgba(37, 99, 235, 0.45);
+    box-shadow: 0 14px 34px rgba(37, 99, 235, 0.12);
+}
+
 
 /* Responsive */
 
@@ -262,6 +330,18 @@
 
     .cert-image {
         height: 170px;
+    }
+
+    .cert-session-card .cert-image {
+        height: 155px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cert-card,
+    .cert-image,
+    .cert-document-link {
+        transition: none;
     }
 }
 

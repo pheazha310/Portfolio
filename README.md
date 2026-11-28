@@ -52,3 +52,16 @@ routes work without a server-side rewrite.
 The contact form validates its fields and opens a prefilled email draft in the
 visitor's email application. It does not send messages from the website; a
 working email application is required to complete the send.
+
+## Vercel deployment
+
+The site is a static Vite build with explicit HTML entry points for the home
+page and each existing `/page/*.html` route. In Vercel, select the project root
+as the project directory, use `npm run build` as the build command, and `dist`
+as the output directory. No environment variables are required. Connect the
+GitHub repository to enable preview deployments; production deployment remains
+manual and is not performed by this project setup.
+
+The contact form validates the fields and opens a prefilled message in the
+visitor's email application. It does not send email through a server, so there
+is no mail service secret to configure.

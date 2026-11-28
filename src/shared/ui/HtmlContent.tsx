@@ -17,5 +17,5 @@ function extractPageSections(source: string): string {
 export default function HtmlContent({ source }: HtmlContentProps) {
   const content = useMemo(() => extractPageSections(source), [source]);
 
-  return <main>{parse(content)}</main>;
+  return <main id="main-content">{parse(content)}</main>;
 }

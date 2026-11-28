@@ -14,10 +14,10 @@ const navigationItems: [PageName, string, string][] = [
 ];
 
 const socialLinks = [
-  ['https://github.com/sophea06', 'fab fa-github', 'GitHub'],
+  ['https://github.com/pheazha310', 'fab fa-github', 'GitHub'],
   ['https://linkedin.com/in/sophea-phal-a73a1034b', 'fab fa-linkedin', 'LinkedIn'],
   ['https://t.me/PheaZaLov3', 'fab fa-telegram', 'Telegram'],
-  ['mailto:sophea.phal@student.passerellesnumeriques.org', 'fas fa-envelope', 'Email'],
+  ['mailto:pheazha310@gmail.com', 'fas fa-envelope', 'Email'],
 ];
 
 function pageHref(page: PageName, currentPage: PageName): string {
@@ -39,7 +39,7 @@ export function Navigation({ currentPage }: SitePageProps) {
         <a href={pageHref('home', currentPage)} className="logo">
           Sophea Phal
         </a>
-        <ul className="nav-menu">
+        <ul className="nav-menu" id="primary-navigation">
           {navigationItems.map(([page, key, label]) => (
             <li className="nav-item" key={page}>
               <a
@@ -57,7 +57,7 @@ export function Navigation({ currentPage }: SitePageProps) {
           <LanguageSwitcher />
           <ThemeToggle />
         </div>
-        <button className="hamburger" type="button" aria-label="Toggle navigation">
+        <button className="hamburger" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
           <span className="bar" />
           <span className="bar" />
           <span className="bar" />
@@ -75,9 +75,9 @@ export function Footer({ currentPage }: SitePageProps) {
           <div className="footer-info">
             <h3>Sophea Phal</h3>
             <p data-i18n="footer.tagline_line1">
-              IT Student at Passerelles Numeriques Cambodia
+            Full-Stack Developer Intern at DELIGHTECH CO., LTD.
             </p>
-            <p data-i18n="footer.tagline_line2">Aspiring Software Developer</p>
+          <p data-i18n="footer.tagline_line2">Web Development student at PNC</p>
             <div className="footer-cta">
               <a className="footer-btn" href={pageHref('contact', currentPage)} data-i18n="footer.cta">
                 Let&apos;s Build Together
@@ -89,8 +89,8 @@ export function Footer({ currentPage }: SitePageProps) {
             <ul>
               <li>
                 <i className="fas fa-envelope" />
-                <a href="mailto:sophea.phal@student.passerellesnumeriques.org">
-                  sophea.phal@student.passerellesnumeriques.org
+                <a href="mailto:pheazha310@gmail.com">
+                  pheazha310@gmail.com
                 </a>
               </li>
               <li>
@@ -99,7 +99,7 @@ export function Footer({ currentPage }: SitePageProps) {
               </li>
               <li>
                 <i className="fas fa-graduation-cap" />
-                <span data-i18n="footer.available">Available for internships</span>
+              <span data-i18n="footer.available">Open to collaboration</span>
               </li>
             </ul>
           </div>

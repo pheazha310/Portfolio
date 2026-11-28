@@ -107,8 +107,8 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'certificate.group_soft': 'Soft Skills & Leadership',
         'certificate.group_language': 'Language & Communication',
         'certificate.group_competition': 'Competitions & Awards',
-        'certificate.hard_sessions_group': 'Hard-Skill Training Sessions',
-        'certificate.hard_sessions_note': 'Each numbered card is a separate certificate from a different session.',
+        'certificate.hard_sessions_group': 'Numbered Hard-Skill Training Sessions',
+        'certificate.hard_sessions_note': 'Certificates are available for sessions 1–7 and 9; each card opens its original PDF.',
         'cert.css_title': 'CSS (Basic) Certificate',
         'cert.css_issuer': 'HackerRank',
         'cert.css_desc': 'Certification demonstrating foundational CSS skills including selectors, box model, flexbox, grid, responsive design, and styling best practices.',
@@ -138,17 +138,35 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'cert.dst_tag1': 'Digital Security',
         'cert.dst_tag2': 'Data Protection',
         'cert.dst_tag3': 'Cybersecurity',
-        'cert.ai_lit_title': 'AI Literacy Online Training 2026',
-        'cert.ai_lit_issuer': 'Online Training Program',
-        'cert.ai_lit_desc': 'Online training program focused on building foundational AI literacy skills and understanding artificial intelligence concepts for everyday applications.',
+        'cert.ai_lit_title': 'AI Literacy: AI Class ASEAN',
+        'cert.ai_lit_issuer': 'AI Ready ASEAN / ASEAN Foundation',
+        'cert.ai_lit_date': '31 March 2026',
+        'cert.ai_lit_desc': 'Completed all 12 hours of AI learning modules on AIClassASEAN.org.',
         'cert.ai_lit_tag1': 'AI Literacy',
-        'cert.ai_lit_tag2': 'Digital Skills',
+        'cert.ai_lit_tag2': 'AI Class ASEAN',
         'cert.generative_ai_title': 'What Is Generative AI?',
         'cert.generative_ai_issuer': 'LinkedIn Learning',
         'cert.generative_ai_desc': 'Certificate for a 1 hour 3 minute LinkedIn Learning course.',
         'cert.hard_session_title': 'Hard-Skill Training Session',
-        'cert.cybersight_title': 'Cybersight Certificate 2026',
-        'cert.bulk_title': 'Blue And White Modern Certificate Document (Bulk 1)',
+        'cert.hard_session_date1': '14 July 2026',
+        'cert.hard_session_date2': '20 July 2026',
+        'cert.hard_session_date3': '21 July 2026',
+        'cert.hard_session_date4': '27 July 2026',
+        'cert.hard_session_date5': '3 August 2026',
+        'cert.hard_session_date6': '10 August 2026',
+        'cert.hard_session_date7': '17 August 2026',
+        'cert.hard_session_date9': '21 August 2026',
+        'cert.session_topic_lean_canvas': 'Topic: Lean Canvas',
+        'cert.cybersight_title': 'Health Technology Assessment for AI in Eye Care',
+        'cert.cybersight_desc': 'Completed the webinar “Health Technology Assessment (HTA) for AI & Novel Technologies in Eyecare: Evidence, Value, and Adoption.”',
+        'cert.cybersight_tag1': 'AI in Healthcare',
+        'cert.cybersight_tag2': 'Health Technology Assessment',
+        'cert.bulk_title': 'Cambodia Knowledge Challenge — Season 2',
+        'cert.bulk_issuer': 'Cambodia Knowledge Challenge',
+        'cert.bulk_date': '20 September 2026',
+        'cert.bulk_desc': 'Participation in the online general knowledge examination, Season 2.',
+        'cert.bulk_tag1': 'General Knowledge',
+        'cert.bulk_tag2': 'Cambodia',
         'cert.teded_title': 'TED-Ed Idea Workshop',
         'cert.teded_desc': 'Certificate for the TED-Ed Idea Workshop.',
         'cert.open_pdf': 'Open original PDF',
@@ -188,20 +206,20 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'cert.pucifl_tag1': 'English',
         'cert.pucifl_tag2': 'Academic Skills',
         'cert.ideathon_title': 'Ideathon Cambodia 2025 Competition',
-        'cert.ideathon_issuer': 'Ideathon Cambodia',
-        'cert.ideathon_desc': 'Participation certificate from Ideathon Cambodia 2025, demonstrating innovation, problem-solving, and creative thinking in a competitive environment.',
+        'cert.ideathon_issuer': 'Mars Flag Corporation',
+        'cert.ideathon_desc': 'Recognized for participating in Ideathon Cambodia 2025, held September 13–14 at the Cambodia-Japan Cooperation Center in Phnom Penh.',
         'cert.ideathon_tag1': 'Innovation',
         'cert.ideathon_tag2': 'Problem Solving',
-        'cert.debate_title': "Youth's Perspectives Debate Competition",
-        'cert.debate_issuer': 'Debate Competition',
-        'cert.debate_desc': 'Certificate recognizing participation and performance in the Youth\'s Perspectives Debate Competition, demonstrating critical thinking and public speaking skills.',
-        'cert.debate_tag1': 'Public Speaking',
-        'cert.debate_tag2': 'Critical Thinking',
-        'cert.completion_title': 'Certificate of Completion',
-        'cert.completion_issuer': 'Phal Sophea',
-        'cert.completion_desc': 'General certificate of completion recognizing successful participation and achievement in an accredited educational or training program.',
-        'cert.completion_tag1': 'Completion',
-        'cert.completion_tag2': 'Achievement',
+        'cert.debate_title': "Champion Debater — Youth's Perspectives Season 6",
+        'cert.debate_issuer': 'RULErs / NGO-CEDAW',
+        'cert.debate_desc': 'Recognized as Champion Debater in the final round of Youth’s Perspectives Season 6, held in 2026 under the theme “Gender equality and the digital divide.”',
+        'cert.debate_tag1': 'Champion Debater',
+        'cert.debate_tag2': 'Gender Equality',
+        'cert.completion_title': 'Debate Program: Policy Solutions for a Prosperous Cambodia',
+        'cert.completion_issuer': 'Debate Program',
+        'cert.completion_desc': 'Participated in the debate program on “If you were a policymaker, what solutions would you propose for a prosperous Cambodia?”',
+        'cert.completion_tag1': 'Public Policy',
+        'cert.completion_tag2': 'Debate',
         'certificate.pnc_title': 'PNC IT Diploma',
         'certificate.pnc_issuer': 'Passerelles Numeriques Cambodia',
         'certificate.pnc_date': '2025 - Present',
@@ -225,27 +243,27 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'certificate.web_date': '2025',
         'certificate.web_desc': 'End-to-end web development training covering frontend, backend, API integration, and deployment practices.',
         'home.hero_hello': "Hello, I'm",
-        'home.hero_prefix': 'IT Student & Aspiring',
-        'home.hero_description': "I'm studying Information Technology at Passerelles Numeriques Cambodia (PNC), developing strong technical skills in software development while gaining professional soft skills for the tech industry.",
-        'home.badge': 'PNC IT Student | 2025-Present',
+        'home.hero_prefix': 'Full-Stack Developer Intern',
+        'home.hero_description': 'Web Development student at Passerelles Numériques Cambodia (PNC), currently gaining professional experience at DELIGHTECH CO., LTD. I build web applications, REST APIs, backend systems, and real-time communication features.',
+        'home.badge': 'PNC student · Full-Stack Developer Intern',
         'home.cta_projects': 'View My Projects',
         'home.cta_cv': 'Download CV',
-        'home.core_skills': 'My Core Skills',
+        'home.core_skills': 'Building for the web',
         'home.skill_frontend_stack': 'HTML5, CSS3, JavaScript, Vue.js, React.js',
         'home.skill_backend_stack': 'Laravel, PHP, Node.js, Express.js',
         'home.skill_database_stack': 'MySQL, PostgreSQL, Redis, SQLite',
         'home.skill_tools_stack': 'Git, GitHub, Jira, Docker, VS Code',
         'home.cta_title': 'Ready to Work Together?',
-        'home.cta_text': "I'm looking for internship opportunities and collaborative projects to apply my skills and learn from experienced developers.",
+        'home.cta_text': 'I am gaining professional experience as a Full-Stack Developer Intern and welcome opportunities to build and learn with a development team.',
         'home.cta_contact': 'Get In Touch',
         'about.page_title': 'About Me',
         'about.page_subtitle': 'Get to know my background, education, and career goals',
         'about.intro_title': "Hello, I'm Sophea Phal",
-        'about.intro_p1': "I'm a passionate IT student at Passerelles Numeriques Cambodia (PNC), specializing in software development and web technologies. My journey into technology began with a curiosity about how things work digitally, which has evolved into a dedicated pursuit of software engineering.",
-        'about.intro_p2': "Through PNC's intensive two-year program, I'm gaining hands-on experience with modern development tools and methodologies while developing problem-solving skills that are essential for the tech industry.",
-        'about.intro_p3': "When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and participating in tech communities to stay updated with industry trends.",
+        'about.intro_p1': 'I am a Web Development student at Passerelles Numériques Cambodia (PNC) and a Full-Stack Developer Intern at DELIGHTECH CO., LTD. I work across React and TypeScript interfaces, Node.js services, APIs, databases, and real-time communication.',
+        'about.intro_p2': 'Working with development teams has strengthened my experience integrating frontend and backend systems, shaping database schemas, and collaborating through Agile and Scrum.',
+        'about.intro_p3': 'My goal is to keep growing as a software engineer and contribute to scalable, useful products while deepening my experience with backend architecture, cloud deployment, and secure application design.',
         'about.education_title': 'Education',
-        'about.edu1_title': 'IT Diploma Program',
+        'about.edu1_title': 'Web Development / IT · Second-year student',
         'about.edu1_desc': 'Intensive two-year program focusing on software development, web technologies, database management, and professional skills development.',
         'about.edu1_li1': 'Programming Fundamentals (Python)',
         'about.edu1_li2': 'Web Development (HTML/CSS, JavaScript, PHP)',
@@ -264,12 +282,12 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'about.goals_title': 'Career Goals',
         'about.goal1_title': 'Complete PNC Program',
         'about.goal1_desc': 'Successfully graduate from Passerelles Numeriques Cambodia with strong technical skills and professional readiness, building a portfolio of meaningful projects.',
-        'about.goal2_title': 'Software Development Internship',
-        'about.goal2_desc': 'Secure a software development internship to gain real-world experience working on production code and understanding industry workflows.',
+        'about.goal2_title': 'Full-Stack Developer Internship',
+        'about.goal2_desc': 'Continue growing through my current full-stack internship at DELIGHTECH CO., LTD., learning from team workflows and contributing to application development.',
         'about.goal3_title': 'Junior Developer Role',
         'about.goal3_desc': 'Begin my career as a Junior Software Developer, contributing to meaningful projects while continuing to grow professionally.',
         'skills.page_title': 'My Skills',
-        'skills.page_subtitle': "Technical abilities and knowledge areas developed through PNC's program",
+        'skills.page_subtitle': 'Tools and methods I use across frontend, backend, databases, and deployment',
         'skills.frontend_title': 'Frontend Development',
         'skills.responsive_design': 'Responsive Design',
         'skills.backend_title': 'Backend Development',
@@ -302,7 +320,7 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'skills.soft5_title': 'Leadership',
         'skills.soft5_desc': 'Ability to guide team activities, support collaboration, and take responsibility for delivering shared goals.',
         'projects.page_title': 'My Projects',
-        'projects.page_subtitle': 'A focused selection from PNC coursework and personal builds',
+        'projects.page_subtitle': 'Selected internship and academic projects across full-stack development and real-time communication.',
         'projects.stat_completed': 'Projects Completed',
         'projects.stat_pnc': 'PNC Course Projects',
         'projects.stat_personal': 'Personal Projects',
@@ -396,7 +414,7 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'contact.error_message': 'Please fix the errors above and try again.',
         'contact.processing': 'Processing...',
         'contact.info_title': 'Contact Information',
-        'contact.info_desc': 'Feel free to reach out through any of these channels. I typically respond within 24 hours.',
+        'contact.info_desc': 'Feel free to reach out by email or LinkedIn to discuss collaboration and software development.',
         'contact.method_email': 'Email',
         'contact.email_cta': 'Send an email',
         'contact.method_phone': 'Phone',
@@ -410,19 +428,19 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'contact.social_desc': 'Follow me for updates on my projects and coding journey.',
         'contact.faq_title': 'Frequently Asked Questions',
         'contact.faq1_q': 'Are you available for internships?',
-        'contact.faq1_a': "Yes! As a PNC IT student, I'm actively seeking internship opportunities for 2026. I'm available for both part-time during the semester and full-time during breaks.",
+        'contact.faq1_a': 'I am currently gaining professional experience as a Full-Stack Developer Intern at DELIGHTECH CO., LTD.',
         'contact.faq2_q': 'What types of projects do you take on?',
         'contact.faq2_a': 'I specialize in web development projects but also take on full-stack applications. This includes websites, web applications, landing pages, and e-commerce solutions.',
         'contact.faq3_q': "What's your expected graduation date?",
-        'contact.faq3_a': "I'm on track to graduate from Passerelles Numeriques Cambodia in December 2026 with an IT Diploma focusing on software development.",
+        'contact.faq3_a': 'My expected graduation date has not been specified.',
         'contact.faq4_q': 'Do you work remotely or on-site?',
-        'contact.faq4_a': "I'm open to both remote and on-site opportunities. For remote work, I'm experienced with collaboration tools and have a dedicated workspace.",
-        'footer.tagline_line1': 'IT Student at Passerelles Numeriques Cambodia',
-        'footer.tagline_line2': 'Aspiring Software Developer',
+        'contact.faq4_a': 'I can discuss remote or on-site collaboration depending on the project and team needs.',
+        'footer.tagline_line1': 'Full-Stack Developer Intern at DELIGHTECH CO., LTD.',
+        'footer.tagline_line2': 'Web Development student at PNC',
         'footer.cta': "Let's Build Together",
         'footer.contact': 'Contact',
         'footer.location': 'Phnom Penh, Cambodia',
-        'footer.available': 'Available for internships',
+        'footer.available': 'Open to collaboration',
         'footer.quick_links': 'Quick Links',
         'footer.connect': 'Connect',
         'footer.note': 'Find my latest work and reach out anytime.',
@@ -445,11 +463,11 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'certificate.page_title': 'វិញ្ញាបនបត្រ',
         'certificate.page_subtitle': 'លិខិតសម្គាល់ និងវិញ្ញាបនបត្រដែលទទួលបានតាមរយៈការសិក្សា និងការអភិវឌ្ឍវិជ្ជាជីវៈ',
         'certificate.group_technical': 'ជំនាញបច្ចេកទេស និងការបណ្តុះបណ្តាល',
-        'certificate.group_soft': 'ជំនាញទន់ និងភាពជាម្ចាស់ដៃ',
+        'certificate.group_soft': 'ជំនាញទន់ និងភាពជាអ្នកដឹកនាំ',
         'certificate.group_language': 'ភាសា និងការប្រាស្រ័យទាក់ទង',
-        'certificate.group_competition': 'ការប្រកួត និងពាន់លាភ',
-        'certificate.hard_sessions_group': 'វិញ្ញាបនបត្រវគ្គបណ្តុះបណ្តាលជំនាញ',
-        'certificate.hard_sessions_note': 'កាតដែលមានលេខរៀងនីមួយៗគឺជាវិញ្ញាបនបត្រដាច់ដោយឡែកសម្រាប់វគ្គផ្សេងៗ។',
+        'certificate.group_competition': 'ការប្រកួត និងពានរង្វាន់',
+        'certificate.hard_sessions_group': 'វគ្គបណ្តុះបណ្តាលជំនាញរឹងតាមលំដាប់លេខ',
+        'certificate.hard_sessions_note': 'មានវិញ្ញាបនបត្រសម្រាប់វគ្គទី ១–៧ និងទី ៩។ ចុចកាតនីមួយៗដើម្បីបើកឯកសារ PDF ដើម។',
         'cert.css_title': 'វិញ្ញាបនបត្រ CSS (មូលដ្ឋាន)',
         'cert.css_issuer': 'HackerRank',
         'cert.css_desc': 'វិញ្ញាបនបត្របំពេញជំនាញមូលដ្ឋាន CSS ដែលរាមមាន selector, box model, flexbox, grid, រចនាឆ្លើយតប និងវិធីធ្វើដែលល្អ។',
@@ -479,17 +497,35 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'cert.dst_tag1': 'សុវត្ថិភាពឌីជីថល',
         'cert.dst_tag2': 'ការពារទិន្នន័យ',
         'cert.dst_tag3': 'សុវត្ថិភាពស៊ីប៊ីរ',
-        'cert.ai_lit_title': 'ការបណ្តុះបណ្តាលភាសា AI អនឡាញ 2026',
-        'cert.ai_lit_issuer': 'វគ្គសិក្សាអនឡាញ',
-        'cert.ai_lit_desc': 'ការបណ្តុះបណ្តាលអនឡាញដែលផ្តោតលើការបង្កើតជំនាញភាសា AI មូលដ្ឋាន និងការយល់�់អំពីមូលដ្ឋានគ្រឹះពន្លឺម៉ាស៊ីនធ្វើការដោយខ្លួនឯងសម្រាប់ការអនុវត្តប្រចាំថ្ងៃ។',
-        'cert.ai_lit_tag1': 'ភាសា AI',
-        'cert.ai_lit_tag2': 'ជំនាញឌីជីថល',
+        'cert.ai_lit_title': 'ចំណេះដឹងអំពី AI: AI Class ASEAN',
+        'cert.ai_lit_issuer': 'AI Ready ASEAN / មូលនិធិអាស៊ាន',
+        'cert.ai_lit_date': '៣១ មីនា ២០២៦',
+        'cert.ai_lit_desc': 'បានបញ្ចប់ម៉ូឌុលសិក្សាអំពី AI រយៈពេលសរុប ១២ ម៉ោង នៅលើ AIClassASEAN.org។',
+        'cert.ai_lit_tag1': 'ចំណេះដឹងអំពី AI',
+        'cert.ai_lit_tag2': 'AI Class ASEAN',
         'cert.generative_ai_title': 'តើ Generative AI ជាអ្វី?',
         'cert.generative_ai_issuer': 'LinkedIn Learning',
         'cert.generative_ai_desc': 'វិញ្ញាបនបត្របញ្ចប់វគ្គសិក្សា LinkedIn Learning រយៈពេល ១ ម៉ោង ៣ នាទី។',
         'cert.hard_session_title': 'វគ្គបណ្តុះបណ្តាលជំនាញរឹង',
-        'cert.cybersight_title': 'វិញ្ញាបនបត្រ Cybersight ឆ្នាំ ២០២៦',
-        'cert.bulk_title': 'Blue And White Modern Certificate Document (Bulk 1)',
+        'cert.hard_session_date1': '១៤ កក្កដា ២០២៦',
+        'cert.hard_session_date2': '២០ កក្កដា ២០២៦',
+        'cert.hard_session_date3': '២១ កក្កដា ២០២៦',
+        'cert.hard_session_date4': '២៧ កក្កដា ២០២៦',
+        'cert.hard_session_date5': '៣ សីហា ២០២៦',
+        'cert.hard_session_date6': '១០ សីហា ២០២៦',
+        'cert.hard_session_date7': '១៧ សីហា ២០២៦',
+        'cert.hard_session_date9': '២១ សីហា ២០២៦',
+        'cert.session_topic_lean_canvas': 'ប្រធានបទ៖ Lean Canvas',
+        'cert.cybersight_title': 'ការវាយតម្លៃបច្ចេកវិទ្យាសុខាភិបាលសម្រាប់ AI ក្នុងការថែទាំភ្នែក',
+        'cert.cybersight_desc': 'បានបញ្ចប់សិក្ខាសាលាតាមអ៊ីនធឺណិតអំពីការវាយតម្លៃបច្ចេកវិទ្យាសុខាភិបាលសម្រាប់ AI និងបច្ចេកវិទ្យាថ្មីៗក្នុងការថែទាំភ្នែក។',
+        'cert.cybersight_tag1': 'AI ក្នុងវិស័យសុខាភិបាល',
+        'cert.cybersight_tag2': 'ការវាយតម្លៃបច្ចេកវិទ្យាសុខាភិបាល',
+        'cert.bulk_title': 'ការប្រកួតចំណេះដឹងកម្ពុជា — រដូវកាលទី ២',
+        'cert.bulk_issuer': 'Cambodia Knowledge Challenge',
+        'cert.bulk_date': '២០ កញ្ញា ២០២៦',
+        'cert.bulk_desc': 'វិញ្ញាបនបត្រចូលរួមការប្រឡងចំណេះដឹងទូទៅតាមអ៊ីនធឺណិត រដូវកាលទី ២។',
+        'cert.bulk_tag1': 'ចំណេះដឹងទូទៅ',
+        'cert.bulk_tag2': 'កម្ពុជា',
         'cert.teded_title': 'សិក្ខាសាលាគំនិត TED-Ed',
         'cert.teded_desc': 'វិញ្ញាបនបត្រសម្រាប់សិក្ខាសាលាគំនិត TED-Ed។',
         'cert.open_pdf': 'បើក PDF ដើម',
@@ -529,20 +565,20 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'cert.pucifl_tag1': 'ភាសាអង់គ្លេស',
         'cert.pucifl_tag2': 'ជំនាញអាហារ',
         'cert.ideathon_title': 'ការប្រកួតផ្តួចផ្តើមគំនិត Cambodia 2025',
-        'cert.ideathon_issuer': 'Ideathon Cambodia',
-        'cert.ideathon_desc': 'វិញ្ញាបនបត្រចូលរួមពី Ideathon Cambodia 2025 ដែលបង្ហាញការច្នៃប្រឌិត ការដោះស្រាយបញ្ហា និងការគិតរចនាស្ពន្ធគ្នាក្នុងបរិយាកាសប្រកួតគឺ។',
+        'cert.ideathon_issuer': 'Mars Flag Corporation',
+        'cert.ideathon_desc': 'បានចូលរួមក្នុងកម្មវិធី Ideathon Cambodia 2025 ដែលប្រព្រឹត្តទៅនៅថ្ងៃទី ១៣–១៤ ខែកញ្ញា នៅ Cambodia-Japan Cooperation Center ក្នុងរាជធានីភ្នំពេញ។',
         'cert.ideathon_tag1': 'ការច្នៃប្រឌិត',
         'cert.ideathon_tag2': 'ការដោះស្រាយបញ្ហា',
-        'cert.debate_title': 'ការប្រកួតនិយាយមុខងារទស្សនៈរបស់យុវជន',
-        'cert.debate_issuer': 'ការប្រកួតនិយាយមុខងារ',
-        'cert.debate_desc': 'វិញ្ញាបនបត្រទទួលស្គាល់ការចូលរួម និងការសម្តែងនៅក្នុងការប្រកួតនិយាយមុខងារទស្សនៈរបស់យុវជន ដែលបង្ហាញជំនាញគិតវិភាគ និងការនិយាយមុខងារសាធារណៈ។',
-        'cert.debate_tag1': 'ការនិយាយមុខងារសាធារណៈ',
-        'cert.debate_tag2': 'ការគិតវិភាគ',
-        'cert.completion_title': 'វិញ្ញាបនបត្របញ្ចប់',
-        'cert.completion_issuer': 'ផល សុភា',
-        'cert.completion_desc': 'វិញ្ញាបនបត្រទូទៅបញ្ចប់ការដែលទទួលស្គាល់ការចូលរួមដោយជោគជ័យ និងវប្បធម៌ក្នុងកម្មវិធីអប់រំ ឬបណ្តុះបណ្តាលដែលមានឆន្នៃ។',
-        'cert.completion_tag1': 'ការបញ្ចប់',
-        'cert.completion_tag2': 'វប្បធម៌',
+        'cert.debate_title': 'ជើងឯកអ្នកជជែក — Youth’s Perspectives រដូវកាលទី ៦',
+        'cert.debate_issuer': 'RULErs / NGO-CEDAW',
+        'cert.debate_desc': 'ទទួលបានជើងឯកអ្នកជជែកក្នុងវគ្គផ្តាច់ព្រ័ត្រ Youth’s Perspectives រដូវកាលទី ៦ ឆ្នាំ ២០២៦ ក្រោមប្រធានបទ “សមភាពយេនឌ័រ និងគម្លាតឌីជីថល”។',
+        'cert.debate_tag1': 'ជើងឯកអ្នកជជែក',
+        'cert.debate_tag2': 'សមភាពយេនឌ័រ',
+        'cert.completion_title': 'កម្មវិធីជជែកដេញដោល៖ ដំណោះស្រាយគោលនយោបាយសម្រាប់កម្ពុជារុងរឿង',
+        'cert.completion_issuer': 'កម្មវិធីជជែកដេញដោល',
+        'cert.completion_desc': 'បានចូលរួមក្នុងកម្មវិធីជជែកដេញដោលក្រោមប្រធានបទ “ប្រសិនបើអ្នកជាអ្នកបង្កើតគោលនយោបាយ តើអ្នកនឹងស្នើដំណោះស្រាយអ្វីខ្លះសម្រាប់កម្ពុជារុងរឿង?”',
+        'cert.completion_tag1': 'គោលនយោបាយសាធារណៈ',
+        'cert.completion_tag2': 'ការជជែកដេញដោល',
         'certificate.pnc_title': 'សញ្ញាបត្រ IT ពី PNC',
         'certificate.pnc_issuer': 'Passerelles Numeriques Cambodia',
         'certificate.pnc_date': '2025 - បច្ចុប្បន្ន',
@@ -566,27 +602,27 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'certificate.web_date': '2025',
         'certificate.web_desc': 'ការបណ្តុះបណ្តាលអភិវឌ្ឍវេបពីចុងទៅចុងលើ frontend, backend, ការរួមបញ្ចូល API និងវិធីសាស្ត្រធ្វើឱ្យដំណើរការ។',
         'home.hero_hello': 'សួស្តី ខ្ញុំឈ្មោះ',
-        'home.hero_prefix': 'និស្សិត IT និងមានគោលបំណងជា',
-        'home.hero_description': 'ខ្ញុំកំពុងសិក្សាផ្នែកព័ត៌មានវិទ្យានៅ Passerelles Numeriques Cambodia (PNC) និងកំពុងអភិវឌ្ឍជំនាញបច្ចេកទេសខ្លាំងក្នុងការអភិវឌ្ឍកម្មវិធី ព្រមទាំងជំនាញទន់សម្រាប់វិស័យបច្ចេកវិទ្យា។',
-        'home.badge': 'និស្សិត IT PNC | 2025-បច្ចុប្បន្ន',
+        'home.hero_prefix': 'អ្នកហាត់ការផ្នែកអភិវឌ្ឍន៍ Full-Stack',
+        'home.hero_description': 'ខ្ញុំជានិស្សិត Web Development នៅ Passerelles Numériques Cambodia (PNC) និងកំពុងហាត់ការជា Full-Stack Developer នៅ DELIGHTECH CO., LTD. ខ្ញុំអភិវឌ្ឍកម្មវិធី Web, REST API, ប្រព័ន្ធ Backend និងមុខងារទំនាក់ទំនង Real-time។',
+        'home.badge': 'និស្សិត PNC · អ្នកហាត់ការ Full-Stack Developer',
         'home.cta_projects': 'មើលគម្រោងរបស់ខ្ញុំ',
         'home.cta_cv': 'ទាញយក CV',
-        'home.core_skills': 'ជំនាញស្នូលរបស់ខ្ញុំ',
+        'home.core_skills': 'ការអភិវឌ្ឍន៍ Web',
         'home.skill_frontend_stack': 'HTML5, CSS3, JavaScript, Vue.js, React.js',
         'home.skill_backend_stack': 'Laravel, PHP, Node.js, Express.js',
         'home.skill_database_stack': 'MySQL, PostgreSQL, Redis, SQLite',
         'home.skill_tools_stack': 'Git, GitHub, Jira, Docker, VS Code',
         'home.cta_title': 'ត្រៀមធ្វើការជាមួយគ្នាមែនទេ?',
-        'home.cta_text': 'ខ្ញុំកំពុងស្វែងរកឱកាសហាត់ការងារ និងគម្រោងសហការដើម្បីអនុវត្តជំនាញរបស់ខ្ញុំ និងរៀនពីអ្នកអភិវឌ្ឍដែលមានបទពិសោធន៍។',
+        'home.cta_text': 'ខ្ញុំកំពុងទទួលបទពិសោធន៍វិជ្ជាជីវៈជាអ្នកហាត់ការ Full-Stack Developer និងបើកចំហចំពោះឱកាសសាងសង់ និងរៀនជាមួយក្រុមអភិវឌ្ឍន៍។',
         'home.cta_contact': 'ទាក់ទងមកខ្ញុំ',
         'about.page_title': 'អំពីខ្ញុំ',
         'about.page_subtitle': 'ស្គាល់ពីប្រវត្តិ ការអប់រំ និងគោលដៅអាជីពរបស់ខ្ញុំ',
         'about.intro_title': 'សួស្តី ខ្ញុំឈ្មោះ សុភា ផល',
-        'about.intro_p1': 'ខ្ញុំជានិស្សិត IT ម្នាក់នៅ Passerelles Numeriques Cambodia (PNC) ដែលមានចំណាប់អារម្មណ៍ខ្លាំងលើការអភិវឌ្ឍកម្មវិធី និងបច្ចេកវិទ្យាវេប។ ការចាប់អារម្មណ៍លើរបៀបដែលប្រព័ន្ធឌីជីថលដំណើរការ បានជំរុញឱ្យខ្ញុំបន្តដំណើរទៅរកវិស្វកម្មកម្មវិធី។',
-        'about.intro_p2': 'តាមរយៈកម្មវិធីសិក្សារយៈពេលពីរឆ្នាំដ៏តឹងរឹងរបស់ PNC ខ្ញុំកំពុងទទួលបានបទពិសោធន៍អនុវត្តជាក់ស្តែងជាមួយឧបករណ៍ និងវិធីសាស្ត្រអភិវឌ្ឍទំនើបៗ ព្រមទាំងអភិវឌ្ឍជំនាញដោះស្រាយបញ្ហាដែលសំខាន់សម្រាប់វិស័យបច្ចេកវិទ្យា។',
-        'about.intro_p3': 'នៅពេលមិនសរសេរកូដ ខ្ញុំចូលចិត្តស្វែងយល់ពីបច្ចេកវិទ្យាថ្មីៗ រួមចំណែកក្នុងគម្រោង open-source និងចូលរួមសហគមន៍បច្ចេកវិទ្យាដើម្បីតាមដាននិន្នាការថ្មីៗក្នុងឧស្សាហកម្ម។',
+        'about.intro_p1': 'ខ្ញុំជានិស្សិត Web Development នៅ Passerelles Numériques Cambodia (PNC) និងជាអ្នកហាត់ការ Full-Stack Developer នៅ DELIGHTECH CO., LTD. ខ្ញុំធ្វើការលើ React, TypeScript, Node.js, API, Database និងការទំនាក់ទំនង Real-time។',
+        'about.intro_p2': 'ការធ្វើការជាមួយក្រុមអភិវឌ្ឍន៍បានបង្កើនបទពិសោធន៍របស់ខ្ញុំក្នុងការភ្ជាប់ Frontend និង Backend ការរចនា Database និងការសហការតាមរបៀប Agile និង Scrum។',
+        'about.intro_p3': 'គោលដៅរបស់ខ្ញុំគឺបន្តរីកចម្រើនជាវិស្វករកម្មវិធី និងចូលរួមបង្កើតផលិតផលមានប្រយោជន៍ដែលអាចពង្រីកបាន ព្រមទាំងបង្កើនបទពិសោធន៍លើ Backend Architecture, Cloud Deployment និងសុវត្ថិភាពកម្មវិធី។',
         'about.education_title': 'ការអប់រំ',
-        'about.edu1_title': 'កម្មវិធីសញ្ញាបត្រ IT',
+        'about.edu1_title': 'Web Development / IT · និស្សិតឆ្នាំទី២',
         'about.edu1_desc': 'កម្មវិធីសិក្សារយៈពេលពីរឆ្នាំផ្តោតលើការអភិវឌ្ឍកម្មវិធី បច្ចេកវិទ្យាវេប ការគ្រប់គ្រងមូលដ្ឋានទិន្នន័យ និងការអភិវឌ្ឍជំនាញវិជ្ជាជីវៈ។',
         'about.edu1_li1': 'មូលដ្ឋានគ្រឹះនៃការសរសេរកម្មវិធី (Python)',
         'about.edu1_li2': 'ការអភិវឌ្ឍវេប (HTML/CSS, JavaScript, PHP)',
@@ -605,12 +641,12 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'about.goals_title': 'គោលដៅអាជីព',
         'about.goal1_title': 'បញ្ចប់កម្មវិធី PNC',
         'about.goal1_desc': 'បញ្ចប់ការសិក្សាពី Passerelles Numeriques Cambodia ដោយមានជំនាញបច្ចេកទេសរឹងមាំ និងការត្រៀមខ្លួនសម្រាប់វិជ្ជាជីវៈ ព្រមទាំងបង្កើត Portfolio នៃគម្រោងមានអត្ថន័យ។',
-        'about.goal2_title': 'ហាត់ការងារផ្នែកអភិវឌ្ឍកម្មវិធី',
-        'about.goal2_desc': 'ទទួលបានឱកាសហាត់ការងារផ្នែកអភិវឌ្ឍកម្មវិធី ដើម្បីទទួលបានបទពិសោធន៍ជាក់ស្តែងលើ production code និងយល់ដឹងពី workflow ក្នុងឧស្សាហកម្ម។',
+        'about.goal2_title': 'ការហាត់ការផ្នែក Full-Stack Development',
+        'about.goal2_desc': 'បន្តរីកចម្រើនតាមរយៈការហាត់ការផ្នែក Full-Stack នៅ DELIGHTECH CO., LTD. រៀនពីលំហូរការងាររបស់ក្រុម និងចូលរួមអភិវឌ្ឍកម្មវិធី។',
         'about.goal3_title': 'តួនាទី Junior Developer',
         'about.goal3_desc': 'ចាប់ផ្តើមអាជីពជាអ្នកអភិវឌ្ឍ Junior ដោយរួមចំណែកក្នុងគម្រោងមានអត្ថន័យ និងបន្តអភិវឌ្ឍខ្លួនជាវិជ្ជាជីវៈ។',
         'skills.page_title': 'ជំនាញរបស់ខ្ញុំ',
-        'skills.page_subtitle': 'សមត្ថភាពបច្ចេកទេស និងចំណេះដឹងដែលអភិវឌ្ឍតាមកម្មវិធីរបស់ PNC',
+        'skills.page_subtitle': 'ឧបករណ៍ និងវិធីសាស្ត្រដែលខ្ញុំប្រើលើ Frontend, Backend, Database និង Deployment',
         'skills.frontend_title': 'ការអភិវឌ្ឍ Frontend',
         'skills.responsive_design': 'ការរចនាឆបតាមអេក្រង់',
         'skills.backend_title': 'ការអភិវឌ្ឍ Backend',
@@ -643,7 +679,7 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'skills.soft5_title': 'ភាពជាអ្នកដឹកនាំ',
         'skills.soft5_desc': 'សមត្ថភាពក្នុងការណែនាំសកម្មភាពក្រុម គាំទ្រកិច្ចសហការ និងទទួលខុសត្រូវលើគោលដៅរួម។',
         'projects.page_title': 'គម្រោងរបស់ខ្ញុំ',
-        'projects.page_subtitle': 'ជម្រើសគម្រោងសំខាន់ៗពីការសិក្សានៅ PNC និងការសាងសង់ផ្ទាល់ខ្លួន',
+        'projects.page_subtitle': 'គម្រោងហាត់ការ និងគម្រោងសិក្សាដែលពាក់ព័ន្ធនឹង Full-Stack និងការទំនាក់ទំនង Real-time។',
         'projects.stat_completed': 'គម្រោងបានបញ្ចប់',
         'projects.stat_pnc': 'គម្រោងសិក្សា PNC',
         'projects.stat_personal': 'គម្រោងផ្ទាល់ខ្លួន',
@@ -746,24 +782,24 @@ const i18nTranslations: Record<Language, TranslationDictionary> = {
         'contact.location_text': 'ភ្នំពេញ កម្ពុជា',
         'contact.location_note': 'បើកចំហសម្រាប់ឱកាស remote',
         'contact.method_education': 'ការអប់រំ',
-        'contact.education_program': 'កម្មវិធីសញ្ញាបត្រ IT (2025-បច្ចុប្បន្ន)',
+        'contact.education_program': 'Web Development / IT · ឆ្នាំទី២ (2025–បច្ចុប្បន្ន)',
         'contact.social_title': 'ភ្ជាប់តាមបណ្ដាញសង្គម',
         'contact.social_desc': 'តាមដានខ្ញុំសម្រាប់ព័ត៌មានថ្មីៗអំពីគម្រោង និងដំណើរសរសេរកូដរបស់ខ្ញុំ។',
         'contact.faq_title': 'សំណួរដែលគេសួរញឹកញាប់',
         'contact.faq1_q': 'តើអ្នកមានសម្រាប់ឱកាសហាត់ការងារទេ?',
-        'contact.faq1_a': 'បាទ/ចាស! ក្នុងនាមជានិស្សិត IT នៅ PNC ខ្ញុំកំពុងស្វែងរកឱកាសហាត់ការងារសម្រាប់ឆ្នាំ 2026។ ខ្ញុំអាចធ្វើបានទាំង part-time ក្នុងអំឡុងឆមាស និង full-time ក្នុងពេលសម្រាក។',
+        'contact.faq1_a': 'បច្ចុប្បន្នខ្ញុំកំពុងទទួលបទពិសោធន៍វិជ្ជាជីវៈជាអ្នកហាត់ការ Full-Stack Developer នៅ DELIGHTECH CO., LTD។',
         'contact.faq2_q': 'តើអ្នកទទួលគម្រោងប្រភេទអ្វីខ្លះ?',
         'contact.faq2_a': 'ខ្ញុំផ្តោតលើគម្រោងអភិវឌ្ឍវេប ប៉ុន្តែក៏អាចធ្វើ full-stack applications ផងដែរ។ វារួមមានគេហទំព័រ web applications landing pages និង e-commerce solutions។',
         'contact.faq3_q': 'តើពេលណាអ្នករំពឹងថានឹងបញ្ចប់ការសិក្សា?',
-        'contact.faq3_a': 'ខ្ញុំកំពុងដើរតាមផែនការបញ្ចប់ការសិក្សាពី Passerelles Numeriques Cambodia ក្នុងខែធ្នូ ឆ្នាំ 2026 ជាមួយសញ្ញាបត្រ IT ដែលផ្តោតលើការអភិវឌ្ឍកម្មវិធី។',
+        'contact.faq3_a': 'កាលបរិច្ឆេទបញ្ចប់ការសិក្សាដែលរំពឹងទុករបស់ខ្ញុំមិនទាន់ត្រូវបានកំណត់។',
         'contact.faq4_q': 'តើអ្នកធ្វើការពីចម្ងាយ ឬនៅកន្លែងផ្ទាល់?',
-        'contact.faq4_a': 'ខ្ញុំបើកចំហសម្រាប់ទាំងឱកាស remote និង on-site។ សម្រាប់ remote work ខ្ញុំមានបទពិសោធន៍ជាមួយឧបករណ៍សហការ និងមានកន្លែងធ្វើការផ្ទាល់ខ្លួន។',
-        'footer.tagline_line1': 'និស្សិត IT នៅ Passerelles Numeriques Cambodia',
-        'footer.tagline_line2': 'មានគោលបំណងក្លាយជា Software Developer',
+        'contact.faq4_a': 'ខ្ញុំអាចពិភាក្សាអំពីការសហការពីចម្ងាយ ឬនៅកន្លែងធ្វើការ អាស្រ័យលើតម្រូវការគម្រោង និងក្រុម។',
+        'footer.tagline_line1': 'អ្នកហាត់ការ Full-Stack Developer នៅ DELIGHTECH CO., LTD.',
+        'footer.tagline_line2': 'និស្សិត Web Development នៅ PNC',
         'footer.cta': 'តោះសាងសង់ជាមួយគ្នា',
         'footer.contact': 'ទំនាក់ទំនង',
         'footer.location': 'ភ្នំពេញ កម្ពុជា',
-        'footer.available': 'មានស្រាប់សម្រាប់ឱកាសហាត់ការងារ',
+        'footer.available': 'បើកចំហសម្រាប់ការសហការ',
         'footer.quick_links': 'តំណភ្ជាប់រហ័ស',
         'footer.connect': 'ភ្ជាប់ទំនាក់ទំនង',
         'footer.note': 'សូមមើលការងារថ្មីៗរបស់ខ្ញុំ និងទាក់ទងមកបានគ្រប់ពេល។',
@@ -1128,7 +1164,7 @@ function initFormValidation() {
                 '',
                 messageInput.value.trim(),
             ].join('\n');
-            const mailto = `mailto:sophea.phal@student.passerellesnumeriques.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailto = `mailto:pheazha310@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             window.location.href = mailto;
         } else {
@@ -1179,10 +1215,6 @@ function initAnimations() {
             transform: translateY(0);
         }
         
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        
         .skill-progress {
             transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -1211,22 +1243,15 @@ function initProjectFilter() {
                 // Filter projects
                 projectCards.forEach(card => {
                     const categories = card.getAttribute('data-category');
+                    const matches = filterValue === 'all' || !categories || (filterValue !== null && categories.includes(filterValue));
 
-                    if (filterValue === 'all' || !categories || (filterValue !== null && categories.includes(filterValue))) {
-                        card.style.display = 'block';
-
-                        // Trigger reflow for animation
-                        void card.offsetWidth;
-
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
+                    // `hidden` removes filtered cards from layout and accessibility,
+                    // without forcing a layout read or leaving delayed timers behind.
+                    card.hidden = !matches;
+                    if (matches) {
+                        card.classList.remove('project-card-enter');
+                        // Restart the small reveal when a card becomes visible again.
+                        requestAnimationFrame(() => card.classList.add('project-card-enter'));
                     }
                 });
             });
@@ -1519,7 +1544,9 @@ function initHeroBackgrounds() {
         seed: number,
         homeHero: boolean,
     ): number => {
-        const baseY = height * (homeHero ? 0.74 : 0.68);
+        // Page hero titles and subtitles sit in the upper half; keep the wave
+        // beneath that text so it reads as a divider instead of a strike-through.
+        const baseY = height * (homeHero ? 0.74 : 0.84);
         const amp = height * (homeHero ? 0.055 : 0.045);
         const freq = homeHero ? 1.45 : 1.55;
         const t = time * 0.00055;
@@ -1766,18 +1793,24 @@ function initCertificateModal() {
     const wrappers = document.querySelectorAll<HTMLElement>('.cert-image-wrapper');
     if (!modalImg || !closeBtn) return;
     const modalImage = modalImg;
+    const modalCloseButton = closeBtn;
+    let activeWrapper: HTMLElement | null = null;
 
-    function openModal(src: string) {
+    function openModal(src: string, wrapper: HTMLElement) {
+        activeWrapper = wrapper;
         modalImage.src = src;
         modalElement.classList.add('active');
         modalElement.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        modalCloseButton.focus();
     }
 
     function closeModal() {
         modalElement.classList.remove('active');
         modalElement.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        activeWrapper?.focus();
+        activeWrapper = null;
         setTimeout(() => {
             modalImage.removeAttribute('src');
         }, 300);
@@ -1786,18 +1819,19 @@ function initCertificateModal() {
     wrappers.forEach(wrapper => {
         wrapper.addEventListener('click', () => {
             const src = wrapper.getAttribute('data-cert-src');
-            if (src) openModal(src);
+            if (src) openModal(src, wrapper);
         });
 
         wrapper.setAttribute('tabindex', '0');
         wrapper.setAttribute('role', 'button');
         wrapper.setAttribute('aria-label', 'View certificate full size');
+        wrapper.setAttribute('aria-haspopup', 'dialog');
 
         wrapper.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 const src = wrapper.getAttribute('data-cert-src');
-                if (src) openModal(src);
+                if (src) openModal(src, wrapper);
             }
         });
     });
@@ -1924,7 +1958,7 @@ function initSmoothScrolling() {
 }
 
 function initCardHoverEffects() {
-    document.querySelectorAll<HTMLElement>('.skill-card, .project-card, .value-card, .volunteer-card, .learning-card')
+    document.querySelectorAll<HTMLElement>('.skill-card, .value-card, .volunteer-card, .learning-card')
         .forEach(card => {
             card.addEventListener('mouseenter', function(this: HTMLElement) {
                 this.style.transform = 'translateY(-5px)';
